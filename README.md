@@ -23,15 +23,15 @@ Incluye estadísticas, reportes dinámicos, categorización de gastos, metas de 
 
 ## Estructura del proyecto
 app/
-├─ di/ → Módulos de Hilt
-├─ data/ → Repositorios y acceso a datos
-├─ domain/ → Modelos y lógica de negocio
-├─ presentation/ → Pantallas (Compose)
-│ ├─ home_page/
-│ ├─ login/
-│ └─ components/
-├─ ui/theme/ → Colores, tipografía y estilos
-└─ MainActivity.kt → Punto de entrada principal
+├─ di/                  → Módulos de Hilt
+├─ data/                → Repositorios y acceso a datos
+├─ domain/              → Modelos y lógica de negocio
+├─ presentation/        → Pantallas (Compose)
+│   ├─ home_page/
+│   ├─ login/
+│   └─ components/
+├─ ui/theme/            → Colores, tipografía y estilos
+└─ MainActivity.kt      → Punto de entrada principal
 
 ---
 
