@@ -1,0 +1,44 @@
+# ======================================
+#   Android / Kotlin project settings
+# ======================================
+
+# Normaliza saltos de línea a LF (formato Unix)
+# Git convierte a CRLF en Windows localmente si hace falta,
+# pero el repo se mantiene consistente (LF).
+* text=auto eol=lf
+
+# ======================================
+#   Archivos de código
+# ======================================
+*.kt   text
+*.kts  text
+*.java text
+*.xml  text
+*.gradle text
+*.properties text
+*.toml text
+*.md   text
+*.txt  text
+*.json text
+
+# ======================================
+#   Archivos binarios (no modificar saltos)
+# ======================================
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.webp binary
+*.ico  binary
+*.keystore binary
+*.jks binary
+*.aab binary
+*.apk binary
+*.wav binary
+*.mp3 binary
+
+# ======================================
+#   Scripts (mantiene formato Unix)
+# ======================================
+*.sh text eol=lf
+gradlew text eol=lf
