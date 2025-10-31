@@ -124,7 +124,6 @@ fun TP3ParcialGrupo5Theme(
 ) {
     MaterialTheme(
         colorScheme = if (darkTheme) DarkColors else LightColors,
-        // 👇 No seteamos typography para que no choque con nada
         content = content
     )
 }

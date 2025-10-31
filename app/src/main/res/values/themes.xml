@@ -1,9 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- El nombre debe coincidir EXACTO con el del Manifest -->
     <style name="Theme.TP3ParcialGrupo5" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/main_green</item>
         <item name="colorPrimaryContainer">@color/bg_green_white</item>
         <item name="colorOnPrimary">@color/letters_and_icons</item>
+
+        <!-- Opcional: barra de estado -->
         <item name="android:statusBarColor">@color/bg_dark_green_black</item>
     </style>
 </resources>
