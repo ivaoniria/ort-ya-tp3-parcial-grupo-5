@@ -1,11 +1,55 @@
 <resources>
     <string name="app_name">TP3ParcialGrupo5</string>
 
-    //textos de launch
+    <!-- Home Launch -->
     <string name="brand_name">FinWise</string>
     <string name="welcome_subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</string>
     <string name="login">Log In</string>
     <string name="sign_up">Sign Up</string>
     <string name="forgot_password">Forgot Password?</string>
-    //textos de launch
+    <!-- Home Launch -->
+
+    <!-- Home Page Header -->
+    <string name="hi_welcome_back">Hi, Welcome Back</string>
+    <string name="good_morning">Good Morning</string>
+    <string name="notifications">Notifications</string>
+
+    <!-- Account Balance Section -->
+    <string name="total_balance">Total Balance</string>
+    <string name="total_balance_value">7783.00</string>
+    <string name="total_expense">Total Expense</string>
+    <string name="total_expense_value">1187.40</string>
+    <string name="progress_percent_value">30</string>
+    <string name="goal_target_usd_value">3000.00</string>
+    <string name="expense_looks_good">30% Of Your Expenses, Looks Good</string>
+
+    <!-- Summary Section -->
+    <string name="savings_label">Revenue Last Week</string>
+    <string name="savings">$4,000.00</string>
+    <string name="on_goals">Savings\nOn Goals</string>
+    <string name="revenue_last_week">Revenue Last Week</string>
+    <string name="food_last_week">Food Last Week</string>
+    <string name="food_last_week_amount">-$100.00</string>
+
+    <!-- Period Tabs -->
+    <string name="daily">Daily</string>
+    <string name="weekly">Weekly</string>
+    <string name="monthly">Monthly</string>
+
+    <!-- Transaction List -->
+    <string name="salary">Salary</string>
+    <string name="salary_subtitle">18:27 - April 30</string>
+    <string name="salary_amount">$4,000.00</string>
+    <string name="salary_category">Monthly</string>
+
+    <string name="groceries">Groceries</string>
+    <string name="groceries_subtitle">17:00 - April 24</string>
+    <string name="groceries_amount">-$100.00</string>
+    <string name="groceries_category">Pantry</string>
+
+    <string name="rent">Rent</string>
+    <string name="rent_subtitle">8:30 - April 15</string>
+    <string name="rent_amount">-$674.40</string>
+    <string name="rent_category">Rent</string>
+
 </resources>
