@@ -12,6 +12,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.graphics.Color
 
+
 // ======================
 // Paletas base (template)
 // ======================
