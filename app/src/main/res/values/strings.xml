@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">TP3ParcialGrupo5</string>
+
+    //textos de launch
+    <string name="brand_name">FinWise</string>
+    <string name="welcome_subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</string>
+    <string name="login">Log In</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="forgot_password">Forgot Password?</string>
+    //textos de launch
 </resources>
