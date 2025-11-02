@@ -8,6 +8,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.ort.tp3parcialgrupo5.R
@@ -24,6 +25,7 @@ fun TransactionScreen(
     onBell: (() -> Unit)? = null
 ) {
     val BgDark = Color(5, 34, 36)
+    val Panel = Color(14, 62, 62)
 
     Column(
         modifier = Modifier
@@ -35,19 +37,19 @@ fun TransactionScreen(
                 .fillMaxWidth()
                 .padding(horizontal = 20.dp, vertical = 16.dp)
         ) {
-            ScreenHeader(title = "Transaction", onBack = onBack, onBell = onBell)
+            ScreenHeader(title = stringResource(R.string.transaction_title), onBack = onBack, onBell = onBell)
             Spacer(Modifier.height(12.dp))
-            TopBalanceCard(title = "Total Balance", amount = "$7,783.00")
+            TopBalanceCard(title = stringResource(R.string.label_total_balance), amount = "$7,783.00")
             Spacer(Modifier.height(12.dp))
             HomeTotalsSection(
-                balanceLabel = "Total Balance",
+                balanceLabel = stringResource(R.string.label_total_balance),
                 balanceValue = "$7,783.00",
-                expenseLabel = "Total Expense",
+                expenseLabel = stringResource(R.string.label_total_expense),
                 expenseValue = "-$1,187.40",
                 progressFraction = 0.30f,
                 progressTextLeft = "30%",
                 goalPillText = "$20,000.00",
-                note = "30% Of Your Expenses, Looks Good."
+                note = stringResource(R.string.summary_note_default)
             )
             Spacer(Modifier.height(10.dp))
         }
@@ -59,7 +61,7 @@ fun TransactionScreen(
         ) {
             BaseShapeBackground(
                 baseShapeRes = R.drawable.base_shape,
-                panelColor = Color(14, 62, 62),
+                panelColor = Panel,
                 cornerRadiusDp = 28.dp,
                 heightFraction = 1f,
                 mirrorHorizontally = true,
@@ -72,7 +74,7 @@ fun TransactionScreen(
                     contentPadding = PaddingValues(bottom = 12.dp)
                 ) {
                     item {
-                        MonthHeader("April")
+                        MonthHeader(text = stringResource(R.string.month_april))
                         Spacer(Modifier.height(10.dp))
                     }
                     items(
@@ -95,7 +97,7 @@ fun TransactionScreen(
                     }
                     item {
                         Spacer(Modifier.height(6.dp))
-                        MonthHeader("March")
+                        MonthHeader(text = stringResource(R.string.month_march))
                         Spacer(Modifier.height(10.dp))
                         TransactionRow(
                             title = "Food",
