@@ -32,6 +32,22 @@ fun LaunchLayouts(
 }
 
 @Composable
+fun LaunchLayoutsFullBleed(
+    modifier: Modifier = Modifier,
+    content: @Composable () -> Unit
+) {
+    Box(
+        modifier = modifier
+            .fillMaxSize()
+            .background(FinBg),   // ← sin padding horizontal
+        contentAlignment = Alignment.Center
+    ) {
+        content()
+    }
+}
+
+
+@Composable
 fun LaunchLayoutsCenteredColumn(
     verticalSpacingDp: Int = 18,
     content: @Composable () -> Unit

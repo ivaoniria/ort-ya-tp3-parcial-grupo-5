@@ -1,14 +1,15 @@
 <resources>
     <string name="app_name">TP3ParcialGrupo5</string>
 
-    <!-- Home Launch -->
+    <!-- Launch -->
     <string name="brand_name">FinWise</string>
     <string name="welcome_subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</string>
     <string name="login">Log In</string>
     <string name="sign_up">Sign Up</string>
     <string name="forgot_password">Forgot Password?</string>
-    <!-- Home Launch -->
+    <!-- Launch -->
 
+    <!-- HomeScreen -->
     <!-- Home Page Header -->
     <string name="hi_welcome_back">Hi, Welcome Back</string>
     <string name="good_morning">Good Morning</string>
@@ -51,5 +52,12 @@
     <string name="rent_subtitle">8:30 - April 15</string>
     <string name="rent_amount">-$674.40</string>
     <string name="rent_category">Rent</string>
+    <!-- HomeScreen -->
 
+    <!-- OnBouarding -->
+    <string name="onb_title_1">Welcome To\nExpense Manager</string>
+    <string name="onb_title_2">¿Are You Ready To\nTake Control Of\nYour Finances?</string>
+    <string name="next">Next</string>
+    <string name="get_started">Get Started</string>
+    <!-- OnBouarding -->
 </resources>
