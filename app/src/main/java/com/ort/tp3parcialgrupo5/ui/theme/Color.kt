@@ -11,14 +11,14 @@ val Purple40 = Color(0xFF6650a4)
 val PurpleGrey40 = Color(0xFF625b71)
 val Pink40 = Color(0xFF7D5260)
 
-// ===== Paleta FinWise (se mantiene para onboarding/launch) =====
-val FinBrand   = Color(0xFF00D09E) // #00D09E
-val FinBg      = Color(0xFF052224) // #052224
-val FinBtnText = Color(0xFF0E3E3E) // #0E3E3E
+// ===== Paleta FinWise (onboarding/launch) =====
+val FinBrand   = Color(0xFF00D09E)
+val FinBg      = Color(0xFF052224)
+val FinBtnText = Color(0xFF0E3E3E)
 
 val FinWhite   = Color(0xFFFFFFFF)
-val FinWhite80 = Color(0xCCFFFFFF) // 80%
-val FinWhite90 = Color(0xE6FFFFFF) // 90%
+val FinWhite80 = Color(0xCCFFFFFF)
+val FinWhite90 = Color(0xE6FFFFFF)
 val FinPanel   = Color(0xFF0E3E3E)
 
 // ===== Home =====
@@ -36,15 +36,3 @@ val SummaryGreen = Color(0xFF00D09E)
 // Transaction List
 val TransactionBg = Color(0xFF093030)
 
-// Onboarding panel (opcional)
-
-// colores de la screen transaction nro 8
-val FinPanel   = Color(0xFF0E3E3E)
-
-object FinWiseColors {
-    val BgDark  = Color(red = 5, green = 34, blue = 36)       
-    val Panel   = Color(red = 14, green = 62, blue = 62)      
-    val AccentGreen = Color(red = 0, green = 208, blue = 158) 
-    val AccentBlue  = Color(0xFF11A3FF)                    
-    val OnDark      = Color.White
-}
