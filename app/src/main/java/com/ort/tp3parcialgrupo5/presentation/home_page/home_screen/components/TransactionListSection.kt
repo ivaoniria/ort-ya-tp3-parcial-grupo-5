@@ -14,18 +14,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.ort.tp3parcialgrupo5.R
+import com.ort.tp3parcialgrupo5.components.TransactionListContainer
 import com.ort.tp3parcialgrupo5.ui.theme.CyanAccent
-import com.ort.tp3parcialgrupo5.ui.theme.TransactionBg
 
 @Composable
 fun TransactionListSection(modifier: Modifier = Modifier) {
-    Column(
-        modifier = modifier
-            .fillMaxWidth()
-            .background(TransactionBg)
-            .padding(horizontal = 4.dp),
-        verticalArrangement = Arrangement.spacedBy(18.dp)
-    ) {
+    TransactionListContainer(modifier = modifier) {
         TransactionRow(
             iconRes = R.drawable.icon_salary,
             title = stringResource(R.string.salary),

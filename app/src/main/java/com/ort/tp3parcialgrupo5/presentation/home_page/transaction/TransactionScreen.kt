@@ -12,12 +12,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.ort.tp3parcialgrupo5.R
+import com.ort.tp3parcialgrupo5.components.Header
+import com.ort.tp3parcialgrupo5.components.TransactionListContainer
 import com.ort.tp3parcialgrupo5.presentation.home_page.transaction.components.BaseShapeBackground
-import com.ort.tp3parcialgrupo5.presentation.home_page.transaction.components.HomeTotalsSection
-import com.ort.tp3parcialgrupo5.presentation.home_page.transaction.components.MonthHeader
-import com.ort.tp3parcialgrupo5.presentation.home_page.transaction.components.ScreenHeader
-import com.ort.tp3parcialgrupo5.presentation.home_page.transaction.components.TopBalanceCard
 import com.ort.tp3parcialgrupo5.presentation.home_page.transaction.components.TransactionRow
+import com.ort.tp3parcialgrupo5.presentation.home_page.transaction.components.HomeTotalsSection
+import com.ort.tp3parcialgrupo5.presentation.home_page.transaction.components.TopBalanceCard
 
 @Composable
 fun TransactionScreen(
@@ -31,13 +31,14 @@ fun TransactionScreen(
         modifier = Modifier
             .fillMaxSize()
             .background(BgDark)
+            .statusBarsPadding()
     ) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 20.dp, vertical = 16.dp)
         ) {
-            ScreenHeader(title = stringResource(R.string.transaction_title), onBack = onBack, onBell = onBell)
+            Header(title = stringResource(R.string.transaction_title), onBack = onBack, onBell = onBell)
             Spacer(Modifier.height(12.dp))
             TopBalanceCard(title = stringResource(R.string.label_total_balance), amount = "$7,783.00")
             Spacer(Modifier.height(12.dp))
@@ -74,39 +75,55 @@ fun TransactionScreen(
                     contentPadding = PaddingValues(bottom = 12.dp)
                 ) {
                     item {
-                        MonthHeader(text = stringResource(R.string.month_april))
-                        Spacer(Modifier.height(10.dp))
-                    }
-                    items(
-                        listOf(
-                            TxUi("Salary", "18:27 - April 30", "Monthly", "$4,000.00", true, R.drawable.salaryicon),
-                            TxUi("Groceries", "17:00 - April 24", "Pantry", "-$100.00", false, R.drawable.icon_groceries),
-                            TxUi("Rent", "8:30 - April 15", "Rent", "-$674.40", false, R.drawable.icon_rent),
-                            TxUi("Transport", "9:30 - April 08", "Fuel", "-$4.13", false, R.drawable.icon_transport)
-                        )
-                    ) { tx ->
-                        TransactionRow(
-                            title = tx.title,
-                            subtitle = tx.subtitle,
-                            category = tx.category,
-                            amount = tx.amount,
-                            positive = tx.positive,
-                            iconRes = tx.iconRes
+                        Header(
+                            title = stringResource(R.string.month_april),
+                            showBackButton = false,
+                            showBellButton = false,
+                            titleSize = 18
                         )
                         Spacer(Modifier.height(10.dp))
                     }
                     item {
-                        Spacer(Modifier.height(6.dp))
-                        MonthHeader(text = stringResource(R.string.month_march))
-                        Spacer(Modifier.height(10.dp))
-                        TransactionRow(
-                            title = "Food",
-                            subtitle = "19:30 - March 31",
-                            category = "Dinner",
-                            amount = "-$70.40",
-                            positive = false,
-                            iconRes = R.drawable.icon_food
+                        TransactionListContainer {
+                            val aprilTransactions = listOf(
+                                TxUi("Salary", "18:27 - April 30", "Monthly", "$4,000.00", true, R.drawable.salaryicon),
+                                TxUi("Groceries", "17:00 - April 24", "Pantry", "-$100.00", false, R.drawable.icon_groceries),
+                                TxUi("Rent", "8:30 - April 15", "Rent", "-$674.40", false, R.drawable.icon_rent),
+                                TxUi("Transport", "9:30 - April 08", "Fuel", "-$4.13", false, R.drawable.icon_transport)
+                            )
+                            aprilTransactions.forEach { tx ->
+                                TransactionRow(
+                                    title = tx.title,
+                                    subtitle = tx.subtitle,
+                                    category = tx.category,
+                                    amount = tx.amount,
+                                    positive = tx.positive,
+                                    iconRes = tx.iconRes
+                                )
+                            }
+                        }
+                    }
+                    item {
+                        Spacer(Modifier.height(16.dp))
+                        Header(
+                            title = stringResource(R.string.month_march),
+                            showBackButton = false,
+                            showBellButton = false,
+                            titleSize = 18
                         )
+                        Spacer(Modifier.height(10.dp))
+                    }
+                    item {
+                        TransactionListContainer {
+                            TransactionRow(
+                                title = "Food",
+                                subtitle = "19:30 - March 31",
+                                category = "Dinner",
+                                amount = "-$70.40",
+                                positive = false,
+                                iconRes = R.drawable.icon_food
+                            )
+                        }
                         Spacer(Modifier.height(12.dp))
                     }
                 }
