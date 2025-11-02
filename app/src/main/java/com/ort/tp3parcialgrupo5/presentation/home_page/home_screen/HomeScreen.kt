@@ -17,7 +17,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.ort.tp3parcialgrupo5.presentation.home_page.home_screen.components.AccountBalanceSection
-import com.ort.tp3parcialgrupo5.presentation.home_page.home_screen.components.HeaderSection
+import com.ort.tp3parcialgrupo5.presentation.home_page.home_screen.components.HomeWelcomeHeader
 import com.ort.tp3parcialgrupo5.presentation.home_page.home_screen.components.PeriodTabs
 import com.ort.tp3parcialgrupo5.presentation.home_page.home_screen.components.SummarySection
 import com.ort.tp3parcialgrupo5.presentation.home_page.home_screen.components.TransactionListSection
@@ -37,7 +37,7 @@ fun HomePageScreen(modifier: Modifier = Modifier) {
                 modifier = modifier.fillMaxSize(),
                 contentPadding = PaddingValues(start = 16.dp, end = 16.dp, top = 28.dp, bottom = 90.dp)
             ) {
-                item { HeaderSection() }
+                item { HomeWelcomeHeader() }
                 item { Spacer(Modifier.height(6.dp)) }
                 item { AccountBalanceSection() }
                 item { Spacer(Modifier.height(18.dp)) }
