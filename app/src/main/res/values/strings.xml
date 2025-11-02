@@ -69,4 +69,19 @@
     <string name="next">Next</string>
     <string name="get_started">Get Started</string>
     <!-- OnBouarding -->
+
+    <!-- Notification -->
+        <string name="notification_title">Notification</string>
+        <string name="section_today">Today</string>
+        <string name="section_yesterday">Yesterday</string>
+        <string name="section_this_weekend">This Weekend</string>
+        <string name="notif_title_reminder">Reminder!</string>
+        <string name="notif_title_new_update">New Update</string>
+        <string name="notif_title_transactions">Transactions</string>
+        <string name="notif_title_expense_record">Expense Record</string>
+        <string name="notif_body_savings">Set up your automatic savings to meet your savings goal…</string>
+        <string name="notif_body_registered">A new transaction has been registered</string>
+        <string name="notif_body_recommendation">We recommend that you be more attentive to your finances.</string>
+    <!-- Notification -->
+
 </resources>
