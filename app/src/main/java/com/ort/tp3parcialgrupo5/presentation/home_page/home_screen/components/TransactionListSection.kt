@@ -75,7 +75,6 @@ private fun TransactionRow(
             tint = Color.Unspecified
         )
 
-        // Título y subtítulo
         Column(
             modifier = Modifier.weight(1f),
             verticalArrangement = Arrangement.spacedBy(4.dp)
@@ -93,7 +92,6 @@ private fun TransactionRow(
             )
         }
 
-        // Divisor vertical
         Box(
             modifier = Modifier
                 .height(40.dp)
@@ -101,15 +99,18 @@ private fun TransactionRow(
                 .background(Color(0xFF1ECED5))
         )
 
-        // Categoría
-        Text(
-            text = category,
-            style = MaterialTheme.typography.bodyMedium,
-            color = Color.White.copy(alpha = 0.8f),
-            modifier = Modifier.widthIn(min = 60.dp)
-        )
+        Box(
+            modifier = Modifier.width(51.dp),
+            contentAlignment = Alignment.Center
+        ) {
+            Text(
+                text = category,
+                style = MaterialTheme.typography.bodyMedium,
+                fontWeight = FontWeight.Light,
+                color = Color.White.copy(alpha = 0.8f)
+            )
+        }
 
-        // Divisor vertical
         Box(
             modifier = Modifier
                 .height(40.dp)
@@ -117,7 +118,6 @@ private fun TransactionRow(
                 .background(Color(0xFF1ECED5))
         )
 
-        // Monto
         Text(
             text = amount,
             style = MaterialTheme.typography.titleMedium,

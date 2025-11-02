@@ -12,10 +12,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.ort.tp3parcialgrupo5.R
+import com.ort.tp3parcialgrupo5.presentation.components.Header
 import com.ort.tp3parcialgrupo5.presentation.home_page.transaction.components.BaseShapeBackground
 import com.ort.tp3parcialgrupo5.presentation.home_page.transaction.components.HomeTotalsSection
 import com.ort.tp3parcialgrupo5.presentation.home_page.transaction.components.MonthHeader
-import com.ort.tp3parcialgrupo5.presentation.home_page.transaction.components.ScreenHeader
 import com.ort.tp3parcialgrupo5.presentation.home_page.transaction.components.TopBalanceCard
 import com.ort.tp3parcialgrupo5.presentation.home_page.transaction.components.TransactionRow
 
@@ -37,7 +37,7 @@ fun TransactionScreen(
                 .fillMaxWidth()
                 .padding(horizontal = 20.dp, vertical = 16.dp)
         ) {
-            ScreenHeader(title = stringResource(R.string.transaction_title), onBack = onBack, onBell = onBell)
+            Header(title = stringResource(R.string.transaction_title), onBack = onBack, onBell = onBell)
             Spacer(Modifier.height(12.dp))
             TopBalanceCard(title = stringResource(R.string.label_total_balance), amount = "$7,783.00")
             Spacer(Modifier.height(12.dp))

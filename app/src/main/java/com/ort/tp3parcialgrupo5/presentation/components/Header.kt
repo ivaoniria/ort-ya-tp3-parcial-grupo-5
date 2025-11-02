@@ -1,4 +1,4 @@
-package com.ort.tp3parcialgrupo5.presentation.home_page.transaction.components
+package com.ort.tp3parcialgrupo5.presentation.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -18,16 +18,16 @@ import androidx.compose.ui.unit.sp
 import com.ort.tp3parcialgrupo5.R
 
 @Composable
-fun ScreenHeader(
+fun Header(
     title: String,
     onBack: (() -> Unit)? = null,
     onBell: (() -> Unit)? = null,
+    bellIcon: Int = R.drawable.bell
 ) {
     Row(
         modifier = Modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        // ← Back
         Box(
             modifier = Modifier
                 .size(34.dp)
@@ -51,19 +51,32 @@ fun ScreenHeader(
             textAlign = TextAlign.Center
         )
 
-        // 🔔 Bell
         Box(
             modifier = Modifier
                 .size(34.dp)
-                .background(Color.White.copy(alpha = 0.15f), CircleShape)
+                .then(
+                    if (bellIcon != R.drawable.icon_notificationbellblue) {
+                        Modifier.background(Color.White.copy(alpha = 0.15f), CircleShape)
+                    } else {
+                        Modifier
+                    }
+                )
                 .clickable(enabled = onBell != null) { onBell?.invoke() }
-                .padding(8.dp),
+                .then(
+                    if (bellIcon != R.drawable.icon_notificationbellblue) {
+                        Modifier.padding(8.dp)
+                    } else {
+                        Modifier
+                    }
+                ),
             contentAlignment = Alignment.Center
         ) {
             Image(
-                painter = painterResource(R.drawable.bell),
-                contentDescription = "Notifications"
+                painter = painterResource(bellIcon),
+                contentDescription = "Notifications",
+                modifier = Modifier.size(34.dp)
             )
         }
     }
 }
+

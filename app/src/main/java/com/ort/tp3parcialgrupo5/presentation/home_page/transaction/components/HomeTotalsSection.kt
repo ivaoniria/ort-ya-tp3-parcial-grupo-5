@@ -3,8 +3,6 @@ package com.ort.tp3parcialgrupo5.presentation.home_page.transaction.components
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -15,6 +13,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ort.tp3parcialgrupo5.R
+import com.ort.tp3parcialgrupo5.presentation.components.ProgressBar
 
 @Composable
 fun HomeTotalsSection(
@@ -27,7 +26,7 @@ fun HomeTotalsSection(
     goalPillText: String,
     note: String
 ) {
-    Column {
+    Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
         Row(
             Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween,
@@ -65,40 +64,22 @@ fun HomeTotalsSection(
             }
         }
 
-        Spacer(Modifier.height(12.dp))
 
-        Row(verticalAlignment = Alignment.CenterVertically) {
-            Text(progressTextLeft, color = Color.White.copy(alpha = 0.85f), fontSize = 12.sp)
-            Spacer(Modifier.width(12.dp))
-            Box(
-                Modifier
-                    .height(18.dp)
-                    .weight(1f)
-                    .background(Color.White.copy(alpha = 0.18f), RoundedCornerShape(999.dp))
-            ) {
-                Box(
-                    Modifier
-                        .fillMaxHeight()
-                        .fillMaxWidth(progressFraction.coerceIn(0f, 1f))
-                        .align(Alignment.CenterEnd)
-                        .background(Color.White, RoundedCornerShape(999.dp))
-                )
-            }
-            Spacer(Modifier.width(12.dp))
-            Surface(color = Color.White, shape = RoundedCornerShape(999.dp)) {
-                Text(
-                    goalPillText,
-                    color = Color(0xFF2B2B2B),
-                    fontSize = 12.sp,
-                    modifier = Modifier.padding(horizontal = 10.dp, vertical = 3.dp)
-                )
-            }
-        }
+        ProgressBar(
+            progressPercent = (progressFraction * 100).toInt(),
+            goalAmount = goalPillText
+        )
 
-        Spacer(Modifier.height(10.dp))
-
-        Row(verticalAlignment = Alignment.CenterVertically) {
-            Box(Modifier.size(16.dp).background(Color.White.copy(alpha = 0.35f), RoundedCornerShape(3.dp)))
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.Start,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Image(
+                painter = painterResource(R.drawable.check),
+                contentDescription = null,
+                modifier = Modifier.size(16.dp)
+            )
             Spacer(Modifier.width(8.dp))
             Text(note, color = Color.White.copy(alpha = 0.85f), fontSize = 12.sp)
         }

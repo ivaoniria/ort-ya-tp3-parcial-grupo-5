@@ -1,9 +1,8 @@
 package com.ort.tp3parcialgrupo5.presentation.home_page.transaction.components
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -24,38 +23,47 @@ fun TransactionRow(
     iconRes: Int
 ) {
     val amountColor = if (positive) Color.White else Color(0xFF11A3FF)
+    val dividerColor = Color(0xFF00D09E)
 
     Row(
         modifier = Modifier.fillMaxWidth(),
-        verticalAlignment = Alignment.CenterVertically
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(14.dp)
     ) {
-        Box(
-            modifier = Modifier
-                .size(44.dp)
-                .background(Color.White.copy(alpha = 0.15f), CircleShape),
-            contentAlignment = Alignment.Center
-        ) {
-            Image(
-                painter = painterResource(iconRes),
-                contentDescription = null,
-                modifier = Modifier.size(22.dp)
-            )
-        }
-
-        Spacer(Modifier.width(12.dp))
+        Icon(
+            painter = painterResource(iconRes),
+            contentDescription = null,
+            modifier = Modifier.size(56.dp),
+            tint = Color.Unspecified
+        )
 
         Column(modifier = Modifier.weight(1f)) {
             Text(title, color = Color.White, fontSize = 16.sp, fontWeight = FontWeight.Bold)
             Text(subtitle, color = Color.White.copy(alpha = 0.7f), fontSize = 12.sp)
         }
 
-        Box(Modifier.height(22.dp).width(1.dp).background(Color.White.copy(alpha = 0.25f)))
+        Box(Modifier.height(40.dp).width(1.dp).background(dividerColor))
 
-        Spacer(Modifier.width(12.dp))
-
-        Column(horizontalAlignment = Alignment.End) {
-            Text(category, color = Color.White.copy(alpha = 0.7f), fontSize = 12.sp)
-            Text(amount, color = amountColor, fontSize = 16.sp, fontWeight = FontWeight.Bold)
+        Box(
+            modifier = Modifier.width(51.dp),
+            contentAlignment = Alignment.Center
+        ) {
+            Text(
+                text = category,
+                color = Color.White.copy(alpha = 0.8f),
+                fontSize = 12.sp,
+                fontWeight = FontWeight.Light
+            )
         }
+
+        Box(Modifier.height(40.dp).width(1.dp).background(dividerColor))
+
+        Text(
+            text = amount,
+            color = amountColor,
+            fontSize = 16.sp,
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier.widthIn(min = 80.dp)
+        )
     }
 }

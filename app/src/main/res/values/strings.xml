@@ -30,7 +30,7 @@
     <string name="total_expense">Total Expense</string>
     <string name="total_expense_value">1187.40</string>
     <string name="progress_percent_value">30</string>
-    <string name="goal_target_usd_value">3000.00</string>
+    <string name="goal_target_usd_value">20000.00</string>
     <string name="expense_looks_good">30% Of Your Expenses, Looks Good</string>
 
     <!-- Summary Section -->
@@ -61,6 +61,16 @@
     <string name="rent_subtitle">8:30 - April 15</string>
     <string name="rent_amount">-$674.40</string>
     <string name="rent_category">Rent</string>
+
+    <string name="transport">Transport</string>
+    <string name="transport_subtitle">7:39 - April 08</string>
+    <string name="transport_amount">-$4.13</string>
+    <string name="transport_category">Fuel</string>
+
+    <string name="food">Food</string>
+    <string name="food_subtitle">18:20 - March 31</string>
+    <string name="food_amount">-$70.40</string>
+    <string name="food_category">Dinner</string>
     <!-- HomeScreen -->
 
     <!-- OnBouarding -->

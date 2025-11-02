@@ -13,7 +13,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.ort.tp3parcialgrupo5.R
-import com.ort.tp3parcialgrupo5.presentation.home_page.floating_menu.notification.components.NotificationHeader
+import com.ort.tp3parcialgrupo5.presentation.components.Header
 import com.ort.tp3parcialgrupo5.presentation.home_page.floating_menu.notification.components.NotificationItemRow
 import com.ort.tp3parcialgrupo5.presentation.home_page.floating_menu.notification.components.NotificationSectionHeader
 import com.ort.tp3parcialgrupo5.presentation.home_page.transaction.components.BaseShapeBackground
@@ -46,7 +46,12 @@ fun NotificationScreen(onBack: (() -> Unit)? = null, onBell: (() -> Unit)? = nul
                 .fillMaxWidth()
                 .padding(horizontal = 20.dp, vertical = 16.dp)
         ) {
-            NotificationHeader(title = stringResource(R.string.notification_title), onBack = onBack, onBell = onBell)
+            Header(
+                title = stringResource(R.string.notification_title),
+                onBack = onBack,
+                onBell = onBell,
+                bellIcon = R.drawable.icon_notificationbellblue
+            )
             Spacer(Modifier.height(12.dp))
         }
 

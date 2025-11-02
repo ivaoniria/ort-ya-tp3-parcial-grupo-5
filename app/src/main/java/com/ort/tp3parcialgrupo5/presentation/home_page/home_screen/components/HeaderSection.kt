@@ -21,10 +21,14 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.ort.tp3parcialgrupo5.R
 
 @Composable
-fun HeaderSection(modifier: Modifier = Modifier) {
+fun HeaderSection(
+    modifier: Modifier = Modifier,
+    onBell: (() -> Unit)? = null
+) {
     Row(
         modifier = modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.SpaceBetween,
@@ -33,18 +37,23 @@ fun HeaderSection(modifier: Modifier = Modifier) {
         Column {
             Text(
                 text = stringResource(R.string.hi_welcome_back),
-                style = MaterialTheme.typography.headlineSmall,
-                fontWeight = FontWeight.Bold,
+                style = MaterialTheme.typography.bodyLarge.copy(
+                    fontSize = 20.sp,
+                    lineHeight = 22.sp
+                ),
+                fontWeight = FontWeight.SemiBold,
                 color = Color.White
             )
             Text(
                 text = stringResource(R.string.good_morning),
-                style = MaterialTheme.typography.bodyMedium,
+                style = MaterialTheme.typography.bodyMedium.copy(
+                    fontFamily = androidx.compose.ui.text.font.FontFamily.Default
+                ),
                 color = Color.White.copy(alpha = 0.7f)
             )
         }
 
-        IconButton(onClick = { }) {
+        IconButton(onClick = { onBell?.invoke() }) {
             Box(
                 modifier = Modifier
                     .size(36.dp)

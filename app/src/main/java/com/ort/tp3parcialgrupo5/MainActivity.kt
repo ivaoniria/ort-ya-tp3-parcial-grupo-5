@@ -20,6 +20,7 @@ import com.ort.tp3parcialgrupo5.presentation.components.BottomNavItem
 import com.ort.tp3parcialgrupo5.presentation.components.BottomNavigationBar
 import com.ort.tp3parcialgrupo5.presentation.home_page.home_screen.HomePageScreen
 import com.ort.tp3parcialgrupo5.presentation.home_page.transaction.TransactionScreen
+import com.ort.tp3parcialgrupo5.presentation.home_page.notification.NotificationScreen
 import com.ort.tp3parcialgrupo5.ui.theme.TP3ParcialGrupo5Theme
 import com.ort.tp3parcialgrupo5.ui.theme.BackgroundContainer
 
@@ -47,10 +48,30 @@ class MainActivity : ComponentActivity() {
                         items = navItems,
                         selectedRoute = currentDestination ?: "home",
                         onItemSelected = { route ->
-                            navController.navigate(route) {
-                                popUpTo(navController.graph.startDestinationId) { saveState = true }
-                                launchSingleTop = true
-                                restoreState = true
+                            when (route) {
+                                "home" -> {
+                                    navController.navigate("home") {
+                                        popUpTo(navController.graph.startDestinationId) {
+                                            inclusive = false
+                                        }
+                                        launchSingleTop = true
+                                    }
+                                }
+                                "transactions" -> {
+                                    navController.navigate("transactions") {
+                                        popUpTo(navController.graph.startDestinationId) {
+                                            inclusive = false
+                                        }
+                                        launchSingleTop = true
+                                    }
+                                }
+                                else -> {
+                                    navController.navigate(route) {
+                                        popUpTo(navController.graph.startDestinationId) { saveState = true }
+                                        launchSingleTop = true
+                                        restoreState = true
+                                    }
+                                }
                             }
                         }
                     )
@@ -60,8 +81,23 @@ class MainActivity : ComponentActivity() {
                         startDestination = "home",
                         modifier = Modifier.padding(innerPadding)
                     ) {
-                        composable("home") { HomePageScreen() }
-                        composable("transactions") { TransactionScreen() }
+                        composable("home") {
+                            HomePageScreen(
+                                onBell = { navController.navigate("notifications") }
+                            )
+                        }
+                        composable("transactions") {
+                            TransactionScreen(
+                                onBack = { navController.popBackStack() },
+                                onBell = { navController.navigate("notifications") }
+                            )
+                        }
+                        composable("notifications") {
+                            NotificationScreen(
+                                onBack = { navController.popBackStack() },
+                                onBell = { navController.navigate("notifications") }
+                            )
+                        }
                         // TODO: Aca se configuran las screens que forman parte de la navegacion del BottomNavBar
                         //composable("profile") { ProfilePageScreen() }
                         //composable("category") { CategoryPageScreen() }
