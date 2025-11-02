@@ -3,6 +3,11 @@ package com.ort.tp3parcialgrupo5.ui.theme
 import androidx.compose.ui.graphics.Color
 
 // ===== Template =====
+
+// Generic Colors
+val BackgroundContainer = Color(0xFF093030) // #093030
+val BackgroundBottomNav = Color(0xFF0E3E3E) // #0E3E3E
+
 val Purple80 = Color(0xFFD0BCFF)
 val PurpleGrey80 = Color(0xFFCCC2DC)
 val Pink80 = Color(0xFFEFB8C8)
@@ -19,7 +24,7 @@ val FinBtnText = Color(0xFF0E3E3E) // #0E3E3E
 val FinWhite   = Color(0xFFFFFFFF)
 val FinWhite80 = Color(0xCCFFFFFF) // 80%
 val FinWhite90 = Color(0xE6FFFFFF) // 90%
-val FinPanel   = Color(0xFF0E3E3E)
+val FinPanel = Color(0xFF0E3E3E)
 
 // ===== Home =====
 val BgStart = Color(0xFF061F20)
@@ -35,11 +40,6 @@ val SummaryGreen = Color(0xFF00D09E)
 
 // Transaction List
 val TransactionBg = Color(0xFF093030)
-
-// Onboarding panel (opcional)
-
-// colores de la screen transaction nro 8
-val FinPanel   = Color(0xFF0E3E3E)
 
 object FinWiseColors {
     val BgDark  = Color(red = 5, green = 34, blue = 36)       
