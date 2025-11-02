@@ -39,7 +39,7 @@ fun LaunchLayoutsFullBleed(
     Box(
         modifier = modifier
             .fillMaxSize()
-            .background(FinBg),   // ← sin padding horizontal
+            .background(FinBg),
         contentAlignment = Alignment.Center
     ) {
         content()

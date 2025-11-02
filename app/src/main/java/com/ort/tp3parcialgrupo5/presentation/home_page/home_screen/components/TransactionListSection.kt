@@ -75,7 +75,6 @@ private fun TransactionRow(
             tint = Color.Unspecified
         )
 
-        // Título y subtítulo
         Column(
             modifier = Modifier.weight(1f),
             verticalArrangement = Arrangement.spacedBy(4.dp)
@@ -93,7 +92,6 @@ private fun TransactionRow(
             )
         }
 
-        // Divisor vertical
         Box(
             modifier = Modifier
                 .height(40.dp)
@@ -101,7 +99,6 @@ private fun TransactionRow(
                 .background(Color(0xFF1ECED5))
         )
 
-        // Categoría (Poppins Light, Weight 300, Width 51dp, Centrada)
         Box(
             modifier = Modifier.width(51.dp),
             contentAlignment = Alignment.Center
@@ -114,7 +111,6 @@ private fun TransactionRow(
             )
         }
 
-        // Divisor vertical
         Box(
             modifier = Modifier
                 .height(40.dp)
@@ -122,7 +118,6 @@ private fun TransactionRow(
                 .background(Color(0xFF1ECED5))
         )
 
-        // Monto
         Text(
             text = amount,
             style = MaterialTheme.typography.titleMedium,

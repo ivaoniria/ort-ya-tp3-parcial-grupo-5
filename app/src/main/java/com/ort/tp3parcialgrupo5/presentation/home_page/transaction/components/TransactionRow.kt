@@ -30,7 +30,6 @@ fun TransactionRow(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(14.dp)
     ) {
-        // Columna 1: Icono + Título/Subtítulo
         Icon(
             painter = painterResource(iconRes),
             contentDescription = null,
@@ -43,10 +42,8 @@ fun TransactionRow(
             Text(subtitle, color = Color.White.copy(alpha = 0.7f), fontSize = 12.sp)
         }
 
-        // Línea divisoria 1
         Box(Modifier.height(40.dp).width(1.dp).background(dividerColor))
 
-        // Columna 2: Categoría (Poppins Light, Weight 300)
         Box(
             modifier = Modifier.width(51.dp),
             contentAlignment = Alignment.Center
@@ -59,10 +56,8 @@ fun TransactionRow(
             )
         }
 
-        // Línea divisoria 2
         Box(Modifier.height(40.dp).width(1.dp).background(dividerColor))
 
-        // Columna 3: Monto
         Text(
             text = amount,
             color = amountColor,

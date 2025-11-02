@@ -34,10 +34,8 @@ fun LaunchWelcomeScreen(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            // Título (marca)
             LaunchText(text = stringResource(id = R.string.brand_name))
 
-            // Subtítulo
             LaunchTextSubtitleCenter(
                 text = stringResource(id = R.string.welcome_subtitle)
             )
