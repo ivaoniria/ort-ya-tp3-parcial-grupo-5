@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -16,7 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.ort.tp3parcialgrupo5.presentation.home_page.home_screen.components.AccountBalanceSection
+import com.ort.tp3parcialgrupo5.presentation.components.AccountBalanceSection
 import com.ort.tp3parcialgrupo5.presentation.home_page.home_screen.components.HeaderSection
 import com.ort.tp3parcialgrupo5.presentation.home_page.home_screen.components.PeriodTabs
 import com.ort.tp3parcialgrupo5.presentation.home_page.home_screen.components.SummarySection
@@ -25,7 +26,10 @@ import com.ort.tp3parcialgrupo5.ui.theme.TealDark
 import com.ort.tp3parcialgrupo5.ui.theme.homeGradient
 
 @Composable
-fun HomePageScreen(modifier: Modifier = Modifier) {
+fun HomePageScreen(
+    modifier: Modifier = Modifier,
+    onBell: (() -> Unit)? = null
+) {
     Scaffold(containerColor = Color.Transparent, bottomBar = {}) { innerPadding ->
         Box(
             modifier = Modifier
@@ -37,17 +41,17 @@ fun HomePageScreen(modifier: Modifier = Modifier) {
                 modifier = modifier.fillMaxSize(),
                 contentPadding = PaddingValues(start = 16.dp, end = 16.dp, top = 28.dp, bottom = 90.dp)
             ) {
-                item { HeaderSection() }
+                item { HeaderSection(onBell = onBell) }
                 item { Spacer(Modifier.height(6.dp)) }
                 item { AccountBalanceSection() }
                 item { Spacer(Modifier.height(18.dp)) }
                 item {
                     Box(
                         modifier = Modifier
-                            .fillMaxSize()
+                            .fillMaxWidth()
                             .clip(RoundedCornerShape(topStart = 28.dp, topEnd = 28.dp))
                             .background(TealDark)
-                            .padding(top = 24.dp, start = 12.dp, end = 12.dp, bottom = 12.dp)
+                            .padding(top = 24.dp, start = 12.dp, end = 12.dp, bottom = 100.dp)
                     ) {
                         Column {
                             SummarySection()

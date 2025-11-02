@@ -101,13 +101,18 @@ private fun TransactionRow(
                 .background(Color(0xFF1ECED5))
         )
 
-        // Categoría
-        Text(
-            text = category,
-            style = MaterialTheme.typography.bodyMedium,
-            color = Color.White.copy(alpha = 0.8f),
-            modifier = Modifier.widthIn(min = 60.dp)
-        )
+        // Categoría (Poppins Light, Weight 300, Width 51dp, Centrada)
+        Box(
+            modifier = Modifier.width(51.dp),
+            contentAlignment = Alignment.Center
+        ) {
+            Text(
+                text = category,
+                style = MaterialTheme.typography.bodyMedium,
+                fontWeight = FontWeight.Light,
+                color = Color.White.copy(alpha = 0.8f)
+            )
+        }
 
         // Divisor vertical
         Box(
