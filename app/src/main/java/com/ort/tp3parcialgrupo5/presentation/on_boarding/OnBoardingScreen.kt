@@ -25,7 +25,7 @@ import com.ort.tp3parcialgrupo5.ui.theme.FinWiseTheme
 
 // Perillas de layout
 private val TitleTopOffset = 64.dp
-private val TitlePanelGap  = 24.dp
+private val TitlePanelGap = 24.dp
 private val PanelBottomGap = 0.dp
 
 data class OnbPage(@StringRes val titleRes: Int, @DrawableRes val imageRes: Int)
@@ -46,7 +46,7 @@ fun OnboardingScreen(onFinish: () -> Unit = {}) {
                 val threshold = 80f
                 when {
                     dragAccum <= -threshold && page < onbPages.lastIndex -> page += 1
-                    dragAccum >=  threshold && page > 0 -> page -= 1
+                    dragAccum >= threshold && page > 0 -> page -= 1
                 }
                 dragAccum = 0f
             },
