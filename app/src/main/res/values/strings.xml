@@ -8,4 +8,13 @@
     <string name="sign_up">Sign Up</string>
     <string name="forgot_password">Forgot Password?</string>
     //textos de launch
+
+    //textos transaction
+        <string name="transaction_title">Transaction</string>
+        <string name="label_total_balance">Total Balance</string>
+        <string name="label_total_expense">Total Expense</string>
+        <string name="summary_note_default">30% Of Your Expenses, Looks Good.</string>
+        <string name="month_april">April</string>
+        <string name="month_march">March</string>
+    //textos transaction
 </resources>
