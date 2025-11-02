@@ -36,3 +36,15 @@ val SummaryGreen = Color(0xFF00D09E)
 // Transaction List
 val TransactionBg = Color(0xFF093030)
 
+// Onboarding panel (opcional)
+
+// colores de la screen transaction nro 8
+val FinPanel   = Color(0xFF0E3E3E)
+
+object FinWiseColors {
+    val BgDark  = Color(red = 5, green = 34, blue = 36)       
+    val Panel   = Color(red = 14, green = 62, blue = 62)      
+    val AccentGreen = Color(red = 0, green = 208, blue = 158) 
+    val AccentBlue  = Color(0xFF11A3FF)                    
+    val OnDark      = Color.White
+}
