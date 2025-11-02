@@ -11,8 +11,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.ort.tp3parcialgrupo5.presentation.launch.LaunchInitialScreen
-import com.ort.tp3parcialgrupo5.presentation.launch.LaunchWelcomeScreen
 import com.ort.tp3parcialgrupo5.ui.theme.TP3ParcialGrupo5Theme
 
 class MainActivity : ComponentActivity() {
