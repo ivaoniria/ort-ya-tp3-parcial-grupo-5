@@ -20,4 +20,15 @@ val FinWhite80 = Color(0xCCFFFFFF) // 80%
 val FinWhite90 = Color(0xE6FFFFFF) // 90%
 
 // Onboarding panel (opcional)
+
+// colores de la screen transaction nro 8
 val FinPanel   = Color(0xFF0E3E3E)
+
+object FinWiseColors {
+    val BgDark  = Color(red = 5, green = 34, blue = 36)       // fondo oscuro
+    val Panel   = Color(red = 14, green = 62, blue = 62)      // panel más claro
+    val AccentGreen = Color(red = 0, green = 208, blue = 158) // botón/selección
+    val AccentBlue  = Color(0xFF11A3FF)                      // montos negativos
+    val OnDark      = Color.White
+}
+// colores de la screen transaction nro 8
