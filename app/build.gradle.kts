@@ -41,7 +41,6 @@ android {
 }
 
 dependencies {
-    // *** CLAVE PARA EL THEME Material3 XML ***
     implementation(libs.material)
 
     implementation(libs.androidx.core.ktx)
