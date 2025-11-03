@@ -16,6 +16,7 @@ import com.ort.tp3parcialgrupo5.presentation.categories.components.CategoriesGri
 import com.ort.tp3parcialgrupo5.presentation.categories.model.Category
 import com.ort.tp3parcialgrupo5.presentation.components.AccountBalanceSection
 import com.ort.tp3parcialgrupo5.presentation.components.Header
+import com.ort.tp3parcialgrupo5.presentation.components.PercentExpensesSection
 import com.ort.tp3parcialgrupo5.ui.theme.TealDark
 import com.ort.tp3parcialgrupo5.ui.theme.homeGradient
 
@@ -61,6 +62,9 @@ fun CategoriesScreen(
             Spacer(Modifier.height(12.dp))
             AccountBalanceSection()
             Spacer(Modifier.height(18.dp))
+            PercentExpensesSection()
+            Spacer(Modifier.height(18.dp))
+
         }
         Box(
             modifier = Modifier

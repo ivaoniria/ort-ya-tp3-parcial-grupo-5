@@ -16,6 +16,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.ort.tp3parcialgrupo5.presentation.components.AccountBalanceSection
+import com.ort.tp3parcialgrupo5.presentation.components.PercentExpensesSection
 import com.ort.tp3parcialgrupo5.presentation.home_page.home_screen.components.HeaderSection
 import com.ort.tp3parcialgrupo5.presentation.home_page.home_screen.components.PeriodTabs
 import com.ort.tp3parcialgrupo5.presentation.home_page.home_screen.components.SummarySection
@@ -41,6 +42,8 @@ fun HomePageScreen(
                 item { HeaderSection(onBell = onBell) }
                 item { Spacer(Modifier.height(40.dp)) }
                 item { AccountBalanceSection() }
+                item { Spacer(Modifier.height(10.dp)) }
+                item { PercentExpensesSection() }
                 item { Spacer(Modifier.height(18.dp)) }
                 item { SummarySection() }
                 item { Spacer(Modifier.height(16.dp)) }
