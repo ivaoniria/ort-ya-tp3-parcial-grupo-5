@@ -9,6 +9,13 @@
     <string name="forgot_password">Forgot Password?</string>
   <!-- Launch -->
 
+  <!-- Login -->
+    <string name="welcome">Welcome</string>
+    <string name="username_or_email">Username Or Email</string>
+    <string name="password">Password</string>
+    <string name="log_in">Log In</string>
+  <!-- Login -->
+
   <!-- Transaction -->
         <string name="transaction_title">Transaction</string>
         <string name="label_total_balance">Total Balance</string>
