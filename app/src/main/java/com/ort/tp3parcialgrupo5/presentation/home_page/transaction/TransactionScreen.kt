@@ -14,6 +14,7 @@ import androidx.compose.ui.unit.dp
 import com.ort.tp3parcialgrupo5.R
 import com.ort.tp3parcialgrupo5.presentation.components.AccountBalanceSection
 import com.ort.tp3parcialgrupo5.presentation.components.Header
+import com.ort.tp3parcialgrupo5.presentation.components.PercentExpensesSection
 import com.ort.tp3parcialgrupo5.presentation.home_page.transaction.components.BaseShapeBackground
 import com.ort.tp3parcialgrupo5.presentation.home_page.transaction.components.MonthHeader
 import com.ort.tp3parcialgrupo5.presentation.home_page.transaction.components.TopBalanceCard
@@ -42,6 +43,8 @@ fun TransactionScreen(
             TopBalanceCard(title = stringResource(R.string.label_total_balance), amount = "$7,783.00")
             Spacer(Modifier.height(12.dp))
             AccountBalanceSection()
+            Spacer(Modifier.height(10.dp))
+            PercentExpensesSection()
             Spacer(Modifier.height(10.dp))
         }
 

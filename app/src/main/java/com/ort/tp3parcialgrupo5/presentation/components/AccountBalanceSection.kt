@@ -131,25 +131,6 @@ fun AccountBalanceSection(
                 goalAmount = currencyFormatter.format(goalTargetUsdVal)
             )
         }
-
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.Center,
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Icon(
-                painter = painterResource(R.drawable.check),
-                contentDescription = null,
-                modifier = Modifier.size(14.dp),
-                tint = Color.Unspecified
-            )
-            Spacer(Modifier.width(6.dp))
-            Text(
-                text = stringResource(R.string.expense_looks_good),
-                style = MaterialTheme.typography.bodyMedium,
-                color = ExpenseLooksGood
-            )
-        }
     }
 }
 
