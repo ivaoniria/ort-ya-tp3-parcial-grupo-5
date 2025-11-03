@@ -12,9 +12,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.ort.tp3parcialgrupo5.R
+import com.ort.tp3parcialgrupo5.presentation.components.AccountBalanceSection
 import com.ort.tp3parcialgrupo5.presentation.components.Header
 import com.ort.tp3parcialgrupo5.presentation.home_page.transaction.components.BaseShapeBackground
-import com.ort.tp3parcialgrupo5.presentation.home_page.transaction.components.HomeTotalsSection
 import com.ort.tp3parcialgrupo5.presentation.home_page.transaction.components.MonthHeader
 import com.ort.tp3parcialgrupo5.presentation.home_page.transaction.components.TopBalanceCard
 import com.ort.tp3parcialgrupo5.presentation.home_page.transaction.components.TransactionRow
@@ -41,16 +41,7 @@ fun TransactionScreen(
             Spacer(Modifier.height(12.dp))
             TopBalanceCard(title = stringResource(R.string.label_total_balance), amount = "$7,783.00")
             Spacer(Modifier.height(12.dp))
-            HomeTotalsSection(
-                balanceLabel = stringResource(R.string.label_total_balance),
-                balanceValue = "$7,783.00",
-                expenseLabel = stringResource(R.string.label_total_expense),
-                expenseValue = "-$1,187.40",
-                progressFraction = 0.30f,
-                progressTextLeft = "30%",
-                goalPillText = "$20,000.00",
-                note = stringResource(R.string.summary_note_default)
-            )
+            AccountBalanceSection()
             Spacer(Modifier.height(10.dp))
         }
 
