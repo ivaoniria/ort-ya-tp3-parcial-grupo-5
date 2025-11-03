@@ -2,6 +2,7 @@ package com.ort.tp3parcialgrupo5.presentation.login_sign_up.loginCreate.componen
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -13,15 +14,32 @@ import androidx.compose.ui.unit.dp
 import com.ort.tp3parcialgrupo5.ui.theme.AppTypography
 
 @Composable
-fun LoginButton(text: String, onClick: () -> Unit, backgroundColor: Color, textColor: Color) {
-    Button(
-        onClick = onClick,
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(50.dp),
-        shape = RoundedCornerShape(50),
-        colors = ButtonDefaults.buttonColors(containerColor = backgroundColor)
+fun LoginButton(
+    text: String,
+    onClick: () -> Unit,
+    backgroundColor: Color,
+    textColor: Color,
+    modifier: Modifier = Modifier
+) {
+    androidx.compose.foundation.layout.Box(
+        modifier = modifier.fillMaxWidth(),
+        contentAlignment = androidx.compose.ui.Alignment.Center
     ) {
-        Text(text = text, style = AppTypography.titleMedium, color = textColor)
+        Button(
+            onClick = onClick,
+            modifier = Modifier
+                .width(200.dp)
+                .height(48.dp),
+            shape = RoundedCornerShape(50),
+            colors = ButtonDefaults.buttonColors(containerColor = backgroundColor),
+            elevation = ButtonDefaults.buttonElevation(defaultElevation = 0.dp)
+        ) {
+            Text(
+                text = text,
+                style = AppTypography.titleMedium,
+                color = textColor
+            )
+        }
     }
 }
+

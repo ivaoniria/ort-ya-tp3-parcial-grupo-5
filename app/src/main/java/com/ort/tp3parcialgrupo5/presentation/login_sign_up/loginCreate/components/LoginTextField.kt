@@ -1,14 +1,15 @@
 package com.ort.tp3parcialgrupo5.presentation.login_sign_up.loginCreate.components
 
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material3.Icon
-import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
@@ -26,40 +27,58 @@ fun LoginTextField(
     placeholder: String,
     isPassword: Boolean
 ) {
+    // Label
     Text(
         text = label,
         style = AppTypography.titleSmall,
         color = Color.White,
         modifier = Modifier
             .fillMaxWidth()
-            .padding(start = 8.dp, bottom = 4.dp)
+            .padding(start = 8.dp, bottom = 6.dp)
     )
-    OutlinedTextField(
-        value = value,
-        onValueChange = onValueChange,
-        placeholder = { Text(text = placeholder) },
-        modifier = Modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(50),
-        visualTransformation = if (isPassword) PasswordVisualTransformation() else VisualTransformation.None,
-        trailingIcon = {
+
+    val bg = colorResource(R.color.bg_green_white)
+    val txt = colorResource(R.color.letters_and_icons)
+
+    // Contenedor pill con altura y padding exactos (↓ menos padding vertical)
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(35.dp) // controlás la altura total del input
+            .background(bg, RoundedCornerShape(50))
+            .padding(start = 16.dp, end = 12.dp, top = 6.dp, bottom = 6.dp),
+        contentAlignment = Alignment.Center
+    ) {
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            BasicTextField(
+                value = value,
+                onValueChange = onValueChange,
+                singleLine = true,
+                textStyle = AppTypography.bodyMedium.copy(color = txt),
+                visualTransformation = if (isPassword) PasswordVisualTransformation() else VisualTransformation.None,
+                cursorBrush = SolidColor(colorResource(R.color.main_green)),
+                modifier = Modifier.weight(1f)
+            ) { inner ->
+                if (value.isEmpty()) {
+                    Text(
+                        text = placeholder,
+                        style = AppTypography.bodyMedium,
+                        color = txt.copy(alpha = 0.5f)
+                    )
+                }
+                inner()
+            }
+
             if (isPassword) {
                 Icon(
                     painter = painterResource(id = R.drawable.eye_pass),
                     contentDescription = null,
-                    tint = colorResource(id = R.color.letters_and_icons)
+                    tint = txt
                 )
             }
-        },
-        colors = OutlinedTextFieldDefaults.colors(
-            unfocusedContainerColor = colorResource(id = R.color.bg_green_white),
-            focusedContainerColor = colorResource(id = R.color.bg_green_white),
-            unfocusedTextColor = colorResource(id = R.color.letters_and_icons),
-            focusedTextColor = colorResource(id = R.color.letters_and_icons),
-            unfocusedBorderColor = Color.Transparent,
-            focusedBorderColor = Color.Transparent,
-            cursorColor = colorResource(id = R.color.main_green),
-            unfocusedPlaceholderColor = colorResource(id = R.color.letters_and_icons).copy(alpha = 0.5f),
-            focusedPlaceholderColor = colorResource(id = R.color.letters_and_icons).copy(alpha = 0.5f)
-        )
-    )
+        }
+    }
 }
