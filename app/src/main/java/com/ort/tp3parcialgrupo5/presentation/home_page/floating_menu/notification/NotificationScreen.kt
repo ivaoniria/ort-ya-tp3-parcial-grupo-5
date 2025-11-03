@@ -6,17 +6,18 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.foundation.shape.RoundedCornerShape
 import com.ort.tp3parcialgrupo5.R
 import com.ort.tp3parcialgrupo5.presentation.home_page.floating_menu.notification.components.NotificationHeader
 import com.ort.tp3parcialgrupo5.presentation.home_page.floating_menu.notification.components.NotificationItemRow
 import com.ort.tp3parcialgrupo5.presentation.home_page.floating_menu.notification.components.NotificationSectionHeader
-import com.ort.tp3parcialgrupo5.presentation.home_page.transaction.components.BaseShapeBackground
 
 @Composable
 fun NotificationScreen(onBack: (() -> Unit)? = null, onBell: (() -> Unit)? = null) {
@@ -50,68 +51,64 @@ fun NotificationScreen(onBack: (() -> Unit)? = null, onBell: (() -> Unit)? = nul
             Spacer(Modifier.height(12.dp))
         }
 
-        Box(
+        Surface(
+            color = Panel,
+            shape = RoundedCornerShape(topStart = 28.dp, topEnd = 28.dp),
             modifier = Modifier
                 .fillMaxWidth()
                 .weight(1f)
         ) {
-            BaseShapeBackground(
-                panelColor = Panel,
-                cornerRadiusDp = 28.dp,
-                heightFraction = 1f,
-                mirrorHorizontally = true,
-                contentPadding = PaddingValues(horizontal = 16.dp, vertical = 18.dp)
+            LazyColumn(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(horizontal = 16.dp, vertical = 18.dp),
+                contentPadding = PaddingValues(bottom = 12.dp)
             ) {
-                LazyColumn(
-                    modifier = Modifier.fillMaxSize(),
-                    contentPadding = PaddingValues(bottom = 12.dp)
-                ) {
-                    item {
-                        NotificationSectionHeader(text = stringResource(R.string.section_today))
-                        Spacer(Modifier.height(14.dp))
-                    }
-                    items(today) { n ->
-                        NotificationItemRow(
-                            iconRes = n.iconRes,
-                            title = stringResource(n.titleRes),
-                            body = stringResource(n.bodyRes),
-                            rightTime = n.rightTime,
-                            bottomAccent = n.bottomAccent
-                        )
-                        Spacer(Modifier.height(6.dp))
-                    }
+                item {
+                    NotificationSectionHeader(text = stringResource(R.string.section_today))
+                    Spacer(Modifier.height(14.dp))
+                }
+                items(today) { n ->
+                    NotificationItemRow(
+                        iconRes = n.iconRes,
+                        title = stringResource(n.titleRes),
+                        body = stringResource(n.bodyRes),
+                        rightTime = n.rightTime,
+                        bottomAccent = n.bottomAccent
+                    )
+                    Spacer(Modifier.height(6.dp))
+                }
 
-                    item {
-                        Spacer(Modifier.height(6.dp))
-                        NotificationSectionHeader(text = stringResource(R.string.section_yesterday))
-                        Spacer(Modifier.height(14.dp))
-                    }
-                    items(yesterday) { n ->
-                        NotificationItemRow(
-                            iconRes = n.iconRes,
-                            title = stringResource(n.titleRes),
-                            body = stringResource(n.bodyRes),
-                            rightTime = n.rightTime,
-                            bottomAccent = n.bottomAccent
-                        )
-                        Spacer(Modifier.height(6.dp))
-                    }
+                item {
+                    Spacer(Modifier.height(6.dp))
+                    NotificationSectionHeader(text = stringResource(R.string.section_yesterday))
+                    Spacer(Modifier.height(14.dp))
+                }
+                items(yesterday) { n ->
+                    NotificationItemRow(
+                        iconRes = n.iconRes,
+                        title = stringResource(n.titleRes),
+                        body = stringResource(n.bodyRes),
+                        rightTime = n.rightTime,
+                        bottomAccent = n.bottomAccent
+                    )
+                    Spacer(Modifier.height(6.dp))
+                }
 
-                    item {
-                        Spacer(Modifier.height(6.dp))
-                        NotificationSectionHeader(text = stringResource(R.string.section_this_weekend))
-                        Spacer(Modifier.height(14.dp))
-                    }
-                    items(thisWeekend) { n ->
-                        NotificationItemRow(
-                            iconRes = n.iconRes,
-                            title = stringResource(n.titleRes),
-                            body = stringResource(n.bodyRes),
-                            rightTime = n.rightTime,
-                            bottomAccent = n.bottomAccent
-                        )
-                        Spacer(Modifier.height(6.dp))
-                    }
+                item {
+                    Spacer(Modifier.height(6.dp))
+                    NotificationSectionHeader(text = stringResource(R.string.section_this_weekend))
+                    Spacer(Modifier.height(14.dp))
+                }
+                items(thisWeekend) { n ->
+                    NotificationItemRow(
+                        iconRes = n.iconRes,
+                        title = stringResource(n.titleRes),
+                        body = stringResource(n.bodyRes),
+                        rightTime = n.rightTime,
+                        bottomAccent = n.bottomAccent
+                    )
+                    Spacer(Modifier.height(6.dp))
                 }
             }
         }
