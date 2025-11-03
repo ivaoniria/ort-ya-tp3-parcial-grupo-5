@@ -92,6 +92,22 @@
         <string name="notif_body_savings">Set up your automatic savings to meet your savings goal…</string>
         <string name="notif_body_registered">A new transaction has been registered</string>
         <string name="notif_body_recommendation">We recommend that you be more attentive to your finances.</string>
+        <string name="notif_time_example">17:00 - April 24</string>
+        <string name="notif_detail_groceries">Groceries | Pantry | -$100,00</string>
+        <string name="notif_detail_food">Food | Dinner | -$70,40</string>
     <!-- Notification -->
+
+    <!-- Categories -->
+        <string name="categories_title">Categories</string>
+        <string name="category_food">Food</string>
+        <string name="category_transport">Transport</string>
+        <string name="category_medicine">Medicine</string>
+        <string name="category_groceries">Groceries</string>
+        <string name="category_rent">Rent</string>
+        <string name="category_gifts">Gifts</string>
+        <string name="category_savings">Savings</string>
+        <string name="category_entertainment">Entertainment</string>
+        <string name="category_more">More</string>
+    <!-- Categories -->
 
 </resources>
