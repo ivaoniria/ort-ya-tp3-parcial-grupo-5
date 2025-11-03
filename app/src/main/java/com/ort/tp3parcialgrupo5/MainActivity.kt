@@ -18,6 +18,7 @@ import androidx.navigation.compose.rememberNavController
 
 import com.ort.tp3parcialgrupo5.presentation.components.BottomNavItem
 import com.ort.tp3parcialgrupo5.presentation.components.BottomNavigationBar
+import com.ort.tp3parcialgrupo5.presentation.categories.CategoriesScreen
 import com.ort.tp3parcialgrupo5.presentation.home_page.home_screen.HomePageScreen
 import com.ort.tp3parcialgrupo5.presentation.home_page.transaction.TransactionScreen
 import com.ort.tp3parcialgrupo5.presentation.home_page.notification.NotificationScreen
@@ -50,6 +51,7 @@ class MainActivity : ComponentActivity() {
                         onItemSelected = { route ->
                             when (route) {
                                 "home" -> {
+                                    // El primer botón (Home) siempre va a la HomeScreen
                                     navController.navigate("home") {
                                         popUpTo(navController.graph.startDestinationId) {
                                             inclusive = false
@@ -58,7 +60,17 @@ class MainActivity : ComponentActivity() {
                                     }
                                 }
                                 "transactions" -> {
+                                    // El tercer botón (Transactions) siempre va a TransactionScreen
                                     navController.navigate("transactions") {
+                                        popUpTo(navController.graph.startDestinationId) {
+                                            inclusive = false
+                                        }
+                                        launchSingleTop = true
+                                    }
+                                }
+                                "layers" -> {
+                                    // El cuarto botón (Layers) siempre va a CategoriesScreen
+                                    navController.navigate("layers") {
                                         popUpTo(navController.graph.startDestinationId) {
                                             inclusive = false
                                         }
@@ -98,9 +110,14 @@ class MainActivity : ComponentActivity() {
                                 onBell = { navController.navigate("notifications") }
                             )
                         }
+                        composable("layers") {
+                            CategoriesScreen(
+                                onBack = { navController.popBackStack() },
+                                onBell = { navController.navigate("notifications") }
+                            )
+                        }
                         // TODO: Aca se configuran las screens que forman parte de la navegacion del BottomNavBar
                         //composable("profile") { ProfilePageScreen() }
-                        //composable("category") { CategoryPageScreen() }
                     }
                 }
             }
