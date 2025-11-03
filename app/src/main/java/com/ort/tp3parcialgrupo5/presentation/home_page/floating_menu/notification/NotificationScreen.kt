@@ -1,6 +1,5 @@
 package com.ort.tp3parcialgrupo5.presentation.home_page.notification
 
-import androidx.annotation.StringRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -16,119 +15,181 @@ import com.ort.tp3parcialgrupo5.R
 import com.ort.tp3parcialgrupo5.presentation.components.Header
 import com.ort.tp3parcialgrupo5.presentation.home_page.floating_menu.notification.components.NotificationItemRow
 import com.ort.tp3parcialgrupo5.presentation.home_page.floating_menu.notification.components.NotificationSectionHeader
+import com.ort.tp3parcialgrupo5.presentation.home_page.notification.model.NotificationItem
 import com.ort.tp3parcialgrupo5.presentation.home_page.transaction.components.BaseShapeBackground
 
+private val BackgroundDark = Color(5, 34, 36)
+private val PanelColor = Color(9, 48, 48)
+
 @Composable
-fun NotificationScreen(onBack: (() -> Unit)? = null, onBell: (() -> Unit)? = null) {
-    val BgDark = Color(5, 34, 36)
-    val Panel = Color(9, 48, 48)
-
-    val today = listOf(
-        NotiUi(R.drawable.icon_notificationbellblue, R.string.notif_title_reminder, R.string.notif_body_savings, "17:00 - April 24", null),
-        NotiUi(R.drawable.group_star, R.string.notif_title_new_update, R.string.notif_body_savings, "17:00 - April 24", null)
-    )
-    val yesterday = listOf(
-        NotiUi(R.drawable.group_dolar, R.string.notif_title_transactions, R.string.notif_body_registered, "17:00 - April 24", "Groceries | Pantry | -$100,00"),
-        NotiUi(R.drawable.icon_notificationbellblue, R.string.notif_title_reminder, R.string.notif_body_savings, "17:00 - April 24", null)
-    )
-    val thisWeekend = listOf(
-        NotiUi(R.drawable.car, R.string.notif_title_expense_record, R.string.notif_body_recommendation, "17:00 - April 24", null),
-        NotiUi(R.drawable.group_dolar, R.string.notif_title_transactions, R.string.notif_body_registered, "17:00 - April 24", "Food | Dinner | -$70,40")
-    )
-
+fun NotificationScreen(
+    onBack: (() -> Unit)? = null,
+    onBell: (() -> Unit)? = null
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(BgDark)
+            .background(BackgroundDark)
     ) {
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 20.dp, vertical = 16.dp)
-        ) {
-            Header(
-                title = stringResource(R.string.notification_title),
-                onBack = onBack,
-                onBell = onBell,
-                bellIcon = R.drawable.icon_notificationbellblue
-            )
-            Spacer(Modifier.height(12.dp))
-        }
+        NotificationHeader(
+            onBack = onBack,
+            onBell = onBell
+        )
 
-        Box(
+        Column(
             modifier = Modifier
                 .fillMaxWidth()
                 .weight(1f)
         ) {
-            BaseShapeBackground(
-                panelColor = Panel,
-                cornerRadiusDp = 28.dp,
-                heightFraction = 1f,
-                mirrorHorizontally = true,
-                contentPadding = PaddingValues(horizontal = 16.dp, vertical = 18.dp)
-            ) {
-                LazyColumn(
-                    modifier = Modifier.fillMaxSize(),
-                    contentPadding = PaddingValues(bottom = 12.dp)
-                ) {
-                    item {
-                        NotificationSectionHeader(text = stringResource(R.string.section_today))
-                        Spacer(Modifier.height(14.dp))
-                    }
-                    items(today) { n ->
-                        NotificationItemRow(
-                            iconRes = n.iconRes,
-                            title = stringResource(n.titleRes),
-                            body = stringResource(n.bodyRes),
-                            rightTime = n.rightTime,
-                            bottomAccent = n.bottomAccent
-                        )
-                        Spacer(Modifier.height(6.dp))
-                    }
+            NotificationContent()
+        }
+    }
+}
 
-                    item {
-                        Spacer(Modifier.height(6.dp))
-                        NotificationSectionHeader(text = stringResource(R.string.section_yesterday))
-                        Spacer(Modifier.height(14.dp))
-                    }
-                    items(yesterday) { n ->
-                        NotificationItemRow(
-                            iconRes = n.iconRes,
-                            title = stringResource(n.titleRes),
-                            body = stringResource(n.bodyRes),
-                            rightTime = n.rightTime,
-                            bottomAccent = n.bottomAccent
-                        )
-                        Spacer(Modifier.height(6.dp))
-                    }
+@Composable
+private fun NotificationHeader(
+    onBack: (() -> Unit)?,
+    onBell: (() -> Unit)?
+) {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 20.dp, vertical = 16.dp)
+    ) {
+        Header(
+            title = stringResource(R.string.notification_title),
+            onBack = onBack,
+            onBell = onBell,
+            bellIcon = R.drawable.icon_notificationbellblue
+        )
+        Spacer(Modifier.height(12.dp))
+    }
+}
 
-                    item {
-                        Spacer(Modifier.height(6.dp))
-                        NotificationSectionHeader(text = stringResource(R.string.section_this_weekend))
-                        Spacer(Modifier.height(14.dp))
-                    }
-                    items(thisWeekend) { n ->
-                        NotificationItemRow(
-                            iconRes = n.iconRes,
-                            title = stringResource(n.titleRes),
-                            body = stringResource(n.bodyRes),
-                            rightTime = n.rightTime,
-                            bottomAccent = n.bottomAccent
-                        )
-                        Spacer(Modifier.height(6.dp))
-                    }
-                }
+@Composable
+private fun NotificationContent() {
+    val todayNotifications = getTodayNotifications()
+    val yesterdayNotifications = getYesterdayNotifications()
+    val thisWeekendNotifications = getThisWeekendNotifications()
+
+    BaseShapeBackground(
+        panelColor = PanelColor,
+        cornerRadiusDp = 28.dp,
+        heightFraction = 1f,
+        mirrorHorizontally = true,
+        contentPadding = PaddingValues(horizontal = 16.dp, vertical = 18.dp)
+    ) {
+        LazyColumn(
+            modifier = Modifier.fillMaxSize(),
+            contentPadding = PaddingValues(bottom = 12.dp)
+        ) {
+            // Today Section
+            item {
+                NotificationSectionHeader(
+                    text = stringResource(R.string.section_today)
+                )
+                Spacer(Modifier.height(14.dp))
+            }
+
+            items(todayNotifications) { notification ->
+                NotificationItemRow(
+                    iconRes = notification.iconRes,
+                    title = stringResource(notification.titleRes),
+                    body = stringResource(notification.bodyRes),
+                    rightTime = stringResource(notification.timeRes),
+                    bottomAccent = notification.detailRes?.let { stringResource(it) }
+                )
+                Spacer(Modifier.height(6.dp))
+            }
+
+            // Yesterday Section
+            item {
+                Spacer(Modifier.height(6.dp))
+                NotificationSectionHeader(
+                    text = stringResource(R.string.section_yesterday)
+                )
+                Spacer(Modifier.height(14.dp))
+            }
+
+            items(yesterdayNotifications) { notification ->
+                NotificationItemRow(
+                    iconRes = notification.iconRes,
+                    title = stringResource(notification.titleRes),
+                    body = stringResource(notification.bodyRes),
+                    rightTime = stringResource(notification.timeRes),
+                    bottomAccent = notification.detailRes?.let { stringResource(it) }
+                )
+                Spacer(Modifier.height(6.dp))
+            }
+
+            // This Weekend Section
+            item {
+                Spacer(Modifier.height(6.dp))
+                NotificationSectionHeader(
+                    text = stringResource(R.string.section_this_weekend)
+                )
+                Spacer(Modifier.height(14.dp))
+            }
+
+            items(thisWeekendNotifications) { notification ->
+                NotificationItemRow(
+                    iconRes = notification.iconRes,
+                    title = stringResource(notification.titleRes),
+                    body = stringResource(notification.bodyRes),
+                    rightTime = stringResource(notification.timeRes),
+                    bottomAccent = notification.detailRes?.let { stringResource(it) }
+                )
+                Spacer(Modifier.height(6.dp))
             }
         }
     }
 }
 
-private data class NotiUi(
-    val iconRes: Int,
-    @StringRes val titleRes: Int,
-    @StringRes val bodyRes: Int,
-    val rightTime: String,
-    val bottomAccent: String?
+private fun getTodayNotifications(): List<NotificationItem> = listOf(
+    NotificationItem(
+        iconRes = R.drawable.vector_bell,
+        titleRes = R.string.notif_title_reminder,
+        bodyRes = R.string.notif_body_savings,
+        timeRes = R.string.notif_time_example
+    ),
+    NotificationItem(
+        iconRes = R.drawable.vector_star,
+        titleRes = R.string.notif_title_new_update,
+        bodyRes = R.string.notif_body_savings,
+        timeRes = R.string.notif_time_example
+    )
+)
+
+private fun getYesterdayNotifications(): List<NotificationItem> = listOf(
+    NotificationItem(
+        iconRes = R.drawable.vector__1_dolar,
+        titleRes = R.string.notif_title_transactions,
+        bodyRes = R.string.notif_body_registered,
+        timeRes = R.string.notif_time_example,
+        detailRes = R.string.notif_detail_groceries
+    ),
+    NotificationItem(
+        iconRes = R.drawable.vector_bell,
+        titleRes = R.string.notif_title_reminder,
+        bodyRes = R.string.notif_body_savings,
+        timeRes = R.string.notif_time_example
+    )
+)
+
+private fun getThisWeekendNotifications(): List<NotificationItem> = listOf(
+    NotificationItem(
+        iconRes = R.drawable.vector_2_down,
+        titleRes = R.string.notif_title_expense_record,
+        bodyRes = R.string.notif_body_recommendation,
+        timeRes = R.string.notif_time_example
+    ),
+    NotificationItem(
+        iconRes = R.drawable.group_dolar,
+        titleRes = R.string.notif_title_transactions,
+        bodyRes = R.string.notif_body_registered,
+        timeRes = R.string.notif_time_example,
+        detailRes = R.string.notif_detail_food
+    )
 )
 
 @Preview(showSystemUi = true)
