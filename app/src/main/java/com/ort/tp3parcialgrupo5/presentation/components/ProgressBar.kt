@@ -12,6 +12,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
@@ -22,21 +23,19 @@ fun ProgressBar(
 ) {
     Box(
         modifier = modifier
-            .fillMaxWidth()
+            .width(280.dp)
             .height(27.dp)
-            .clip(RoundedCornerShape(50))
+            .clip(RoundedCornerShape(13.5.dp))
             .background(Color.White)
     ) {
         val progress = (progressPercent.coerceIn(0, 100)) / 100f
-
         Box(
             modifier = Modifier
                 .fillMaxHeight()
                 .fillMaxWidth(progress)
-                .clip(RoundedCornerShape(50))
+                .clip(RoundedCornerShape(13.dp))
                 .background(Color.Black)
         )
-
         Row(
             modifier = Modifier
                 .matchParentSize()
@@ -57,6 +56,19 @@ fun ProgressBar(
                 fontWeight = FontWeight.SemiBold
             )
         }
+    }
+}
+
+@Preview(showBackground = true, backgroundColor = 0xFF031314)
+@Composable
+private fun PreviewProgressBar() {
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(16.dp)
+            .background(Color(0xFF031314))
+    ) {
+        ProgressBar(progressPercent = 30, goalAmount = "$20,000.00")
     }
 }
 

@@ -37,9 +37,17 @@ val SurfaceVariantDark = Color(0xFF203A3F)
 
 // Summary Section
 val SummaryGreen = Color(0xFF00D09E)
+val CarIconBlue = Color(0xFF0068FF)  // #0068FF
+val SummarySubtitleDark = Color(0xFF052224)  // #052224
 
 // Transaction List
 val TransactionBg = Color(0xFF093030)
+
+// Account Balance Section
+val AccountBalanceLabel = Color(0xFFF1FFF3)  // #F1FFF3
+val AccountBalanceDivider = Color(0xFFDFF7E2)  // #DFF7E2
+val AccountBalanceAmount = Color(0xFFFFFFFF)  // #FFFFFF (White)
+val ExpenseLooksGood = Color(0xFFFFFFFF)  // #FFFFFF (White)
 
 object FinWiseColors {
     val BgDark  = Color(red = 5, green = 34, blue = 36)       

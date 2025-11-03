@@ -12,9 +12,15 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.ort.tp3parcialgrupo5.R
+import com.ort.tp3parcialgrupo5.ui.theme.AccountBalanceAmount
+import com.ort.tp3parcialgrupo5.ui.theme.AccountBalanceDivider
+import com.ort.tp3parcialgrupo5.ui.theme.AccountBalanceLabel
 import com.ort.tp3parcialgrupo5.ui.theme.CyanAccent
+import com.ort.tp3parcialgrupo5.ui.theme.ExpenseLooksGood
 import java.text.NumberFormat
 import java.util.Locale
 
@@ -43,14 +49,18 @@ fun AccountBalanceSection(
             modifier = Modifier
                 .fillMaxWidth()
                 .height(IntrinsicSize.Min),
-            horizontalArrangement = Arrangement.SpaceBetween,
+            horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically
         ) {
             Column(
-                modifier = Modifier.weight(1f),
+                modifier = Modifier,
+                horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.spacedBy(2.dp)
             ) {
-                Row(verticalAlignment = Alignment.CenterVertically) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.Center
+                ) {
                     Icon(
                         painter = painterResource(R.drawable.flechatotalbalance),
                         contentDescription = null,
@@ -61,14 +71,14 @@ fun AccountBalanceSection(
                     Text(
                         text = stringResource(R.string.total_balance),
                         style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.7f)
+                        color = AccountBalanceLabel
                     )
                 }
                 Text(
                     text = currencyFormatter.format(totalBalanceVal),
-                    style = MaterialTheme.typography.headlineLarge,
+                    fontSize = 24.sp,
                     fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.onBackground
+                    color = AccountBalanceAmount
                 )
             }
 
@@ -77,15 +87,18 @@ fun AccountBalanceSection(
                     .padding(horizontal = 16.dp)
                     .fillMaxHeight()
                     .width(1.dp)
-                    .background(MaterialTheme.colorScheme.onBackground.copy(alpha = 0.25f))
+                    .background(AccountBalanceDivider)
             )
 
             Column(
-                modifier = Modifier.weight(1f),
-                horizontalAlignment = Alignment.End,
+                modifier = Modifier,
+                horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.spacedBy(2.dp)
             ) {
-                Row(verticalAlignment = Alignment.CenterVertically) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.Center
+                ) {
                     Icon(
                         painter = painterResource(R.drawable.flechatotalexpense),
                         contentDescription = null,
@@ -96,22 +109,28 @@ fun AccountBalanceSection(
                     Text(
                         text = stringResource(R.string.total_expense),
                         style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.7f)
+                        color = AccountBalanceLabel
                     )
                 }
                 Text(
                     text = "-${currencyFormatter.format(totalExpenseVal)}",
-                    style = MaterialTheme.typography.headlineLarge,
+                    fontSize = 24.sp,
                     fontWeight = FontWeight.Bold,
                     color = CyanAccent
                 )
             }
         }
 
-        ProgressBar(
-            progressPercent = progressPercentVal,
-            goalAmount = currencyFormatter.format(goalTargetUsdVal)
-        )
+        Box(
+            modifier = Modifier
+                .fillMaxWidth(),
+            contentAlignment = Alignment.Center
+        ) {
+            ProgressBar(
+                progressPercent = progressPercentVal,
+                goalAmount = currencyFormatter.format(goalTargetUsdVal)
+            )
+        }
 
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -128,8 +147,22 @@ fun AccountBalanceSection(
             Text(
                 text = stringResource(R.string.expense_looks_good),
                 style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.7f)
+                color = ExpenseLooksGood
             )
+        }
+    }
+}
+
+@Preview(showBackground = true, backgroundColor = 0xFF031314)
+@Composable
+private fun PreviewAccountBalanceSection() {
+    MaterialTheme {
+        Box(
+            modifier = Modifier
+                .background(Color(0xFF031314))
+                .padding(16.dp)
+        ) {
+            AccountBalanceSection()
         }
     }
 }

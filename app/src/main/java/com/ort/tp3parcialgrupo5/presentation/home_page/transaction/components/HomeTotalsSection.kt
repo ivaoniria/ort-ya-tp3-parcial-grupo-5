@@ -65,10 +65,15 @@ fun HomeTotalsSection(
         }
 
 
-        ProgressBar(
-            progressPercent = (progressFraction * 100).toInt(),
-            goalAmount = goalPillText
-        )
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.Center
+        ) {
+            ProgressBar(
+                progressPercent = (progressFraction * 100).toInt(),
+                goalAmount = goalPillText
+            )
+        }
 
         Row(
             modifier = Modifier.fillMaxWidth(),

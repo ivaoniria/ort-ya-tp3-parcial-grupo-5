@@ -67,7 +67,6 @@ private fun TransactionRow(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(14.dp)
     ) {
-        // Icono
         Icon(
             painter = painterResource(id = iconRes),
             contentDescription = null,
