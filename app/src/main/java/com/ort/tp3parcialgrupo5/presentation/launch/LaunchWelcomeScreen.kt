@@ -29,7 +29,7 @@ fun LaunchWelcomeScreen(
         LaunchLayoutsCenteredColumn {
             Image(
                 painter = painterResource(id = R.drawable.vector__1_),
-                contentDescription = "Logo FinWise"
+                contentDescription = stringResource(id = R.string.logo_finwise)
             )
 
             Spacer(modifier = Modifier.height(16.dp))
