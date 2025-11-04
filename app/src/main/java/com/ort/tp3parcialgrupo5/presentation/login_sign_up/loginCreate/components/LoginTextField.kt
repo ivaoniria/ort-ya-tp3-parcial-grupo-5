@@ -27,7 +27,6 @@ fun LoginTextField(
     placeholder: String,
     isPassword: Boolean
 ) {
-    // Label
     Text(
         text = label,
         style = AppTypography.titleSmall,
@@ -40,7 +39,7 @@ fun LoginTextField(
     val bg = colorResource(R.color.bg_green_white)
     val txt = colorResource(R.color.letters_and_icons)
 
-    // Contenedor pill con altura y padding exactos (↓ menos padding vertical)
+
     Box(
         modifier = Modifier
             .fillMaxWidth()

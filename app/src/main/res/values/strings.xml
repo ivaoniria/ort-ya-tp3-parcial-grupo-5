@@ -29,6 +29,13 @@
     <string name="already_have_an_account">Already have an account?</string>
   <!-- Create Account -->
 
+    <!-- Placeholders -->
+    <string name="placeholder_email">example@example.com</string>
+    <string name="placeholder_password">........</string>
+    <string name="placeholder_mobile_number">+ 123 456 789</string>
+    <string name="placeholder_dob">DD / MM / YYY</string>
+    <!-- Placeholders -->
+
   <!-- Transaction -->
         <string name="transaction_title">Transaction</string>
         <string name="label_total_balance">Total Balance</string>

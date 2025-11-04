@@ -23,7 +23,6 @@ import com.ort.tp3parcialgrupo5.ui.theme.AppTypography
 
 @Composable
 fun CreateAccountScreen() {
-    // Solo estado local para render visual de los campos
     var fullName by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
     var mobileNumber by remember { mutableStateOf("") }

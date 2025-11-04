@@ -33,7 +33,6 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.ort.tp3parcialgrupo5.R
-import com.ort.tp3parcialgrupo5.presentation.login_sign_up.loginCreate.components.CreateAccountScreen
 import com.ort.tp3parcialgrupo5.presentation.login_sign_up.loginCreate.components.LoginButton
 import com.ort.tp3parcialgrupo5.presentation.login_sign_up.loginCreate.components.LoginTextField
 import com.ort.tp3parcialgrupo5.ui.theme.AppTypography
@@ -81,7 +80,7 @@ fun CreateAccountScreen() {
                     label = stringResource(id = R.string.full_name),
                     value = fullName,
                     onValueChange = { fullName = it },
-                    placeholder = "example@example.com",
+                    placeholder = stringResource(id = R.string.placeholder_email),
                     isPassword = false
                 )
                 Spacer(modifier = Modifier.height(16.dp))
@@ -89,7 +88,7 @@ fun CreateAccountScreen() {
                     label = stringResource(id = R.string.email),
                     value = email,
                     onValueChange = { email = it },
-                    placeholder = "example@example.com",
+                    placeholder = stringResource(id = R.string.placeholder_email),
                     isPassword = false
                 )
                 Spacer(modifier = Modifier.height(16.dp))
@@ -97,7 +96,7 @@ fun CreateAccountScreen() {
                     label = stringResource(id = R.string.mobile_number),
                     value = mobileNumber,
                     onValueChange = { mobileNumber = it },
-                    placeholder = "+ 123 456 789",
+                    placeholder = stringResource(id = R.string.placeholder_mobile_number),
                     isPassword = false
                 )
                 Spacer(modifier = Modifier.height(16.dp))
@@ -105,7 +104,7 @@ fun CreateAccountScreen() {
                     label = stringResource(id = R.string.date_of_birth),
                     value = dateOfBirth,
                     onValueChange = { dateOfBirth = it },
-                    placeholder = "DD / MM / YYY",
+                    placeholder = stringResource(id = R.string.placeholder_dob),
                     isPassword = false
                 )
                 Spacer(modifier = Modifier.height(16.dp))
@@ -113,7 +112,7 @@ fun CreateAccountScreen() {
                     label = stringResource(id = R.string.password),
                     value = password,
                     onValueChange = { password = it },
-                    placeholder = "........",
+                    placeholder = stringResource(id = R.string.placeholder_password),
                     isPassword = true
                 )
                 Spacer(modifier = Modifier.height(16.dp))
@@ -121,7 +120,7 @@ fun CreateAccountScreen() {
                     label = stringResource(id = R.string.confirm_password),
                     value = confirmPassword,
                     onValueChange = { confirmPassword = it },
-                    placeholder = "........",
+                    placeholder = stringResource(id = R.string.placeholder_password),
                     isPassword = true
                 )
 

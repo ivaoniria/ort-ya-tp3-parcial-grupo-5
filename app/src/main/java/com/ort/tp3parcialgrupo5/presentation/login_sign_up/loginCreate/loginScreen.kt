@@ -47,7 +47,6 @@ fun LoginScreen() {
         Card(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(680.dp)
                 .align(Alignment.BottomCenter),
             shape = RoundedCornerShape(topStart = 32.dp, topEnd = 32.dp),
             elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
@@ -58,7 +57,7 @@ fun LoginScreen() {
                     label = stringResource(id = R.string.username_or_email),
                     value = email,
                     onValueChange = { email = it },
-                    placeholder = "example@example.com",
+                    placeholder = stringResource(id = R.string.placeholder_email),
                     isPassword = false
                 )
                 Spacer(modifier = Modifier.height(16.dp))
@@ -66,7 +65,7 @@ fun LoginScreen() {
                     label = stringResource(id = R.string.password),
                     value = password,
                     onValueChange = { password = it },
-                    placeholder = "........",
+                    placeholder = stringResource(id = R.string.placeholder_password),
                     isPassword = true
                 )
                 Spacer(modifier = Modifier.height(24.dp))
