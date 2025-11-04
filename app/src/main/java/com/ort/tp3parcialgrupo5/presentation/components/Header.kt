@@ -27,8 +27,9 @@ fun Header(
 ) {
     Row(
         modifier = Modifier.fillMaxWidth()
-            .padding(top = 15.dp, bottom = 40.dp),
+            .padding(top = 15.dp, bottom = 20.dp),
         verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(12.dp)
     ) {
         Box(
             modifier = Modifier
