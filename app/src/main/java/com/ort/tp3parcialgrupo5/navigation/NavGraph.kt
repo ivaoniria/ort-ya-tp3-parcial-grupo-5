@@ -14,8 +14,8 @@ import com.ort.tp3parcialgrupo5.presentation.categories.CategoriesScreen
 import com.ort.tp3parcialgrupo5.presentation.home_screen.HomePageScreen
 import com.ort.tp3parcialgrupo5.presentation.launch.LaunchInitialScreen
 import com.ort.tp3parcialgrupo5.presentation.launch.LaunchWelcomeScreen
-import com.ort.tp3parcialgrupo5.presentation.login_sign_up.loginCreate.LoginScreen
-import com.ort.tp3parcialgrupo5.presentation.login_sign_up.loginCreate.CreateAccountScreen
+import com.ort.tp3parcialgrupo5.presentation.login_sign_up.login_create.LoginScreen
+import com.ort.tp3parcialgrupo5.presentation.login_sign_up.login_create.CreateAccountScreen
 import com.ort.tp3parcialgrupo5.presentation.notification.NotificationScreen
 import com.ort.tp3parcialgrupo5.presentation.on_boarding.OnboardingScreen
 import com.ort.tp3parcialgrupo5.presentation.transaction.TransactionScreen
