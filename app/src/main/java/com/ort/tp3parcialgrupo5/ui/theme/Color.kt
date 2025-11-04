@@ -5,7 +5,8 @@ import androidx.compose.ui.graphics.Color
 // ===== Template =====
 
 // Generic Colors
-val BackgroundContainer = Color(0xFF093030) // #093030
+val BackgroundMainContainer = Color(0xFF052224) // #052224
+val BackgroundListContainer = Color(0xFF093030) // #093030
 val BackgroundBottomNav = Color(0xFF0E3E3E) // #0E3E3E
 
 val Purple80 = Color(0xFFD0BCFF)

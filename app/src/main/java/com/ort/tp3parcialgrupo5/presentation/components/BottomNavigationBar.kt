@@ -15,6 +15,7 @@ import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
 
 import com.ort.tp3parcialgrupo5.ui.theme.BackgroundBottomNav
+import com.ort.tp3parcialgrupo5.ui.theme.BackgroundListContainer
 import com.ort.tp3parcialgrupo5.ui.theme.FinBrand
 
 data class BottomNavItem(
@@ -36,7 +37,7 @@ fun BottomNavigationBar(
         modifier = modifier
             .fillMaxWidth()
             .height(108.dp),
-        color = Color.Transparent
+        color = BackgroundListContainer
     ) {
         Box(
             modifier = Modifier

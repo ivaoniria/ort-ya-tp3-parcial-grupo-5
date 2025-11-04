@@ -3,12 +3,14 @@ package com.ort.tp3parcialgrupo5.presentation.home_page.home_screen.components
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
@@ -21,9 +23,11 @@ fun PeriodTabs(modifier: Modifier = Modifier) {
     val tabs = listOf("Daily", "Weekly", "Monthly")
     Row(
         modifier = modifier
+            .fillMaxWidth()
             .background(Color(0xFF0E3E3E), shape = RoundedCornerShape(22.dp))
             .padding(top = 6.dp, end = 14.dp, bottom = 6.dp, start = 14.dp),
-        horizontalArrangement = Arrangement.spacedBy(24.dp, androidx.compose.ui.Alignment.CenterHorizontally)
+        Arrangement.SpaceAround,
+        Alignment.CenterVertically
     ) {
         tabs.forEachIndexed { i, txt ->
             val selected = i == selectedIndex
@@ -39,7 +43,7 @@ fun PeriodTabs(modifier: Modifier = Modifier) {
                         text = txt,
                         modifier = Modifier.padding(horizontal = 20.dp, vertical = 10.dp),
                         style = MaterialTheme.typography.bodyMedium,
-                        color = Color.White
+                        color = Color.Black
                     )
                 }
             } else {
