@@ -36,6 +36,7 @@ fun HomePageScreen(
             item { PeriodTabs() }
             item { Spacer(modifier.height(12.dp)) }
             item { TransactionListSection() }
+            item { Spacer(modifier.height(90.dp)) }
         }
     )
 }
