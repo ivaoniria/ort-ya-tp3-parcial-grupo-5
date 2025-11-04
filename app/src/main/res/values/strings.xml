@@ -24,6 +24,13 @@
     <string name="google_desc">Google</string>
     <!-- Login -->
 
+    <!-- Security NewPassword -->
+    <string name="new_password_title">New Password</string>
+    <string name="new_password_label">New Password</string>
+    <string name="confirm_new_password_label">Confirm New Password</string>
+    <string name="change_password_button">Change Password</string>
+    <!-- Security NewPassword -->
+
     <!-- Create Account -->
     <string name="create_account">Create Account</string>
     <string name="full_name">Full Name</string>
