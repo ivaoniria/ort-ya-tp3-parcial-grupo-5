@@ -12,12 +12,16 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
+import com.ort.tp3parcialgrupo5.R
 import com.ort.tp3parcialgrupo5.presentation.login_sign_up.loginCreate.components.LoginTextField
 import com.ort.tp3parcialgrupo5.ui.theme.CyanAccent
+import com.ort.tp3parcialgrupo5.ui.theme.CategoryDialogBackground
+import com.ort.tp3parcialgrupo5.ui.theme.CategoryButtonCancelColor
 
 @Composable
 fun NewCategoryDialog(
@@ -35,7 +39,7 @@ fun NewCategoryDialog(
     ) {
         Box(
             modifier = Modifier
-                .background(Color(0xFF0A2F2F), RoundedCornerShape(16.dp))
+                .background(CategoryDialogBackground, RoundedCornerShape(16.dp))
                 .padding(24.dp)
                 .width(300.dp),
             contentAlignment = Alignment.Center
@@ -46,7 +50,7 @@ fun NewCategoryDialog(
                 verticalArrangement = Arrangement.spacedBy(16.dp)
             ) {
                 Text(
-                    text = "New Category",
+                    text = stringResource(R.string.new_category_title),
                     color = Color.White,
                     fontSize = 18.sp,
                     fontWeight = FontWeight.Bold
@@ -56,7 +60,7 @@ fun NewCategoryDialog(
                     label = "",
                     value = categoryName.value,
                     onValueChange = { categoryName.value = it },
-                    placeholder = "Write...",
+                    placeholder = stringResource(R.string.new_category_placeholder),
                     isPassword = false
                 )
 
@@ -78,7 +82,7 @@ fun NewCategoryDialog(
                     enabled = categoryName.value.isNotEmpty()
                 ) {
                     Text(
-                        text = "Save",
+                        text = stringResource(R.string.new_category_save),
                         color = Color.Black,
                         fontWeight = FontWeight.SemiBold
                     )
@@ -90,12 +94,12 @@ fun NewCategoryDialog(
                         .fillMaxWidth()
                         .height(45.dp),
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = Color(0xFFE8F5E9)
+                        containerColor = CategoryButtonCancelColor
                     ),
                     shape = RoundedCornerShape(50.dp)
                 ) {
                     Text(
-                        text = "Cancel",
+                        text = stringResource(R.string.new_category_cancel),
                         color = Color.Black,
                         fontWeight = FontWeight.SemiBold
                     )
