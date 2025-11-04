@@ -25,7 +25,10 @@ val FinBtnText = Color(0xFF0E3E3E)
 val FinWhite   = Color(0xFFFFFFFF)
 val FinWhite80 = Color(0xCCFFFFFF)
 val FinWhite90 = Color(0xE6FFFFFF)
+val FinWhite95 = Color(0xF2FFFFFF)
+val FinWhite40 = Color(0x66FFFFFF)
 val FinPanel = Color(0xFF0E3E3E)
+val FinButtonText = Color(0xD9000000)
 
 // ===== Home =====
 val BgStart = Color(0xFF061F20)
