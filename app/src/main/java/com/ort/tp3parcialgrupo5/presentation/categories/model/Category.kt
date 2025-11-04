@@ -8,4 +8,3 @@ data class Category(
     @StringRes val nameRes: Int,
     val isSpecialColor: Boolean = false
 )
-

@@ -19,8 +19,7 @@ import com.ort.tp3parcialgrupo5.R
 import com.ort.tp3parcialgrupo5.ui.theme.AccountBalanceAmount
 import com.ort.tp3parcialgrupo5.ui.theme.AccountBalanceDivider
 import com.ort.tp3parcialgrupo5.ui.theme.AccountBalanceLabel
-import com.ort.tp3parcialgrupo5.ui.theme.CyanAccent
-import com.ort.tp3parcialgrupo5.ui.theme.ExpenseLooksGood
+import com.ort.tp3parcialgrupo5.ui.theme.BlueButton
 import java.text.NumberFormat
 import java.util.Locale
 
@@ -116,7 +115,7 @@ fun AccountBalanceSection(
                     text = "-${currencyFormatter.format(totalExpenseVal)}",
                     fontSize = 24.sp,
                     fontWeight = FontWeight.Bold,
-                    color = CyanAccent
+                    color = BlueButton
                 )
             }
         }

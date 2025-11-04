@@ -43,7 +43,7 @@ fun LaunchInitialScreen(
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 Image(
                     painter = painterResource(id = R.drawable.vector),
-                    contentDescription = "Logo FinWise"
+                    contentDescription = stringResource(id = R.string.logo_finwise)
                 )
                 Spacer(modifier = Modifier.height(16.dp))
                 Text(

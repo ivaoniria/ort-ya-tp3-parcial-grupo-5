@@ -19,7 +19,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.ort.tp3parcialgrupo5.presentation.home_page.home_screen.components.SummarySection
+import com.ort.tp3parcialgrupo5.presentation.home_screen.components.SummarySection
 
 import com.ort.tp3parcialgrupo5.ui.theme.BackgroundListContainer
 import com.ort.tp3parcialgrupo5.ui.theme.BackgroundMainContainer
