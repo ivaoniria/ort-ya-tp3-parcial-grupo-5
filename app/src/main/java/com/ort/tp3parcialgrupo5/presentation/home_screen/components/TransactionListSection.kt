@@ -1,4 +1,4 @@
-package com.ort.tp3parcialgrupo5.presentation.home_page.home_screen.components
+package com.ort.tp3parcialgrupo5.presentation.home_screen.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*

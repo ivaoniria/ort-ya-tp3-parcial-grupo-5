@@ -1,4 +1,4 @@
-package com.ort.tp3parcialgrupo5.presentation.home_page.transaction
+package com.ort.tp3parcialgrupo5.presentation.transaction
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.items
@@ -15,8 +15,8 @@ import com.ort.tp3parcialgrupo5.presentation.components.BaseLayout
 import com.ort.tp3parcialgrupo5.presentation.components.Header
 import com.ort.tp3parcialgrupo5.presentation.components.PercentExpensesSection
 import com.ort.tp3parcialgrupo5.presentation.components.TransactionRow
-import com.ort.tp3parcialgrupo5.presentation.home_page.transaction.components.MonthHeader
-import com.ort.tp3parcialgrupo5.presentation.home_page.transaction.components.TopBalanceCard
+import com.ort.tp3parcialgrupo5.presentation.transaction.components.MonthHeader
+import com.ort.tp3parcialgrupo5.presentation.transaction.components.TopBalanceCard
 import com.ort.tp3parcialgrupo5.ui.theme.CyanAccent
 
 @Composable
