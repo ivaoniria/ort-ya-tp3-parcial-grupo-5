@@ -36,7 +36,10 @@ private val onbPages = listOf(
 )
 
 @Composable
-fun OnboardingScreen(onFinish: () -> Unit = {}) {
+fun OnboardingScreen(
+    loginType: String = "login", // "login" o "signup"
+    onFinish: () -> Unit = {}
+) {
     var page by remember { mutableStateOf(0) }
     var dragAccum by remember { mutableStateOf(0f) }
 
@@ -92,7 +95,13 @@ fun OnboardingScreen(onFinish: () -> Unit = {}) {
                         Spacer(Modifier.weight(1f))
 
                         Button(
-                            onClick = { if (page < onbPages.lastIndex) page += 1 else onFinish() },
+                            onClick = {
+                                if (page < onbPages.lastIndex) {
+                                    page += 1
+                                } else {
+                                    onFinish()
+                                }
+                            },
                             shape = androidx.compose.foundation.shape.RoundedCornerShape(28.dp),
                             modifier = Modifier
                                 .fillMaxWidth(0.55f)
