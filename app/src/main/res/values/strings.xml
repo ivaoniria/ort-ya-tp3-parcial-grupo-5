@@ -7,16 +7,17 @@
     <string name="login">Log In</string>
     <string name="sign_up">Sign Up</string>
     <string name="forgot_password">Forgot Password?</string>
-  <!-- Launch -->
+    <string name="logo_finwise">Logo FinWise</string>
+    <!-- Launch -->
 
-  <!-- Login -->
+    <!-- Login -->
     <string name="welcome">Welcome</string>
     <string name="username_or_email">Username Or Email</string>
     <string name="password">Password</string>
     <string name="log_in">Log In</string>
-  <!-- Login -->
+    <!-- Login -->
 
-  <!-- Create Account -->
+    <!-- Create Account -->
     <string name="create_account">Create Account</string>
     <string name="full_name">Full Name</string>
     <string name="email">Email</string>
@@ -27,7 +28,7 @@
     <string name="terms_of_use">Terms of Use</string>
     <string name="privacy_policy">Privacy Policy</string>
     <string name="already_have_an_account">Already have an account?</string>
-  <!-- Create Account -->
+    <!-- Create Account -->
 
     <!-- Placeholders -->
     <string name="placeholder_email">example@example.com</string>
@@ -36,13 +37,13 @@
     <string name="placeholder_dob">DD / MM / YYY</string>
     <!-- Placeholders -->
 
-  <!-- Transaction -->
-        <string name="transaction_title">Transaction</string>
-        <string name="label_total_balance">Total Balance</string>
-        <string name="label_total_expense">Total Expense</string>
-        <string name="summary_note_default">30% Of Your Expenses, Looks Good.</string>
-        <string name="month_april">April</string>
-        <string name="month_march">March</string>
+    <!-- Transaction -->
+    <string name="transaction_title">Transaction</string>
+    <string name="label_total_balance">Total Balance</string>
+    <string name="label_total_expense">Total Expense</string>
+    <string name="summary_note_default">30% Of Your Expenses, Looks Good.</string>
+    <string name="month_april">April</string>
+    <string name="month_march">March</string>
     <!-- Transaction -->
 
     <!-- HomeScreen -->
@@ -100,6 +101,26 @@
     <string name="food_category">Dinner</string>
     <!-- HomeScreen -->
 
+    <!-- Categories Screen -->
+    <string name="categories_title">Categories</string>
+    <string name="category_food">Food</string>
+    <string name="category_transport">Transport</string>
+    <string name="category_medicine">Medicine</string>
+    <string name="category_groceries">Groceries</string>
+    <string name="category_rent">Rent</string>
+    <string name="category_gifts">Gifts</string>
+    <string name="category_savings">Savings</string>
+    <string name="category_entertainment">Entertainment</string>
+    <string name="category_more">More</string>
+    <!-- Categories Screen -->
+
+    <!-- New Category Dialog -->
+    <string name="new_category_title">New Category</string>
+    <string name="new_category_placeholder">Write...</string>
+    <string name="new_category_save">Save</string>
+    <string name="new_category_cancel">Cancel</string>
+    <!-- Categories Screen -->
+
     <!-- OnBouarding -->
     <string name="onb_title_1">Welcome To\nExpense Manager</string>
     <string name="onb_title_2">¿Are You Ready To\nTake Control Of\nYour Finances?</string>
@@ -108,33 +129,19 @@
     <!-- OnBouarding -->
 
     <!-- Notification -->
-        <string name="notification_title">Notification</string>
-        <string name="section_today">Today</string>
-        <string name="section_yesterday">Yesterday</string>
-        <string name="section_this_weekend">This Weekend</string>
-        <string name="notif_title_reminder">Reminder!</string>
-        <string name="notif_title_new_update">New Update</string>
-        <string name="notif_title_transactions">Transactions</string>
-        <string name="notif_title_expense_record">Expense Record</string>
-        <string name="notif_body_savings">Set up your automatic savings to meet your savings goal…</string>
-        <string name="notif_body_registered">A new transaction has been registered</string>
-        <string name="notif_body_recommendation">We recommend that you be more attentive to your finances.</string>
-        <string name="notif_time_example">17:00 - April 24</string>
-        <string name="notif_detail_groceries">Groceries | Pantry | -$100,00</string>
-        <string name="notif_detail_food">Food | Dinner | -$70,40</string>
+    <string name="notification_title">Notification</string>
+    <string name="section_today">Today</string>
+    <string name="section_yesterday">Yesterday</string>
+    <string name="section_this_weekend">This Weekend</string>
+    <string name="notif_title_reminder">Reminder!</string>
+    <string name="notif_title_new_update">New Update</string>
+    <string name="notif_title_transactions">Transactions</string>
+    <string name="notif_title_expense_record">Expense Record</string>
+    <string name="notif_body_savings">Set up your automatic savings to meet your savings goal…</string>
+    <string name="notif_body_registered">A new transaction has been registered</string>
+    <string name="notif_body_recommendation">We recommend that you be more attentive to your finances.</string>
+    <string name="notif_time_example">17:00 - April 24</string>
+    <string name="notif_detail_groceries">Groceries | Pantry | -$100,00</string>
+    <string name="notif_detail_food">Food | Dinner | -$70,40</string>
     <!-- Notification -->
-
-    <!-- Categories -->
-        <string name="categories_title">Categories</string>
-        <string name="category_food">Food</string>
-        <string name="category_transport">Transport</string>
-        <string name="category_medicine">Medicine</string>
-        <string name="category_groceries">Groceries</string>
-        <string name="category_rent">Rent</string>
-        <string name="category_gifts">Gifts</string>
-        <string name="category_savings">Savings</string>
-        <string name="category_entertainment">Entertainment</string>
-        <string name="category_more">More</string>
-    <!-- Categories -->
-
 </resources>
