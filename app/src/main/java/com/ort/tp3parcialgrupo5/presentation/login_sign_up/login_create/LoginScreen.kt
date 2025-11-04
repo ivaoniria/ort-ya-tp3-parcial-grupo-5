@@ -23,10 +23,11 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import com.ort.tp3parcialgrupo5.ui.theme.AppTypography
+import com.ort.tp3parcialgrupo5.ui.theme.FinWhite
+import com.ort.tp3parcialgrupo5.ui.theme.FinBrand
+import com.ort.tp3parcialgrupo5.ui.theme.FinBtnText
 
 @Composable
 fun LoginScreen(
@@ -62,14 +63,14 @@ fun LoginScreen(
                     LoginButton(
                         text = stringResource(id = R.string.log_in),
                         onClick = { onLoginSuccess() },
-                        backgroundColor = colorResource(id = R.color.main_green),
-                        textColor = colorResource(id = R.color.letters_and_icons)
+                        backgroundColor = FinBrand,
+                        textColor = FinBtnText
                     )
                     Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
                         TextButton(onClick = { /*TODO*/ }) {
                             Text(
                                 text = stringResource(id = R.string.forgot_password),
-                                color = Color.White,
+                                color = FinWhite,
                                 style = AppTypography.bodyLarge
                             )
                         }
@@ -78,8 +79,8 @@ fun LoginScreen(
                     LoginButton(
                         text = stringResource(id = R.string.sign_up),
                         onClick = { onSignUpClick() },
-                        backgroundColor = colorResource(id = R.color.bg_green_white),
-                        textColor = colorResource(id = R.color.letters_and_icons)
+                        backgroundColor = FinWhite,
+                        textColor = FinBtnText
                     )
                     Spacer(modifier = Modifier.height(16.dp))
                     LoginFooter()
