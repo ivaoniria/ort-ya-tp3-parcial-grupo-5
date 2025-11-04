@@ -115,7 +115,6 @@ fun AppNavGraph(navController: NavHostController) {
             composable("onboarding/{loginType}") { backStackEntry ->
                 val loginType = backStackEntry.arguments?.getString("loginType") ?: "login"
                 OnboardingScreen(
-                    loginType = loginType,
                     onFinish = {
                         if (loginType == "login") {
                             navController.navigate("login") {
