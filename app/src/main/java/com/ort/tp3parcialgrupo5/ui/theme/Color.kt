@@ -5,9 +5,9 @@ import androidx.compose.ui.graphics.Color
 // ===== Template =====
 
 // Generic Colors
-val BackgroundMainContainer = Color(0xFF052224) // #052224
-val BackgroundListContainer = Color(0xFF093030) // #093030
-val BackgroundBottomNav = Color(0xFF0E3E3E) // #0E3E3E
+val BackgroundMainContainer = Color(0xFF052224)
+val BackgroundListContainer = Color(0xFF093030)
+val BackgroundBottomNav = Color(0xFF0E3E3E)
 
 val Purple80 = Color(0xFFD0BCFF)
 val PurpleGrey80 = Color(0xFFCCC2DC)
@@ -18,13 +18,13 @@ val PurpleGrey40 = Color(0xFF625b71)
 val Pink40 = Color(0xFF7D5260)
 
 // ===== Paleta FinWise (se mantiene para onboarding/launch) =====
-val FinBrand   = Color(0xFF00D09E) // #00D09E
-val FinBg      = Color(0xFF052224) // #052224
-val FinBtnText = Color(0xFF0E3E3E) // #0E3E3E
+val FinBrand   = Color(0xFF00D09E)
+val FinBg      = Color(0xFF052224)
+val FinBtnText = Color(0xFF0E3E3E)
 
 val FinWhite   = Color(0xFFFFFFFF)
-val FinWhite80 = Color(0xCCFFFFFF) // 80%
-val FinWhite90 = Color(0xE6FFFFFF) // 90%
+val FinWhite80 = Color(0xCCFFFFFF)
+val FinWhite90 = Color(0xE6FFFFFF)
 val FinPanel = Color(0xFF0E3E3E)
 
 // ===== Home =====
@@ -49,6 +49,18 @@ val AccountBalanceLabel = Color(0xFFF1FFF3)
 val AccountBalanceDivider = Color(0xFFDFF7E2)
 val AccountBalanceAmount = Color(0xFFFFFFFF)
 val ExpenseLooksGood = Color(0xFFFFFFFF)
+
+// Categories
+val CategoryDefaultColor = Color(0xFF6DB6FE)
+val CategorySpecialColor = Color(0xFF0068FF)
+val CategoryDialogBackground = Color(0xFF0A2F2F)
+val CategoryButtonCancelColor = Color(0xFFE8F5E9)
+
+// Home Screen - HeaderSection
+val HeaderBellBackground = Color(0xFFE6F0EB)
+
+// Home Screen - SummarySection
+val SummarySubtitleTextDark = Color(0xFF052224)
 
 object FinWiseColors {
     val BgDark  = Color(red = 5, green = 34, blue = 36)       
