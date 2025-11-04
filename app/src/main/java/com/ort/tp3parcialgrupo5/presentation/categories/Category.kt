@@ -1,4 +1,4 @@
-package com.ort.tp3parcialgrupo5.presentation.categories.model
+package com.ort.tp3parcialgrupo5.presentation.categories
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
@@ -8,4 +8,3 @@ data class Category(
     @StringRes val nameRes: Int,
     val isSpecialColor: Boolean = false
 )
-
