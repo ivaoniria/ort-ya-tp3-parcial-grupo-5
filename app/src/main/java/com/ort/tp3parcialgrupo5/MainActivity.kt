@@ -23,7 +23,6 @@ import com.ort.tp3parcialgrupo5.presentation.home_page.home_screen.HomePageScree
 import com.ort.tp3parcialgrupo5.presentation.home_page.transaction.TransactionScreen
 import com.ort.tp3parcialgrupo5.presentation.home_page.notification.NotificationScreen
 import com.ort.tp3parcialgrupo5.ui.theme.TP3ParcialGrupo5Theme
-import com.ort.tp3parcialgrupo5.ui.theme.BackgroundContainer
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,7 +39,7 @@ class MainActivity : ComponentActivity() {
                     BottomNavItem("Profile", R.drawable.profile, "profile")
                 )
 
-                Scaffold(modifier = Modifier.fillMaxSize(), containerColor = BackgroundContainer, bottomBar = {
+                Scaffold(modifier = Modifier.fillMaxSize(), bottomBar = {
 
                     val currentDestination = navController
                         .currentBackStackEntryAsState().value?.destination?.route
@@ -51,7 +50,6 @@ class MainActivity : ComponentActivity() {
                         onItemSelected = { route ->
                             when (route) {
                                 "home" -> {
-                                    // El primer botón (Home) siempre va a la HomeScreen
                                     navController.navigate("home") {
                                         popUpTo(navController.graph.startDestinationId) {
                                             inclusive = false
@@ -60,7 +58,6 @@ class MainActivity : ComponentActivity() {
                                     }
                                 }
                                 "transactions" -> {
-                                    // El tercer botón (Transactions) siempre va a TransactionScreen
                                     navController.navigate("transactions") {
                                         popUpTo(navController.graph.startDestinationId) {
                                             inclusive = false
@@ -69,7 +66,6 @@ class MainActivity : ComponentActivity() {
                                     }
                                 }
                                 "layers" -> {
-                                    // El cuarto botón (Layers) siempre va a CategoriesScreen
                                     navController.navigate("layers") {
                                         popUpTo(navController.graph.startDestinationId) {
                                             inclusive = false
@@ -94,9 +90,7 @@ class MainActivity : ComponentActivity() {
                         modifier = Modifier.padding(innerPadding)
                     ) {
                         composable("home") {
-                            HomePageScreen(
-                                onBell = { navController.navigate("notifications") }
-                            )
+                            HomePageScreen()
                         }
                         composable("transactions") {
                             TransactionScreen(
