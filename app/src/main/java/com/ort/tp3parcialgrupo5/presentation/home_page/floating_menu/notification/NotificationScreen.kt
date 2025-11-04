@@ -15,7 +15,7 @@ import com.ort.tp3parcialgrupo5.R
 import com.ort.tp3parcialgrupo5.presentation.components.Header
 import com.ort.tp3parcialgrupo5.presentation.home_page.floating_menu.notification.components.NotificationItemRow
 import com.ort.tp3parcialgrupo5.presentation.home_page.floating_menu.notification.components.NotificationSectionHeader
-import com.ort.tp3parcialgrupo5.presentation.home_page.notification.model.NotificationItem
+import com.ort.tp3parcialgrupo5.presentation.home_page.floating_menu.notification.NotificationItem
 import com.ort.tp3parcialgrupo5.presentation.home_page.transaction.components.BaseShapeBackground
 
 private val BackgroundDark = Color(5, 34, 36)
