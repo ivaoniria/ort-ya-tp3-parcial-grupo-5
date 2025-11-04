@@ -4,6 +4,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -25,15 +26,15 @@ fun Header(
     bellIcon: Int = R.drawable.bell
 ) {
     Row(
-        modifier = Modifier.fillMaxWidth(),
-        verticalAlignment = Alignment.CenterVertically
+        modifier = Modifier.fillMaxWidth()
+            .padding(top = 15.dp, bottom = 40.dp),
+        verticalAlignment = Alignment.CenterVertically,
     ) {
         Box(
             modifier = Modifier
                 .size(34.dp)
                 .background(Color.White.copy(alpha = 0.15f), CircleShape)
-                .clickable(enabled = onBack != null) { onBack?.invoke() }
-                .padding(8.dp),
+                .clickable(enabled = onBack != null) { onBack?.invoke() },
             contentAlignment = Alignment.Center
         ) {
             Image(
