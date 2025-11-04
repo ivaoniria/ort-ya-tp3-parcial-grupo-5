@@ -12,6 +12,7 @@ import androidx.compose.ui.unit.dp
 import com.ort.tp3parcialgrupo5.R
 import com.ort.tp3parcialgrupo5.presentation.categories.components.CategoriesGrid
 import com.ort.tp3parcialgrupo5.presentation.categories.components.NewCategoryDialog
+import com.ort.tp3parcialgrupo5.presentation.categories.model.Category
 import com.ort.tp3parcialgrupo5.presentation.components.Header
 import com.ort.tp3parcialgrupo5.presentation.components.PercentExpensesSection
 import com.ort.tp3parcialgrupo5.presentation.components.BaseLayout

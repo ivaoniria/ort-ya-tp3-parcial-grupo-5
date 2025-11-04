@@ -6,7 +6,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.ort.tp3parcialgrupo5.presentation.categories.Category
+import com.ort.tp3parcialgrupo5.presentation.categories.model.Category
 
 @Composable
 fun CategoriesGrid(

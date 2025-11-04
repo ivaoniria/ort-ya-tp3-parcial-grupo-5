@@ -18,7 +18,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import com.ort.tp3parcialgrupo5.R
-import com.ort.tp3parcialgrupo5.presentation.login_sign_up.loginCreate.components.LoginTextField
+import com.ort.tp3parcialgrupo5.presentation.login_sign_up.login_create.components.LoginTextField
 import com.ort.tp3parcialgrupo5.ui.theme.CyanAccent
 import com.ort.tp3parcialgrupo5.ui.theme.CategoryDialogBackground
 import com.ort.tp3parcialgrupo5.ui.theme.CategoryButtonCancelColor
