@@ -8,10 +8,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.ort.tp3parcialgrupo5.ui.theme.TopBalanceCardBg
+import com.ort.tp3parcialgrupo5.ui.theme.TopBalanceCardTitleText
+import com.ort.tp3parcialgrupo5.ui.theme.TopBalanceCardAmountText
 
 @Composable
 fun TopBalanceCard(
@@ -20,7 +22,7 @@ fun TopBalanceCard(
     modifier: Modifier = Modifier
 ) {
     Surface(
-        color = Color.White,
+        color = TopBalanceCardBg,
         shape = RoundedCornerShape(16.dp),
         modifier = modifier
             .fillMaxWidth()
@@ -31,8 +33,8 @@ fun TopBalanceCard(
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text(title, color = Color(0xFF2B2B2B).copy(alpha = 0.7f), fontSize = 13.sp)
-            Text(amount, color = Color(0xFF2B2B2B), fontSize = 22.sp, fontWeight = FontWeight.ExtraBold)
+            Text(title, color = TopBalanceCardTitleText, fontSize = 13.sp)
+            Text(amount, color = TopBalanceCardAmountText, fontSize = 22.sp, fontWeight = FontWeight.ExtraBold)
         }
     }
 }

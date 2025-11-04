@@ -22,11 +22,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.layout.PaddingValues
 import com.ort.tp3parcialgrupo5.R
+import com.ort.tp3parcialgrupo5.ui.theme.BackgroundListContainer
 
 @Composable
 fun BaseShapeBackground(
     baseShapeRes: Int = R.drawable.base_shape,
-    panelColor: Color = Color(14, 62, 62),
+    panelColor: Color = BackgroundListContainer,
     cornerRadiusDp: Dp = 28.dp,
     modifier: Modifier = Modifier,
     heightFraction: Float = 1f,

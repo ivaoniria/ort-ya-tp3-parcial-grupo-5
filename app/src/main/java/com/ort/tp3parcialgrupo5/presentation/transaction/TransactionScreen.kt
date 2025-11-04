@@ -1,11 +1,12 @@
 package com.ort.tp3parcialgrupo5.presentation.transaction
 
-import androidx.compose.foundation.layout.*
+import androidx.annotation.StringRes
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -17,7 +18,7 @@ import com.ort.tp3parcialgrupo5.presentation.components.PercentExpensesSection
 import com.ort.tp3parcialgrupo5.presentation.components.TransactionRow
 import com.ort.tp3parcialgrupo5.presentation.transaction.components.MonthHeader
 import com.ort.tp3parcialgrupo5.presentation.transaction.components.TopBalanceCard
-import com.ort.tp3parcialgrupo5.ui.theme.CyanAccent
+import com.ort.tp3parcialgrupo5.ui.theme.FinWhite
 
 @Composable
 fun TransactionScreen(
@@ -25,9 +26,9 @@ fun TransactionScreen(
     onBell: (() -> Unit)? = null
 ) {
     BaseLayout(
-        contentTop= {
-            Header(title= stringResource(R.string.transaction_title), onBack = onBack, onBell = onBell)
-            TopBalanceCard(title = stringResource(R.string.label_total_balance), amount = "$7,783.00")
+        contentTop = {
+            Header(title = stringResource(R.string.transaction_title), onBack = onBack, onBell = onBell)
+            TopBalanceCard(title = stringResource(R.string.label_total_balance), amount = stringResource(R.string.total_balance_value))
             Spacer(Modifier.height(12.dp))
             AccountBalanceSection()
             Spacer(Modifier.height(10.dp))
@@ -41,19 +42,47 @@ fun TransactionScreen(
             }
             items(
                 listOf(
-                    TxUi("Salary", "18:27 - April 30", "Monthly", "$4,000.00", true, R.drawable.salaryicon),
-                    TxUi("Groceries", "17:00 - April 24", "Pantry", "-$100.00", false, R.drawable.icon_groceries),
-                    TxUi("Rent", "8:30 - April 15", "Rent", "-$674.40", false, R.drawable.icon_rent),
-                    TxUi("Transport", "9:30 - April 08", "Fuel", "-$4.13", false, R.drawable.icon_transport)
+                    TxUi(
+                        titleRes = R.string.salary,
+                        subtitleRes = R.string.salary_subtitle,
+                        categoryRes = R.string.salary_category,
+                        amountRes = R.string.salary_amount,
+                        positive = true,
+                        iconRes = R.drawable.salaryicon
+                    ),
+                    TxUi(
+                        titleRes = R.string.groceries,
+                        subtitleRes = R.string.groceries_subtitle,
+                        categoryRes = R.string.groceries_category,
+                        amountRes = R.string.groceries_amount,
+                        positive = false,
+                        iconRes = R.drawable.icon_groceries
+                    ),
+                    TxUi(
+                        titleRes = R.string.rent,
+                        subtitleRes = R.string.rent_subtitle,
+                        categoryRes = R.string.rent_category,
+                        amountRes = R.string.rent_amount,
+                        positive = false,
+                        iconRes = R.drawable.icon_rent
+                    ),
+                    TxUi(
+                        titleRes = R.string.transport,
+                        subtitleRes = R.string.transport_subtitle,
+                        categoryRes = R.string.transport_category,
+                        amountRes = R.string.transport_amount,
+                        positive = false,
+                        iconRes = R.drawable.icon_transport
+                    )
                 )
             ) { tx ->
                 TransactionRow(
                     iconRes = tx.iconRes,
-                    title = tx.title,
-                    subtitle = tx.subtitle,
-                    category = tx.category,
-                    amount = tx.amount,
-                    amountColor = Color.White
+                    title = stringResource(tx.titleRes),
+                    subtitle = stringResource(tx.subtitleRes),
+                    category = stringResource(tx.categoryRes),
+                    amount = stringResource(tx.amountRes),
+                    amountColor = FinWhite
                 )
                 Spacer(Modifier.height(10.dp))
             }
@@ -63,11 +92,11 @@ fun TransactionScreen(
                 Spacer(Modifier.height(10.dp))
                 TransactionRow(
                     iconRes = R.drawable.icon_food,
-                    title = "Food",
-                    subtitle = "19:30 - March 31",
-                    category = "Dinner",
-                    amount = "-$70.40",
-                    amountColor = CyanAccent
+                    title = stringResource(R.string.food),
+                    subtitle = stringResource(R.string.food_subtitle),
+                    category = stringResource(R.string.food_category),
+                    amount = stringResource(R.string.food_amount),
+                    amountColor = FinWhite
                 )
                 Spacer(Modifier.height(12.dp))
             }
@@ -76,10 +105,10 @@ fun TransactionScreen(
 }
 
 private data class TxUi(
-    val title: String,
-    val subtitle: String,
-    val category: String,
-    val amount: String,
+    @StringRes val titleRes: Int,
+    @StringRes val subtitleRes: Int,
+    @StringRes val categoryRes: Int,
+    @StringRes val amountRes: Int,
     val positive: Boolean,
     val iconRes: Int
 )

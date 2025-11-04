@@ -53,6 +53,15 @@ val AccountBalanceDivider = Color(0xFFDFF7E2)
 val AccountBalanceAmount = Color(0xFFFFFFFF)
 val ExpenseLooksGood = Color(0xFFFFFFFF)
 
+// Transaction
+val TransactionDivider = Color(0xFF00D09E)
+val TransactionAmountNegative = Color(0xFF11A3FF)
+val TransactionSubtitleText = Color(0xB3FFFFFF)
+val TopBalanceCardBg = Color(0xFFFFFFFF)
+val TopBalanceCardTitleText = Color(0xB3000000)
+val TopBalanceCardAmountText = Color(0xFF2B2B2B)
+val TransactionCategoryText = Color(0xCCFFFFFF)
+
 // Categories
 val CategoryDefaultColor = Color(0xFF6DB6FE)
 val CategorySpecialColor = Color(0xFF0068FF)

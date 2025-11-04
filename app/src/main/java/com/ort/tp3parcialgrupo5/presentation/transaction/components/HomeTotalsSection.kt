@@ -14,6 +14,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ort.tp3parcialgrupo5.R
 import com.ort.tp3parcialgrupo5.presentation.components.ProgressBar
+import com.ort.tp3parcialgrupo5.ui.theme.FinWhite
+import com.ort.tp3parcialgrupo5.ui.theme.TransactionAmountNegative
+import com.ort.tp3parcialgrupo5.ui.theme.TransactionSubtitleText
 
 @Composable
 fun HomeTotalsSection(
@@ -40,9 +43,9 @@ fun HomeTotalsSection(
                         modifier = Modifier.size(14.dp)
                     )
                     Spacer(Modifier.width(6.dp))
-                    Text(balanceLabel, color = Color.White.copy(alpha = 0.75f), fontSize = 12.sp)
+                    Text(balanceLabel, color = TransactionSubtitleText, fontSize = 12.sp)
                 }
-                Text(balanceValue, color = Color.White, fontSize = 20.sp, fontWeight = FontWeight.ExtraBold)
+                Text(balanceValue, color = FinWhite, fontSize = 20.sp, fontWeight = FontWeight.ExtraBold)
             }
 
             Box(Modifier.height(28.dp).width(1.dp).background(Color.White.copy(alpha = 0.25f)))
@@ -58,9 +61,9 @@ fun HomeTotalsSection(
                         modifier = Modifier.size(14.dp)
                     )
                     Spacer(Modifier.width(6.dp))
-                    Text(expenseLabel, color = Color.White.copy(alpha = 0.75f), fontSize = 12.sp)
+                    Text(expenseLabel, color = TransactionSubtitleText, fontSize = 12.sp)
                 }
-                Text(expenseValue, color = Color(0xFF11A3FF), fontSize = 20.sp, fontWeight = FontWeight.ExtraBold)
+                Text(expenseValue, color = TransactionAmountNegative, fontSize = 20.sp, fontWeight = FontWeight.ExtraBold)
             }
         }
 
