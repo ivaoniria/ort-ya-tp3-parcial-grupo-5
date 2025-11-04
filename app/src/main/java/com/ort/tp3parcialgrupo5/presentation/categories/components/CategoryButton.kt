@@ -3,10 +3,12 @@ package com.ort.tp3parcialgrupo5.presentation.categories.components
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -24,10 +26,15 @@ fun CategoryButton(
     onClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
+    val interactionSource = remember { MutableInteractionSource() }
+
     Column(
         modifier = modifier
-            .width(90.dp)
-            .clickable { onClick() },
+            .width(110.dp)
+            .clickable(
+                interactionSource = interactionSource,
+                indication = null
+            ) { onClick() },
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
@@ -47,9 +54,9 @@ fun CategoryButton(
         Text(
             text = stringResource(nameRes),
             color = Color.White,
-            fontSize = 15.sp,
+            fontSize = 12.sp,
             fontWeight = FontWeight.Medium,
-            lineHeight = 15.sp
+            lineHeight = 12.sp
         )
     }
 }
