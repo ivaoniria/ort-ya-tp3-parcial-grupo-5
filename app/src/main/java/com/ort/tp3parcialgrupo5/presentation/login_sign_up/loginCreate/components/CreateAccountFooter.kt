@@ -68,7 +68,7 @@ fun CreateAccountScreen() {
                     label = stringResource(R.string.full_name),
                     value = fullName,
                     onValueChange = { fullName = it },
-                    placeholder = "Full name",
+                    placeholder = stringResource(R.string.placeholder_email),
                     isPassword = false
                 )
                 Spacer(Modifier.height(14.dp))
@@ -77,7 +77,7 @@ fun CreateAccountScreen() {
                     label = stringResource(R.string.email),
                     value = email,
                     onValueChange = { email = it },
-                    placeholder = "example@example.com",
+                    placeholder = stringResource(R.string.placeholder_email),
                     isPassword = false
                 )
                 Spacer(Modifier.height(14.dp))
@@ -86,7 +86,7 @@ fun CreateAccountScreen() {
                     label = stringResource(R.string.mobile_number),
                     value = mobileNumber,
                     onValueChange = { mobileNumber = it },
-                    placeholder = "+ 123 456 789",
+                    placeholder = stringResource(R.string.placeholder_mobile_number),
                     isPassword = false
                 )
                 Spacer(Modifier.height(14.dp))
@@ -95,7 +95,7 @@ fun CreateAccountScreen() {
                     label = stringResource(R.string.date_of_birth),
                     value = dateOfBirth,
                     onValueChange = { dateOfBirth = it },
-                    placeholder = "DD / MM / YYYY",
+                    placeholder = stringResource(R.string.placeholder_dob),
                     isPassword = false
                 )
                 Spacer(Modifier.height(14.dp))
@@ -104,8 +104,8 @@ fun CreateAccountScreen() {
                     label = stringResource(R.string.password),
                     value = password,
                     onValueChange = { password = it },
-                    placeholder = "........",
-                    isPassword = true // ojo decorativo, no togglea
+                    placeholder = stringResource(R.string.placeholder_password),
+                    isPassword = true
                 )
                 Spacer(Modifier.height(14.dp))
 
@@ -113,7 +113,7 @@ fun CreateAccountScreen() {
                     label = stringResource(R.string.confirm_password),
                     value = confirmPassword,
                     onValueChange = { confirmPassword = it },
-                    placeholder = "........",
+                    placeholder = stringResource(R.string.placeholder_password),
                     isPassword = true
                 )
 

@@ -1,5 +1,3 @@
-package com.ort.tp3parcialgrupo5.presentation.login_sign_up.loginCreate.components
-
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -17,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.withStyle
@@ -28,13 +27,13 @@ import com.ort.tp3parcialgrupo5.ui.theme.AppTypography
 fun LoginFooter() {
     val annotatedString = buildAnnotatedString {
         withStyle(style = SpanStyle(color = Color.White)) {
-            append("Use ")
+            append(stringResource(id = R.string.use_fingerprint))
         }
         withStyle(style = SpanStyle(color = colorResource(id = R.color.main_green))) {
-            append("Fingerprint")
+            append(stringResource(id = R.string.fingerprint))
         }
         withStyle(style = SpanStyle(color = Color.White)) {
-            append(" To Access")
+            append(stringResource(id = R.string.to_access))
         }
     }
 
@@ -49,7 +48,7 @@ fun LoginFooter() {
         horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Text(text = "or sign up with", color = Color.Gray)
+        Text(text = stringResource(id = R.string.or_sign_up_with), color = Color.Gray)
     }
     Spacer(modifier = Modifier.height(16.dp))
     Row(
@@ -59,14 +58,14 @@ fun LoginFooter() {
         IconButton(onClick = { /*TODO*/ }) {
             Image(
                 painter = painterResource(id = R.drawable.facebook),
-                contentDescription = "Facebook"
+                contentDescription = stringResource(id = R.string.facebook_desc)
             )
         }
         Spacer(modifier = Modifier.width(16.dp))
         IconButton(onClick = { /*TODO*/ }) {
             Image(
                 painter = painterResource(id = R.drawable.google),
-                contentDescription = "Google"
+                contentDescription = stringResource(id = R.string.google_desc)
             )
         }
     }
@@ -76,9 +75,9 @@ fun LoginFooter() {
         horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Text(text = "Don't have an account?", color = Color.Gray)
+        Text(text = stringResource(id = R.string.dont_have_account), color = Color.Gray)
         TextButton(onClick = { /*TODO*/ }) {
-            Text(text = "Sign Up", color = colorResource(id = R.color.main_green))
+            Text(text = stringResource(id = R.string.sign_up), color = colorResource(id = R.color.main_green))
         }
     }
 }
