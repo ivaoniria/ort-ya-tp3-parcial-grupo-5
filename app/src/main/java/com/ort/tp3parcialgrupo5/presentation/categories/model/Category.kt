@@ -1,4 +1,4 @@
-package com.ort.tp3parcialgrupo5.presentation.categories
+package com.ort.tp3parcialgrupo5.presentation.categories.model
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
