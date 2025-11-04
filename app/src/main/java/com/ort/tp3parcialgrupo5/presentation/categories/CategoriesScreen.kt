@@ -6,18 +6,18 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.ort.tp3parcialgrupo5.R
 import com.ort.tp3parcialgrupo5.presentation.categories.components.CategoriesGrid
 import com.ort.tp3parcialgrupo5.presentation.categories.components.NewCategoryDialog
-import com.ort.tp3parcialgrupo5.presentation.categories.Category
-import com.ort.tp3parcialgrupo5.presentation.components.AccountBalanceSection
-import com.ort.tp3parcialgrupo5.presentation.components.BaseLayout
 import com.ort.tp3parcialgrupo5.presentation.components.Header
 import com.ort.tp3parcialgrupo5.presentation.components.PercentExpensesSection
+import com.ort.tp3parcialgrupo5.presentation.components.BaseLayout
+import com.ort.tp3parcialgrupo5.presentation.components.AccountBalanceSection
+import com.ort.tp3parcialgrupo5.ui.theme.CategoryDefaultColor
+import com.ort.tp3parcialgrupo5.ui.theme.CategorySpecialColor
 
 @Composable
 fun CategoriesScreen(
@@ -25,8 +25,6 @@ fun CategoriesScreen(
     onBell: (() -> Unit)? = null,
     onCategoryClick: (Category) -> Unit = {}
 ) {
-    val defaultCategoryColor = Color(0xFF6DB6FE)
-    val specialCategoryColor = Color(0xFF0068FF)
     val showNewCategoryDialog = remember { mutableStateOf(false) }
 
     val categories = listOf(
@@ -44,8 +42,8 @@ fun CategoriesScreen(
     if (showNewCategoryDialog.value) {
         NewCategoryDialog(
             onDismiss = { showNewCategoryDialog.value = false },
-            onSave = { categoryName ->
-                // A implentar a futuro: guardar una nueva categoría
+            onSave = { _ ->
+                // A implementar a futuro: guardar una nueva categoría
                 showNewCategoryDialog.value = false
             }
         )
@@ -80,8 +78,8 @@ fun CategoriesScreen(
                 ) {
                     CategoriesGrid(
                         categories = categories,
-                        defaultColor = defaultCategoryColor,
-                        specialColor = specialCategoryColor,
+                        defaultColor = CategoryDefaultColor,
+                        specialColor = CategorySpecialColor,
                         onCategoryClick = { category ->
                             if (category.nameRes == R.string.category_more) {
                                 showNewCategoryDialog.value = true
