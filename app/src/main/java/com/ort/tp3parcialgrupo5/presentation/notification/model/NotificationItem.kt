@@ -1,4 +1,4 @@
-package com.ort.tp3parcialgrupo5.presentation.notification
+package com.ort.tp3parcialgrupo5.presentation.notification.model
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
