@@ -24,7 +24,7 @@ fun TransactionScreen(
 ) {
     BaseLayout(
         contentTop= {
-            Header(title= stringResource(R.string.transaction_title), onBell = onBell)
+            Header(title= stringResource(R.string.transaction_title), onBack = onBack, onBell = onBell)
             TopBalanceCard(title = stringResource(R.string.label_total_balance), amount = "$7,783.00")
             Spacer(Modifier.height(12.dp))
             AccountBalanceSection()
