@@ -2,7 +2,8 @@
 <resources>
     <color name="main_green">#00D09E</color>
     <color name="bg_green_white">#F1FFF3</color>
-    <color name="bg_dark_green_black">#031314</color>
+    <color name="bg_dark_green_black">#052224</color>
+    <color name="card_dark_green">#093030</color>
     <color name="letters_and_icons">#093030</color>
     <color name="blue_button">#3299FF</color>
     <color name="ocean_blue_button">#0068FF</color>
