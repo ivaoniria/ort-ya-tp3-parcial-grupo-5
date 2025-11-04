@@ -5,6 +5,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -13,9 +14,10 @@ import com.ort.tp3parcialgrupo5.presentation.components.AccountBalanceSection
 import com.ort.tp3parcialgrupo5.presentation.components.BaseLayout
 import com.ort.tp3parcialgrupo5.presentation.components.Header
 import com.ort.tp3parcialgrupo5.presentation.components.PercentExpensesSection
+import com.ort.tp3parcialgrupo5.presentation.components.TransactionRow
 import com.ort.tp3parcialgrupo5.presentation.home_page.transaction.components.MonthHeader
 import com.ort.tp3parcialgrupo5.presentation.home_page.transaction.components.TopBalanceCard
-import com.ort.tp3parcialgrupo5.presentation.home_page.transaction.components.TransactionRow
+import com.ort.tp3parcialgrupo5.ui.theme.CyanAccent
 
 @Composable
 fun TransactionScreen(
@@ -46,12 +48,12 @@ fun TransactionScreen(
                 )
             ) { tx ->
                 TransactionRow(
+                    iconRes = tx.iconRes,
                     title = tx.title,
                     subtitle = tx.subtitle,
                     category = tx.category,
                     amount = tx.amount,
-                    positive = tx.positive,
-                    iconRes = tx.iconRes
+                    amountColor = Color.White
                 )
                 Spacer(Modifier.height(10.dp))
             }
@@ -60,12 +62,12 @@ fun TransactionScreen(
                 MonthHeader(text = stringResource(R.string.month_march))
                 Spacer(Modifier.height(10.dp))
                 TransactionRow(
+                    iconRes = R.drawable.icon_food,
                     title = "Food",
                     subtitle = "19:30 - March 31",
                     category = "Dinner",
                     amount = "-$70.40",
-                    positive = false,
-                    iconRes = R.drawable.icon_food
+                    amountColor = CyanAccent
                 )
                 Spacer(Modifier.height(12.dp))
             }
