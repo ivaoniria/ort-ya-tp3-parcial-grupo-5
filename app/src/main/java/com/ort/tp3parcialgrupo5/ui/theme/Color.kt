@@ -62,6 +62,11 @@ val HeaderBellBackground = Color(0xFFE6F0EB)
 // Home Screen - SummarySection
 val SummarySubtitleTextDark = Color(0xFF052224)
 
+// Notification
+val NotificationIconBg = Color(0xFF00D09E)
+val NotificationAccent = Color(0xFF00D09E)
+val NotificationPanelBg = Color(0xFF093030)
+
 object FinWiseColors {
     val BgDark  = Color(red = 5, green = 34, blue = 36)       
     val Panel   = Color(red = 14, green = 62, blue = 62)      

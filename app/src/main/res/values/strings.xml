@@ -19,7 +19,7 @@
     <string name="fingerprint">Fingerprint</string>
     <string name="to_access">To Access</string>
     <string name="or_sign_up_with">or sign up with</string>
-    <string name="dont_have_account">Don't have an account?</string>
+    <string name="dont_have_account">Don\'t have an account?</string>
     <string name="facebook_desc">Facebook</string>
     <string name="google_desc">Google</string>
     <!-- Login -->
