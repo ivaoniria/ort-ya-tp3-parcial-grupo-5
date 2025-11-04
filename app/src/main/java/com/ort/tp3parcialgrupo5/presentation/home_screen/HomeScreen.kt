@@ -1,4 +1,4 @@
-package com.ort.tp3parcialgrupo5.presentation.home_page.home_screen
+package com.ort.tp3parcialgrupo5.presentation.home_screen
 
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
@@ -11,10 +11,10 @@ import androidx.compose.ui.unit.dp
 import com.ort.tp3parcialgrupo5.presentation.components.AccountBalanceSection
 import com.ort.tp3parcialgrupo5.presentation.components.BaseLayout
 import com.ort.tp3parcialgrupo5.presentation.components.PercentExpensesSection
-import com.ort.tp3parcialgrupo5.presentation.home_page.home_screen.components.HeaderSection
-import com.ort.tp3parcialgrupo5.presentation.home_page.home_screen.components.PeriodTabs
-import com.ort.tp3parcialgrupo5.presentation.home_page.home_screen.components.SummarySection
-import com.ort.tp3parcialgrupo5.presentation.home_page.home_screen.components.TransactionListSection
+import com.ort.tp3parcialgrupo5.presentation.home_screen.components.HeaderSection
+import com.ort.tp3parcialgrupo5.presentation.home_screen.components.PeriodTabs
+import com.ort.tp3parcialgrupo5.presentation.home_screen.components.SummarySection
+import com.ort.tp3parcialgrupo5.presentation.home_screen.components.TransactionListSection
 
 @Composable
 fun HomePageScreen(

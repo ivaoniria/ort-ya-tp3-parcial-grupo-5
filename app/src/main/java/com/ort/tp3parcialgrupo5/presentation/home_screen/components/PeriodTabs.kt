@@ -1,4 +1,4 @@
-package com.ort.tp3parcialgrupo5.presentation.home_page.home_screen.components
+package com.ort.tp3parcialgrupo5.presentation.home_screen.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -13,18 +13,25 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.ort.tp3parcialgrupo5.R
+import com.ort.tp3parcialgrupo5.ui.theme.BackgroundBottomNav
 import com.ort.tp3parcialgrupo5.ui.theme.CyanAccent
 
 @Composable
 fun PeriodTabs(modifier: Modifier = Modifier) {
     val selectedIndex = 2
-    val tabs = listOf("Daily", "Weekly", "Monthly")
+    val tabs = listOf(
+        stringResource(R.string.daily),
+        stringResource(R.string.weekly),
+        stringResource(R.string.monthly)
+    )
     Row(
         modifier = modifier
             .fillMaxWidth()
-            .background(Color(0xFF0E3E3E), shape = RoundedCornerShape(22.dp))
+            .background(BackgroundBottomNav, shape = RoundedCornerShape(22.dp))
             .padding(top = 6.dp, end = 14.dp, bottom = 6.dp, start = 14.dp),
         Arrangement.SpaceAround,
         Alignment.CenterVertically

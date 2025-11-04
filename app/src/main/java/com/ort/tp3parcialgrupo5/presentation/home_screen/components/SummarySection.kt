@@ -1,4 +1,4 @@
-package com.ort.tp3parcialgrupo5.presentation.home_page.home_screen.components
+package com.ort.tp3parcialgrupo5.presentation.home_screen.components
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
@@ -21,8 +21,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
 import com.ort.tp3parcialgrupo5.R
+import com.ort.tp3parcialgrupo5.ui.theme.BackgroundListContainer
 import com.ort.tp3parcialgrupo5.ui.theme.CarIconBlue
 import com.ort.tp3parcialgrupo5.ui.theme.SummaryGreen
+import com.ort.tp3parcialgrupo5.ui.theme.SummarySubtitleTextDark
 
 @Composable
 fun SummarySection(modifier: Modifier = Modifier) {
@@ -59,7 +61,7 @@ fun SummarySection(modifier: Modifier = Modifier) {
                                 val stroke = 4.dp.toPx()
                                 drawCircle(color = CarIconBlue, style = Stroke(stroke))
                                 drawArc(
-                                    color = Color(0xFF0068FF),
+                                    color = CarIconBlue,
                                     startAngle = 270f,
                                     sweepAngle = 180f,
                                     useCenter = false,
@@ -85,7 +87,7 @@ fun SummarySection(modifier: Modifier = Modifier) {
                             text = stringResource(R.string.on_goals),
                             style = MaterialTheme.typography.bodySmall,
                             fontWeight = FontWeight.SemiBold,
-                            color = Color(0xFF052224)
+                            color = SummarySubtitleTextDark
                         )
                     }
                 }
@@ -113,7 +115,7 @@ fun SummarySection(modifier: Modifier = Modifier) {
                                 Text(
                                     text = stringResource(R.string.revenue_last_week),
                                     style = MaterialTheme.typography.bodySmall,
-                                    color = Color(0xFF052224)
+                                    color = SummarySubtitleTextDark
                                 )
                                 Text(
                                     text = stringResource(R.string.savings),
@@ -144,7 +146,7 @@ fun SummarySection(modifier: Modifier = Modifier) {
                                 Text(
                                     text = stringResource(R.string.food_last_week),
                                     style = MaterialTheme.typography.bodySmall,
-                                    color = Color(0xFF052224)
+                                    color = SummarySubtitleTextDark
                                 )
                                 Text(
                                     text = stringResource(R.string.food_last_week_amount),
@@ -177,7 +179,7 @@ private fun PreviewSummarySection() {
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .background(Color(0xFF093030))
+                .background(BackgroundListContainer)
                 .padding(16.dp)
         ) {
             SummarySection()
