@@ -1,4 +1,4 @@
-package com.ort.tp3parcialgrupo5.presentation.home_page.notification
+package com.ort.tp3parcialgrupo5.presentation.notification
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -13,10 +13,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.ort.tp3parcialgrupo5.R
 import com.ort.tp3parcialgrupo5.presentation.components.Header
-import com.ort.tp3parcialgrupo5.presentation.home_page.floating_menu.notification.components.NotificationItemRow
-import com.ort.tp3parcialgrupo5.presentation.home_page.floating_menu.notification.components.NotificationSectionHeader
-import com.ort.tp3parcialgrupo5.presentation.home_page.floating_menu.notification.NotificationItem
-import com.ort.tp3parcialgrupo5.presentation.home_page.transaction.components.BaseShapeBackground
+import com.ort.tp3parcialgrupo5.presentation.notification.components.NotificationItemRow
+import com.ort.tp3parcialgrupo5.presentation.notification.components.NotificationSectionHeader
+import com.ort.tp3parcialgrupo5.presentation.notification.NotificationItem
+import com.ort.tp3parcialgrupo5.presentation.transaction.components.BaseShapeBackground
 
 private val BackgroundDark = Color(5, 34, 36)
 private val PanelColor = Color(9, 48, 48)

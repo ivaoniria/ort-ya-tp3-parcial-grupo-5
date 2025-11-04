@@ -1,4 +1,4 @@
-package com.ort.tp3parcialgrupo5.presentation.home_page.floating_menu.notification.components
+package com.ort.tp3parcialgrupo5.presentation.notification.components
 
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
