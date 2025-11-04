@@ -1,4 +1,4 @@
-package com.ort.tp3parcialgrupo5.presentation.home_page.transaction.components
+package com.ort.tp3parcialgrupo5.presentation.transaction.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
