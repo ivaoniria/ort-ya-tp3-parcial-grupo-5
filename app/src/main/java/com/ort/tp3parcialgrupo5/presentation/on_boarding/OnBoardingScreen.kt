@@ -16,7 +16,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.ort.tp3parcialgrupo5.R
-import com.ort.tp3parcialgrupo5.presentation.launch.components.LaunchLayoutsFullBleed
+import com.ort.tp3parcialgrupo5.presentation.components.BaseLayout
 import com.ort.tp3parcialgrupo5.presentation.on_boarding.components.OnboardingDots
 import com.ort.tp3parcialgrupo5.presentation.on_boarding.components.OnboardingImageCircle
 import com.ort.tp3parcialgrupo5.presentation.on_boarding.components.OnboardingPanel
@@ -59,30 +59,15 @@ fun OnboardingScreen(
 
     val current = onbPages[page]
 
-    LaunchLayoutsFullBleed(modifier = swipeModifier) {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(top = TitleTopOffset, bottom = PanelBottomGap),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Box(Modifier.padding(horizontal = 24.dp)) {
-                OnboardingTitle(text = stringResource(current.titleRes))
-            }
-
-            Spacer(Modifier.height(TitlePanelGap))
-
-            Box(
-                modifier = Modifier
-                    .weight(1f)
-                    .fillMaxWidth()
-            ) {
+    BaseLayout(
+        modifier = swipeModifier,
+        contentTop = {
+            OnboardingTitle(text = stringResource(current.titleRes))
+        },
+        contentBottom = {
+            item {
                 OnboardingPanel(
-                    bgDrawableRes = R.drawable.base_shape,
-                    modifier = Modifier
-                        .align(Alignment.BottomCenter)
-                        .fillMaxWidth()
-                        .fillMaxHeight(0.78f)
+                    bgDrawableRes = R.drawable.base_shape
                 ) {
                     Column(
                         modifier = Modifier
@@ -126,7 +111,7 @@ fun OnboardingScreen(
                 }
             }
         }
-    }
+    )
 }
 
 @Preview(showBackground = true, showSystemUi = true)
