@@ -103,7 +103,3 @@ private fun PreviewCategoriesScreen() {
         CategoriesScreen()
     }
 }
-
-
-
-
