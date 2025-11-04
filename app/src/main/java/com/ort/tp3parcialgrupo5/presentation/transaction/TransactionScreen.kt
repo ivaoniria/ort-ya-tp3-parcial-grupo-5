@@ -18,7 +18,9 @@ import com.ort.tp3parcialgrupo5.presentation.components.PercentExpensesSection
 import com.ort.tp3parcialgrupo5.presentation.components.TransactionRow
 import com.ort.tp3parcialgrupo5.presentation.transaction.components.MonthHeader
 import com.ort.tp3parcialgrupo5.presentation.transaction.components.TopBalanceCard
+import com.ort.tp3parcialgrupo5.presentation.transaction.model.TxUi
 import com.ort.tp3parcialgrupo5.ui.theme.FinWhite
+
 
 @Composable
 fun TransactionScreen(
@@ -103,15 +105,6 @@ fun TransactionScreen(
         }
     )
 }
-
-private data class TxUi(
-    @StringRes val titleRes: Int,
-    @StringRes val subtitleRes: Int,
-    @StringRes val categoryRes: Int,
-    @StringRes val amountRes: Int,
-    val positive: Boolean,
-    val iconRes: Int
-)
 
 @Preview(showSystemUi = true)
 @Composable
