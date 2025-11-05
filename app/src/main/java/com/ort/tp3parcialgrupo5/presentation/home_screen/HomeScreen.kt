@@ -1,5 +1,6 @@
 package com.ort.tp3parcialgrupo5.presentation.home_screen
 
+import android.R.attr.fontFamily
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.material3.MaterialTheme
@@ -20,6 +21,7 @@ import com.ort.tp3parcialgrupo5.presentation.home_screen.components.PeriodTabs
 import com.ort.tp3parcialgrupo5.presentation.home_screen.components.SummarySection
 import com.ort.tp3parcialgrupo5.presentation.home_screen.components.TransactionListSection
 import com.ort.tp3parcialgrupo5.shared.infrastructure.RetrofitClient
+import com.ort.tp3parcialgrupo5.ui.theme.Poppins
 import com.ort.tp3parcialgrupo5.view_model.HomeViewModel
 import com.ort.tp3parcialgrupo5.view_model.HomeViewModelFactory
 
