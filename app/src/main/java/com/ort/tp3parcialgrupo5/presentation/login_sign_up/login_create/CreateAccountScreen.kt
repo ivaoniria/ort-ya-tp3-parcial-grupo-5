@@ -3,15 +3,12 @@ package com.ort.tp3parcialgrupo5.presentation.login_sign_up.login_create
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -23,15 +20,17 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.ort.tp3parcialgrupo5.R
 import com.ort.tp3parcialgrupo5.presentation.components.BaseLayout
+import com.ort.tp3parcialgrupo5.presentation.login_sign_up.CreateAccountViewModel
 import com.ort.tp3parcialgrupo5.presentation.login_sign_up.login_create.components.LoginButton
 import com.ort.tp3parcialgrupo5.presentation.login_sign_up.login_create.components.LoginTextField
 import com.ort.tp3parcialgrupo5.ui.theme.AppTypography
 
 @Composable
 fun CreateAccountScreen(
+    viewModel: CreateAccountViewModel = hiltViewModel(),
     onSignUpSuccess: () -> Unit = {},
     onLoginClick: () -> Unit = {}
 ) {
@@ -51,6 +50,7 @@ fun CreateAccountScreen(
             )
         },
         contentBottom = {
+            // Full name
             item {
                 LoginTextField(
                     label = stringResource(id = R.string.full_name),
@@ -61,6 +61,8 @@ fun CreateAccountScreen(
                 )
             }
             item { Spacer(modifier = Modifier.height(16.dp)) }
+
+            // Email
             item {
                 LoginTextField(
                     label = stringResource(id = R.string.email),
@@ -71,6 +73,8 @@ fun CreateAccountScreen(
                 )
             }
             item { Spacer(modifier = Modifier.height(16.dp)) }
+
+            // Mobile
             item {
                 LoginTextField(
                     label = stringResource(id = R.string.mobile_number),
@@ -81,6 +85,8 @@ fun CreateAccountScreen(
                 )
             }
             item { Spacer(modifier = Modifier.height(16.dp)) }
+
+            // Date of Birth
             item {
                 LoginTextField(
                     label = stringResource(id = R.string.date_of_birth),
@@ -91,6 +97,8 @@ fun CreateAccountScreen(
                 )
             }
             item { Spacer(modifier = Modifier.height(16.dp)) }
+
+            // Password
             item {
                 LoginTextField(
                     label = stringResource(id = R.string.password),
@@ -101,6 +109,8 @@ fun CreateAccountScreen(
                 )
             }
             item { Spacer(modifier = Modifier.height(16.dp)) }
+
+            // Confirm Password
             item {
                 LoginTextField(
                     label = stringResource(id = R.string.confirm_password),
@@ -113,6 +123,7 @@ fun CreateAccountScreen(
 
             item { Spacer(modifier = Modifier.height(24.dp)) }
 
+            // Terms text
             item {
                 val termsAndPolicyString = buildAnnotatedString {
                     append(stringResource(id = R.string.by_continuing_you_agree) + " ")
@@ -134,10 +145,17 @@ fun CreateAccountScreen(
 
             item { Spacer(modifier = Modifier.height(24.dp)) }
 
+            // Sign Up button
             item {
                 LoginButton(
                     text = stringResource(id = R.string.sign_up),
-                    onClick = { onSignUpSuccess() },
+                    onClick = {
+                        viewModel.insertUser(
+                            username = fullName,
+                            email = email
+                        )
+                        onSignUpSuccess()
+                    },
                     backgroundColor = colorResource(id = R.color.main_green),
                     textColor = colorResource(id = R.color.letters_and_icons)
                 )
@@ -145,15 +163,22 @@ fun CreateAccountScreen(
 
             item { Spacer(modifier = Modifier.height(16.dp)) }
 
+            // Footer: login link
             item {
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.Center,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Text(text = stringResource(id = R.string.already_have_an_account), color = Color.Gray)
+                    Text(
+                        text = stringResource(id = R.string.already_have_an_account),
+                        color = Color.Gray
+                    )
                     TextButton(onClick = { onLoginClick() }) {
-                        Text(text = stringResource(id = R.string.log_in), color = colorResource(id = R.color.main_green))
+                        Text(
+                            text = stringResource(id = R.string.log_in),
+                            color = colorResource(id = R.color.main_green)
+                        )
                     }
                 }
             }
@@ -168,4 +193,3 @@ fun CreateAccountScreenPreview() {
         CreateAccountScreen()
     }
 }
-
