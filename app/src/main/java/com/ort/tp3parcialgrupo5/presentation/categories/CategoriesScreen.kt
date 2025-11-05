@@ -1,6 +1,10 @@
 package com.ort.tp3parcialgrupo5.presentation.categories
 
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -13,10 +17,10 @@ import com.ort.tp3parcialgrupo5.R
 import com.ort.tp3parcialgrupo5.presentation.categories.components.CategoriesGrid
 import com.ort.tp3parcialgrupo5.presentation.categories.components.NewCategoryDialog
 import com.ort.tp3parcialgrupo5.presentation.categories.model.Category
+import com.ort.tp3parcialgrupo5.presentation.components.AccountBalanceSection
+import com.ort.tp3parcialgrupo5.presentation.components.BaseLayout
 import com.ort.tp3parcialgrupo5.presentation.components.Header
 import com.ort.tp3parcialgrupo5.presentation.components.PercentExpensesSection
-import com.ort.tp3parcialgrupo5.presentation.components.BaseLayout
-import com.ort.tp3parcialgrupo5.presentation.components.AccountBalanceSection
 import com.ort.tp3parcialgrupo5.ui.theme.CategoryDefaultColor
 import com.ort.tp3parcialgrupo5.ui.theme.CategorySpecialColor
 
@@ -44,7 +48,6 @@ fun CategoriesScreen(
         NewCategoryDialog(
             onDismiss = { showNewCategoryDialog.value = false },
             onSave = { _ ->
-                // A implementar a futuro: guardar una nueva categoría
                 showNewCategoryDialog.value = false
             }
         )
@@ -52,23 +55,16 @@ fun CategoriesScreen(
 
     BaseLayout(
         contentTop = {
-            Column(
-                modifier = Modifier.padding(
-                    horizontal = 16.dp,
-                    vertical = 16.dp
-                )
-            ) {
-                Header(
-                    title = stringResource(R.string.categories_title),
-                    onBack = onBack,
-                    onBell = onBell
-                )
-                Spacer(Modifier.height(12.dp))
-                AccountBalanceSection()
-                Spacer(Modifier.height(18.dp))
-                PercentExpensesSection()
-                Spacer(Modifier.height(18.dp))
-            }
+            Header(
+                title = stringResource(R.string.categories_title),
+                onBack = onBack,
+                onBell = onBell
+            )
+            Spacer(Modifier.height(12.dp))
+            AccountBalanceSection()
+            Spacer(Modifier.height(18.dp))
+            PercentExpensesSection()
+            Spacer(Modifier.height(18.dp))
         },
         contentBottom = {
             item {

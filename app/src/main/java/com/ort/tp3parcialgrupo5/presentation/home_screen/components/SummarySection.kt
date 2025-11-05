@@ -37,7 +37,7 @@ fun SummarySection(modifier: Modifier = Modifier) {
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(18.dp)
+                .padding(start = 10.dp, end = 26.dp, top = 18.dp, bottom = 18.dp)
         ) {
             Row(
                 modifier = Modifier.fillMaxWidth(),

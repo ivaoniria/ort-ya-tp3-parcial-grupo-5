@@ -46,7 +46,6 @@ fun ProfileScreen(
                 onBack = onBack,
                 onBell = onBell
             )
-            Spacer(Modifier.height(18.dp))
 
             ProfileInfo(
                 imageRes = R.drawable.profilephoto,
@@ -57,6 +56,8 @@ fun ProfileScreen(
             Spacer(Modifier.height(10.dp))
         },
         contentBottom = {
+            item { Spacer(Modifier.height(37.dp)) }
+
             item {
                 ProfileMenuItem(
                     iconRes = R.drawable.editprofile,
@@ -98,7 +99,6 @@ fun ProfileScreen(
                     textRes = R.string.profile_logout
                 )
             }
-
         }
     )
 }
