@@ -141,6 +141,10 @@
     <string name="food_category">Dinner</string>
     <!-- HomeScreen -->
 
+    <!-- ProgressBar -->
+    <string name="progress_bar">$20,000.00</string>
+    <!-- ProgressBar -->
+
     <!-- Categories Screen -->
     <string name="categories_title">Categories</string>
     <string name="category_food">Food</string>
@@ -184,8 +188,6 @@
     <string name="no_user_created_title">No user has been created</string>
     <string name="no_user_created_message">Please create a user in Sign Up.</string>
     <!-- ProfilePopUp -->
-
-
     <!-- Profile -->
 
     <!-- Notification -->
