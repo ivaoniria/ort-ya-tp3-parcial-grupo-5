@@ -22,7 +22,7 @@ import androidx.compose.ui.unit.dp
 import com.ort.tp3parcialgrupo5.R
 
 @Composable
-fun SecurityPinFooter() {
+fun SecurityPinFooter(onSignUp: () -> Unit = {}) {
     Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.fillMaxWidth()) {
         Text(text = stringResource(id = R.string.or_sign_up_with), color = Color.Gray)
         Spacer(modifier = Modifier.height(16.dp))
@@ -51,7 +51,7 @@ fun SecurityPinFooter() {
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(text = stringResource(id = R.string.dont_have_account), color = Color.Gray)
-            TextButton(onClick = { /*TODO*/ }) {
+            TextButton(onClick = { onSignUp() }) {
                 Text(text = stringResource(id = R.string.sign_up), color = colorResource(id = R.color.main_green))
             }
         }
