@@ -1,0 +1,118 @@
+package com.ort.tp3parcialgrupo5.presentation.categories
+
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.ort.tp3parcialgrupo5.R
+import com.ort.tp3parcialgrupo5.domain.repository.TransactionsRepository
+import com.ort.tp3parcialgrupo5.presentation.categories.components.CategoriesGrid
+import com.ort.tp3parcialgrupo5.presentation.categories.components.NewCategoryDialog
+import com.ort.tp3parcialgrupo5.presentation.categories.model.Category
+import com.ort.tp3parcialgrupo5.presentation.components.AccountBalanceSection
+import com.ort.tp3parcialgrupo5.presentation.components.BaseLayout
+import com.ort.tp3parcialgrupo5.presentation.components.Header
+import com.ort.tp3parcialgrupo5.presentation.components.PercentExpensesSection
+import com.ort.tp3parcialgrupo5.presentation.home_screen.HomeViewModel
+import com.ort.tp3parcialgrupo5.presentation.home_screen.HomeViewModelFactory
+import com.ort.tp3parcialgrupo5.shared.infrastructure.RetrofitClient
+import com.ort.tp3parcialgrupo5.ui.theme.CategoryDefaultColor
+import com.ort.tp3parcialgrupo5.ui.theme.CategorySpecialColor
+
+@Composable
+fun CategoriesScreen(
+    onBack: (() -> Unit)? = null,
+    onBell: (() -> Unit)? = null,
+    onCategoryClick: (Category) -> Unit = {}
+) {
+    val homeViewModel: HomeViewModel = viewModel(
+        factory = HomeViewModelFactory(
+            TransactionsRepository(RetrofitClient.transactionsApi)
+        )
+    )
+
+    val totalBalance by homeViewModel.totalBalance
+    val totalIncome by homeViewModel.totalIncome
+    val totalExpense by homeViewModel.totalExpense
+    val transactions by homeViewModel.transactions
+
+    val showNewCategoryDialog = remember { mutableStateOf(false) }
+
+    val categories = listOf(
+        Category(R.drawable.vector_food, R.string.category_food, isSpecialColor = true),
+        Category(R.drawable.vector_111, R.string.category_transport),
+        Category(R.drawable.vector_pills, R.string.category_medicine),
+        Category(R.drawable.vector_groceries, R.string.category_groceries),
+        Category(R.drawable.group_2, R.string.category_rent),
+        Category(R.drawable.vector_gifts, R.string.category_gifts),
+        Category(R.drawable.vector_money, R.string.category_savings),
+        Category(R.drawable.vector_tickets, R.string.category_entertainment),
+        Category(R.drawable.group_390, R.string.category_more)
+    )
+
+    if (showNewCategoryDialog.value) {
+        NewCategoryDialog(
+            onDismiss = { showNewCategoryDialog.value = false },
+            onSave = { _ ->
+                showNewCategoryDialog.value = false
+            }
+        )
+    }
+
+    BaseLayout(
+        contentTop = {
+            Header(
+                title = stringResource(R.string.categories_title),
+                onBack = onBack,
+                onBell = onBell
+            )
+            Spacer(Modifier.height(12.dp))
+            AccountBalanceSection(totalBalance = totalBalance, income = totalIncome, expense = totalExpense)
+            Spacer(Modifier.height(18.dp))
+            PercentExpensesSection()
+            Spacer(Modifier.height(18.dp))
+        },
+        contentBottom = {
+            item {
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(horizontal = 16.dp, vertical = 32.dp)
+                ) {
+                    CategoriesGrid(
+                        categories = categories,
+                        defaultColor = CategoryDefaultColor,
+                        specialColor = CategorySpecialColor,
+                        onCategoryClick = { category ->
+                            if (category.nameRes == R.string.category_more) {
+                                showNewCategoryDialog.value = true
+                            } else {
+                                onCategoryClick(category)
+                            }
+                        }
+                    )
+                    Spacer(Modifier.height(100.dp))
+                }
+            }
+        }
+    )
+}
+
+@Preview(showSystemUi = true)
+@Composable
+private fun PreviewCategoriesScreen() {
+    MaterialTheme {
+        CategoriesScreen()
+    }
+}

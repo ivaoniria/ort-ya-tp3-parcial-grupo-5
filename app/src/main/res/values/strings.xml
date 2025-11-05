@@ -1,3 +1,189 @@
 <resources>
     <string name="app_name">TP3ParcialGrupo5</string>
+    <string name="db_name">user_db</string>
+
+    <!-- Launch -->
+    <string name="brand_name">FinWise</string>
+    <string name="welcome_subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</string>
+    <string name="login">Log In</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="logo_finwise">Logo FinWise</string>
+    <!-- Launch -->
+
+    <!-- Login -->
+    <string name="welcome">Welcome</string>
+    <string name="username_or_email">Username Or Email</string>
+    <string name="password">Password</string>
+    <string name="log_in">Log In</string>
+    <string name="use_fingerprint">Use </string>
+    <string name="fingerprint">Fingerprint </string>
+    <string name="to_access">To Access</string>
+    <string name="or_sign_up_with">or sign up with</string>
+    <string name="dont_have_account">Dont have an account?</string>
+    <string name="facebook_desc">Facebook</string>
+    <string name="google_desc">Google</string>
+    <!-- Login -->
+
+    <!-- Security NewPassword -->
+    <string name="new_password_title">New Password</string>
+    <string name="new_password_label">New Password</string>
+    <string name="confirm_new_password_label">Confirm New Password</string>
+    <string name="change_password_button">Change Password</string>
+    <!-- Security NewPassword -->
+
+    <!-- Security Password changed -->
+    <string name="password_changed_success">Password Has Been Changed Successfully</string>
+    <!-- Security Password changed -->
+
+    <!-- Security Pin -->
+    <string name="security_pin_title">Security Pin</string>
+    <string name="enter_security_pin">Enter Security Pin</string>
+    <string name="accept">Accept</string>
+    <string name="send_again">Send Again</string>
+    <!-- Security Pin -->
+
+    <!-- Create Account -->
+    <string name="create_account">Create Account</string>
+    <string name="full_name">Full Name</string>
+    <string name="email">Email</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="date_of_birth">Date Of Birth</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="by_continuing_you_agree">By continuing, you agree to</string>
+    <string name="terms_of_use">Terms of Use</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <!-- Create Account -->
+
+    <!-- Forgot Password -->
+    <string name="forgot_password_title">Forgot Password</string>
+    <string name="reset_password_question">Reset Password?</string>
+    <string name="reset_password_lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+    <string name="enter_email_address">Enter Email Address</string>
+    <string name="next_step">Next Step</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <!-- Forgot Password -->
+
+    <!-- Placeholders -->
+    <string name="placeholder_email">example@example.com</string>
+    <string name="placeholder_password">........</string>
+    <string name="placeholder_mobile_number">+ 123 456 789</string>
+    <string name="placeholder_dob">DD / MM / YYY</string>
+    <!-- Placeholders -->
+
+    <!-- Transaction -->
+    <string name="transaction_title">Transaction</string>
+    <string name="label_total_balance">Total Balance</string>
+    <string name="label_total_expense">Total Expense</string>
+    <string name="summary_note_default">30% Of Your Expenses, Looks Good.</string>
+    <string name="month_october">October</string>
+    <string name="month_november">October</string>
+    <!-- Transaction -->
+
+    <!-- AccountBalanceScreen -->
+    <string name="account_balance_header">Account Balance</string>
+    <string name="income_summary_value">$4,000.00</string>
+    <string name="expense_summary_value">$1,187.00</string>
+    <string name="transactions_section_title">Transactions</string>
+
+    <!-- HomeScreen -->
+    <!-- Home Page Header -->
+    <string name="hi_welcome_back">Hi, Welcome Back</string>
+    <string name="good_morning">Good Morning</string>
+    <string name="notifications">Notifications</string>
+
+    <!-- Account Balance Section -->
+    <string name="total_balance">Total Balance</string>
+    <string name="total_balance_value">7783.00</string>
+    <string name="total_expense">Total Expense</string>
+    <string name="total_expense_value">1187.40</string>
+    <string name="progress_percent_value">30</string>
+    <string name="goal_target_usd_value">20000.00</string>
+    <string name="expense_looks_good">30% Of Your Expenses, Looks Good</string>
+
+    <!-- Summary Section -->
+    <string name="savings_label">Revenue Last Week</string>
+    <string name="savings">$4,000.00</string>
+    <string name="on_goals">Savings\nOn Goals</string>
+    <string name="revenue_last_week">Revenue Last Week</string>
+    <string name="food_last_week">Food Last Week</string>
+    <string name="food_last_week_amount">-$100.00</string>
+
+    <!-- Period Tabs -->
+    <string name="daily">Daily</string>
+    <string name="weekly">Weekly</string>
+    <string name="monthly">Monthly</string>
+
+    <!-- Transaction List -->
+    <string name="food">Food</string>
+    <string name="food_time">Nov 31</string>
+    <string name="food_amount">$25,000.00</string>
+    <string name="food_category">October</string>
+    <!-- HomeScreen -->
+
+    <!-- ProgressBar -->
+    <string name="progress_bar">$20,000.00</string>
+    <!-- ProgressBar -->
+
+    <!-- Categories Screen -->
+    <string name="categories_title">Categories</string>
+    <string name="category_food">Food</string>
+    <string name="category_transport">Transport</string>
+    <string name="category_medicine">Medicine</string>
+    <string name="category_groceries">Groceries</string>
+    <string name="category_rent">Rent</string>
+    <string name="category_gifts">Gifts</string>
+    <string name="category_savings">Savings</string>
+    <string name="category_entertainment">Entertainment</string>
+    <string name="category_more">More</string>
+    <!-- Categories Screen -->
+
+    <!-- New Category Dialog -->
+    <string name="new_category_title">New Category</string>
+    <string name="new_category_placeholder">Write...</string>
+    <string name="new_category_save">Save</string>
+    <string name="new_category_cancel">Cancel</string>
+    <!-- Categories Screen -->
+
+    <!-- OnBoarding -->
+    <string name="onb_title_1">Welcome To\nExpense Manager</string>
+    <string name="onb_title_2">¿Are You Ready To\nTake Control Of\nYour Finances?</string>
+    <string name="next">Next</string>
+    <string name="get_started">Get Started</string>
+    <!-- OnBoarding -->
+
+    <!-- Profile -->
+    <string name="profile_title">Profile</string>
+    <string name="profile_name">John Smith</string>
+    <string name="profile_edit">Edit Profile</string>
+    <string name="profile_security">Security</string>
+    <string name="profile_setting">Setting</string>
+    <string name="profile_help">Help</string>
+    <string name="profile_logout">Logout</string>
+    <string name="back">Back</string>
+    <string name="profile_notifications">Notifications</string>
+    <string name="logout_success_message">Successfully logged out.</string>
+    <string name="logout_failure_message">Failed to log out. Please try again.</string>
+    <string name="created_success">User created successfully!</string>
+    <string name="no_user_created_message">No user has been created, Please create a user in Sign Up</string>
+    <string name="created_success_message">username: %1$s\nemail: %2$s</string>
+    <string name="attention_title">Atention</string>
+    <!-- Profile -->
+
+    <!-- Notification -->
+    <string name="notification_title">Notification</string>
+    <string name="section_today">Today</string>
+    <string name="section_yesterday">Yesterday</string>
+    <string name="section_this_weekend">This Weekend</string>
+    <string name="notif_title_reminder">Reminder!</string>
+    <string name="notif_title_new_update">New Update</string>
+    <string name="notif_title_transactions">Transactions</string>
+    <string name="notif_title_expense_record">Expense Record</string>
+    <string name="notif_body_savings">Set up your automatic savings to meet your savings goal…</string>
+    <string name="notif_body_registered">A new transaction has been registered</string>
+    <string name="notif_body_recommendation">We recommend that you be more attentive to your finances.</string>
+    <string name="notif_time_example">17:00 - April 24</string>
+    <string name="notif_detail_groceries">Groceries | Pantry | -$100,00</string>
+    <string name="notif_detail_food">Food | Dinner | -$70,40</string>
+    <!-- Notification -->
 </resources>
