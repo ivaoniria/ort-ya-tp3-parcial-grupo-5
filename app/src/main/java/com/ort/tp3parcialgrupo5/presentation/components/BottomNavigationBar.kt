@@ -12,23 +12,25 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-
+import com.ort.tp3parcialgrupo5.navigation.Route
 import com.ort.tp3parcialgrupo5.ui.theme.BackgroundBottomNav
 import com.ort.tp3parcialgrupo5.ui.theme.BackgroundListContainer
 import com.ort.tp3parcialgrupo5.ui.theme.FinBrand
+import com.ort.tp3parcialgrupo5.ui.theme.TP3ParcialGrupo5Theme
 
 data class BottomNavItem(
     val label: String,
     val icon: Int,
-    val route: String
+    val route: Route
 )
 
 @Composable
 fun BottomNavigationBar(
     modifier: Modifier = Modifier,
-    selectedRoute: String,
-    onItemSelected: (String) -> Unit,
+    selectedRoute: String?,
+    onItemSelected: (Route) -> Unit,
     items: List<BottomNavItem>,
     selectedColor: Color = FinBrand,
     backgroundColor: Color = BackgroundBottomNav,
@@ -53,7 +55,7 @@ fun BottomNavigationBar(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 items.forEach { item ->
-                    val isSelected = item.route == selectedRoute
+                    val isSelected = item.route::class.qualifiedName == selectedRoute
                     val iconColor = Color.White
                     val bgColor = if (isSelected) selectedColor else Color.Transparent
 
@@ -77,3 +79,4 @@ fun BottomNavigationBar(
         }
     }
 }
+

@@ -17,7 +17,7 @@ fun OnboardingImageCircle(@DrawableRes drawableRes: Int) {
         Image(
             painter = painterResource(id = drawableRes),
             contentDescription = null,
-            modifier = Modifier.size(220.dp)
+            modifier = Modifier.size(287.dp)
         )
     }
 }

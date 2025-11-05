@@ -5,7 +5,6 @@ import com.ort.tp3parcialgrupo5.shared.infrastructure.transactions.TransactionsA
 import com.ort.tp3parcialgrupo5.shared.infrastructure.transactions.dto.TransactionsListResponse
 
 class TransactionsRepository(private val apiService: TransactionsApi) {
-
     suspend fun getUserAccountData(): Result<TransactionsListResponse> {
         return try {
             val resp = apiService.getTransactions()

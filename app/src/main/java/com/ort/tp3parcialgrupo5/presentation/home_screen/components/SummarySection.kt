@@ -17,14 +17,18 @@ import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
 import com.ort.tp3parcialgrupo5.R
 import com.ort.tp3parcialgrupo5.ui.theme.BackgroundListContainer
 import com.ort.tp3parcialgrupo5.ui.theme.CarIconBlue
+import com.ort.tp3parcialgrupo5.ui.theme.FinButtonText
+import com.ort.tp3parcialgrupo5.ui.theme.FinWhite
 import com.ort.tp3parcialgrupo5.ui.theme.SummaryGreen
 import com.ort.tp3parcialgrupo5.ui.theme.SummarySubtitleTextDark
+import com.ort.tp3parcialgrupo5.ui.theme.UnspecifiedColor
 
 @Composable
 fun SummarySection(modifier: Modifier = Modifier) {
@@ -37,7 +41,8 @@ fun SummarySection(modifier: Modifier = Modifier) {
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(18.dp)
+                .offset(x = (-15).dp)
+                .padding(start = 10.dp, end = 26.dp, top = 18.dp, bottom = 18.dp)
         ) {
             Row(
                 modifier = Modifier.fillMaxWidth(),
@@ -68,7 +73,7 @@ fun SummarySection(modifier: Modifier = Modifier) {
                                     style = Stroke(stroke)
                                 )
                                 drawArc(
-                                    color = Color.White,
+                                    color = FinWhite,
                                     startAngle = 90f,
                                     sweepAngle = 180f,
                                     useCenter = false,
@@ -79,7 +84,7 @@ fun SummarySection(modifier: Modifier = Modifier) {
                                 painter = painterResource(R.drawable.car),
                                 contentDescription = null,
                                 modifier = Modifier.size(32.dp),
-                                tint = Color.Unspecified
+                                tint = UnspecifiedColor
                             )
                         }
                         Spacer(Modifier.height(8.dp))
@@ -87,7 +92,9 @@ fun SummarySection(modifier: Modifier = Modifier) {
                             text = stringResource(R.string.on_goals),
                             style = MaterialTheme.typography.bodySmall,
                             fontWeight = FontWeight.SemiBold,
-                            color = SummarySubtitleTextDark
+                            color = SummarySubtitleTextDark,
+                            textAlign = TextAlign.Center,
+                            modifier = Modifier.fillMaxWidth()
                         )
                     }
                 }
@@ -109,7 +116,7 @@ fun SummarySection(modifier: Modifier = Modifier) {
                                 painter = painterResource(R.drawable.salary),
                                 contentDescription = null,
                                 modifier = Modifier.size(width = 31.dp, height = 28.dp),
-                                tint = Color.Unspecified
+                                tint = UnspecifiedColor
                             )
                             Column(horizontalAlignment = Alignment.Start) {
                                 Text(
@@ -121,7 +128,7 @@ fun SummarySection(modifier: Modifier = Modifier) {
                                     text = stringResource(R.string.savings),
                                     style = MaterialTheme.typography.titleMedium,
                                     fontWeight = FontWeight.Bold,
-                                    color = Color.White
+                                    color = FinButtonText
                                 )
                             }
                         }
@@ -159,20 +166,21 @@ fun SummarySection(modifier: Modifier = Modifier) {
                     }
                 }
             }
+            // Linea Central
             Box(
                 modifier = Modifier
                     .align(Alignment.Center)
                     .offset(x = (-15).dp)
                     .width(2.dp)
-                    .height(100.dp)
-                    .background(Color.White)
+                    .height(108.dp)
+                    .background(FinWhite)
                     .zIndex(1f)
             )
         }
     }
 }
 
-@Preview(showBackground = true, backgroundColor = 0xFF093030)
+@Preview(showBackground = true)
 @Composable
 private fun PreviewSummarySection() {
     MaterialTheme {

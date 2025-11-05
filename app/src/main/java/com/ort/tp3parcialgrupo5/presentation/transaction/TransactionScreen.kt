@@ -21,12 +21,10 @@ import com.ort.tp3parcialgrupo5.presentation.components.TransactionRow
 import com.ort.tp3parcialgrupo5.presentation.home_screen.components.TransactionListSection
 import com.ort.tp3parcialgrupo5.presentation.transaction.components.MonthHeader
 import com.ort.tp3parcialgrupo5.presentation.transaction.components.TopBalanceCard
-import com.ort.tp3parcialgrupo5.presentation.transaction.model.TxUi
 import com.ort.tp3parcialgrupo5.shared.infrastructure.RetrofitClient
 import com.ort.tp3parcialgrupo5.ui.theme.FinWhite
-import com.ort.tp3parcialgrupo5.view_model.HomeViewModel
-import com.ort.tp3parcialgrupo5.view_model.HomeViewModelFactory
-
+import com.ort.tp3parcialgrupo5.presentation.home_screen.HomeViewModel
+import com.ort.tp3parcialgrupo5.presentation.home_screen.HomeViewModelFactory
 
 @Composable
 fun TransactionScreen(
@@ -47,7 +45,11 @@ fun TransactionScreen(
     BaseLayout(
         contentTop = {
             Header(title = stringResource(R.string.transaction_title), onBack = onBack, onBell = onBell)
-            TopBalanceCard(title = stringResource(R.string.label_total_balance), amount = totalBalance)
+            TopBalanceCard(
+                title = stringResource(R.string.label_total_balance),
+                amount = totalBalance,
+                titleStyle = MaterialTheme.typography.titleMedium
+            )
             Spacer(Modifier.height(12.dp))
             AccountBalanceSection(totalBalance, totalIncome, totalExpense)
             Spacer(Modifier.height(10.dp))
@@ -56,7 +58,7 @@ fun TransactionScreen(
         },
         contentBottom = {
             item {
-                MonthHeader(text = stringResource(R.string.month_april))
+                MonthHeader(text = stringResource(R.string.month_october))
                 Spacer(Modifier.height(10.dp))
             }
             item {
@@ -67,16 +69,19 @@ fun TransactionScreen(
             }
             item {
                 Spacer(Modifier.height(6.dp))
-                MonthHeader(text = stringResource(R.string.month_march))
+                MonthHeader(text = stringResource(R.string.month_november))
                 Spacer(Modifier.height(10.dp))
                 TransactionRow(
                     iconRes = R.drawable.icon_food,
                     category = stringResource(R.string.food),
-                    time = stringResource(R.string.food_subtitle),
+                    time = stringResource(R.string.food_time),
                     month = stringResource(R.string.food_category),
                     amount = stringResource(R.string.food_amount),
                     amountColor = FinWhite
                 )
+                Spacer(Modifier.height(12.dp))
+            }
+            item {
                 Spacer(Modifier.height(12.dp))
             }
         }

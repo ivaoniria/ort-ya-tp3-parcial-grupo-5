@@ -29,8 +29,8 @@ import com.ort.tp3parcialgrupo5.presentation.account_balance.components.IncomeEx
 import com.ort.tp3parcialgrupo5.presentation.home_screen.components.TransactionListSection
 import com.ort.tp3parcialgrupo5.shared.infrastructure.RetrofitClient
 import com.ort.tp3parcialgrupo5.ui.theme.FinWhite
-import com.ort.tp3parcialgrupo5.view_model.HomeViewModel
-import com.ort.tp3parcialgrupo5.view_model.HomeViewModelFactory
+import com.ort.tp3parcialgrupo5.presentation.home_screen.HomeViewModel
+import com.ort.tp3parcialgrupo5.presentation.home_screen.HomeViewModelFactory
 
 @Composable
 fun AccountBalanceScreen(

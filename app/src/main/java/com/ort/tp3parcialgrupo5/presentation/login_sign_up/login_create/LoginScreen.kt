@@ -32,7 +32,8 @@ import com.ort.tp3parcialgrupo5.ui.theme.FinBtnText
 @Composable
 fun LoginScreen(
     onLoginSuccess: () -> Unit = {},
-    onSignUpClick: () -> Unit = {}
+    onSignUpClick: () -> Unit = {},
+    onForgotClick: () -> Unit = {}
 ) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
@@ -67,7 +68,7 @@ fun LoginScreen(
                         textColor = FinBtnText
                     )
                     Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
-                        TextButton(onClick = { /*TODO*/ }) {
+                        TextButton(onClick = { onForgotClick() }) {
                             Text(
                                 text = stringResource(id = R.string.forgot_password),
                                 color = FinWhite,
@@ -97,4 +98,3 @@ fun LoginScreenPreview() {
         LoginScreen()
     }
 }
-

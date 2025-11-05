@@ -1,5 +1,6 @@
-package com.ort.tp3parcialgrupo5.view_model
+package com.ort.tp3parcialgrupo5.presentation.home_screen
 
+import android.util.Log
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
@@ -39,7 +40,7 @@ class HomeViewModel(private val repository: TransactionsRepository) : ViewModel(
                 _totalExpense.value = userAccount.expense
                 _transactions.value = userAccount.transactions
             }.onFailure { exception ->
-                android.util.Log.e("HomeViewModel", "Repo error", exception)
+                Log.e("HomeViewModel", "Repo error", exception)
                 _errorMessage.value = "Error al cargar los datos: ${exception.message}"
             }
             _isLoading.value = false

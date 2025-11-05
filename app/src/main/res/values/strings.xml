@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">TP3ParcialGrupo5</string>
+    <string name="db_name">user_db</string>
 
     <!-- Launch -->
     <string name="brand_name">FinWise</string>
@@ -18,7 +19,7 @@
     <string name="fingerprint">Fingerprint</string>
     <string name="to_access">To Access</string>
     <string name="or_sign_up_with">or sign up with</string>
-    <string name="dont_have_account">Don\'t have an account?</string>
+    <string name="dont_have_account">Dont have an account?</string>
     <string name="facebook_desc">Facebook</string>
     <string name="google_desc">Google</string>
     <!-- Login -->
@@ -33,6 +34,13 @@
     <!-- Security Password changed -->
     <string name="password_changed_success">Password Has Been Changed Successfully</string>
     <!-- Security Password changed -->
+
+    <!-- Security Pin -->
+    <string name="security_pin_title">Security Pin</string>
+    <string name="enter_security_pin">Enter Security Pin</string>
+    <string name="accept">Accept</string>
+    <string name="send_again">Send Again</string>
+    <!-- Security Pin -->
 
     <!-- Create Account -->
     <string name="create_account">Create Account</string>
@@ -68,8 +76,8 @@
     <string name="label_total_balance">Total Balance</string>
     <string name="label_total_expense">Total Expense</string>
     <string name="summary_note_default">30% Of Your Expenses, Looks Good.</string>
-    <string name="month_april">April</string>
-    <string name="month_march">March</string>
+    <string name="month_october">October</string>
+    <string name="month_november">November</string>
     <!-- Transaction -->
 
     <!-- AccountBalanceScreen -->
@@ -107,31 +115,15 @@
     <string name="monthly">Monthly</string>
 
     <!-- Transaction List -->
-    <string name="salary">Salary</string>
-    <string name="salary_subtitle">18:27 - April 30</string>
-    <string name="salary_amount">$4,000.00</string>
-    <string name="salary_category">Monthly</string>
-
-    <string name="groceries">Groceries</string>
-    <string name="groceries_subtitle">17:00 - April 24</string>
-    <string name="groceries_amount">-$100.00</string>
-    <string name="groceries_category">Pantry</string>
-
-    <string name="rent">Rent</string>
-    <string name="rent_subtitle">8:30 - April 15</string>
-    <string name="rent_amount">-$674.40</string>
-    <string name="rent_category">Rent</string>
-
-    <string name="transport">Transport</string>
-    <string name="transport_subtitle">7:39 - April 08</string>
-    <string name="transport_amount">-$4.13</string>
-    <string name="transport_category">Fuel</string>
-
     <string name="food">Food</string>
-    <string name="food_subtitle">March 31</string>
-    <string name="food_amount">-$70.40</string>
-    <string name="food_category">Dinner</string>
+    <string name="food_time">Nov 31</string>
+    <string name="food_amount">$70.40</string>
+    <string name="food_category">November</string>
     <!-- HomeScreen -->
+
+    <!-- ProgressBar -->
+    <string name="progress_bar">$20,000.00</string>
+    <!-- ProgressBar -->
 
     <!-- Categories Screen -->
     <string name="categories_title">Categories</string>
@@ -159,6 +151,24 @@
     <string name="next">Next</string>
     <string name="get_started">Get Started</string>
     <!-- OnBoarding -->
+
+    <!-- Profile -->
+    <string name="profile_title">Profile</string>
+    <string name="profile_name">John Smith</string>
+    <string name="profile_edit">Edit Profile</string>
+    <string name="profile_security">Security</string>
+    <string name="profile_setting">Setting</string>
+    <string name="profile_help">Help</string>
+    <string name="profile_logout">Logout</string>
+    <string name="back">Back</string>
+    <string name="profile_notifications">Notifications</string>
+    <string name="logout_success_message">Successfully logged out.</string>
+    <string name="logout_failure_message">Failed to log out. Please try again.</string>
+    <string name="created_success">User created successfully!</string>
+    <string name="no_user_created_message">No user has been created, Please create a user in Sign Up</string>
+    <string name="created_success_message">username: %1$s\nemail: %2$s</string>
+    <string name="attention_title">Atention</string>
+    <!-- Profile -->
 
     <!-- Notification -->
     <string name="notification_title">Notification</string>
