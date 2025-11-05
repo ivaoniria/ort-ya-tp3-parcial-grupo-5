@@ -22,8 +22,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import com.ort.tp3parcialgrupo5.ui.theme.FinWhite
 import com.ort.tp3parcialgrupo5.ui.theme.Hermo
 import com.ort.tp3parcialgrupo5.ui.theme.Hermosho
-import com.ort.tp3parcialgrupo5.ui.theme.HermoshoCholor
-import com.ort.tp3parcialgrupo5.ui.theme.Transaprent
+import com.ort.tp3parcialgrupo5.ui.theme.HermoshoColor
+import com.ort.tp3parcialgrupo5.ui.theme.Transparent
 
 @Composable
 fun TransactionRow(
@@ -38,7 +38,7 @@ fun TransactionRow(
 ) {
     val interaction = remember { MutableInteractionSource() }
     val pressed by interaction.collectIsPressedAsState()
-    val pressBg = if (pressed) Hermo else Transaprent
+    val pressBg = if (pressed) Hermo else Transparent
 
     Row(
         modifier = modifier
@@ -81,7 +81,7 @@ fun TransactionRow(
             modifier = Modifier
                 .height(40.dp)
                 .width(1.dp)
-                .background(HermoshoCholor)
+                .background(HermoshoColor)
         )
 
         Box(
