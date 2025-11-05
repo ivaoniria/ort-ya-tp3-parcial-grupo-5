@@ -16,9 +16,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ort.tp3parcialgrupo5.ui.theme.FinWhite
+import com.ort.tp3parcialgrupo5.ui.theme.Poppins
 
 @Composable
 fun ProfileInfo(
@@ -42,8 +45,12 @@ fun ProfileInfo(
         Spacer(Modifier.height(10.dp))
         Text(
             text = displayName,
-            fontSize = 16.sp,
-            color = FinWhite
+            color = FinWhite,
+            fontSize = 20.sp,
+            fontWeight = FontWeight.Bold,
+            fontFamily = Poppins,
+            lineHeight = 20.sp,
+            textAlign = TextAlign.Center
         )
     }
 }
