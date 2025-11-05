@@ -23,6 +23,7 @@ import com.ort.tp3parcialgrupo5.presentation.on_boarding.components.OnboardingIm
 import com.ort.tp3parcialgrupo5.presentation.on_boarding.components.OnboardingTitle
 import com.ort.tp3parcialgrupo5.ui.theme.FinWhite
 import com.ort.tp3parcialgrupo5.ui.theme.FinWiseTheme
+import com.ort.tp3parcialgrupo5.ui.theme.Poppins
 
 private val HorizontalPadding = 24.dp
 
@@ -90,7 +91,7 @@ fun OnboardingScreen(onFinish: () -> Unit = {}) {
                         Text(
                             text = if (page < onbPages.lastIndex) stringResource(R.string.next) else stringResource(R.string.get_started),
                             fontSize = 30.sp,
-                            lineHeight = 22.sp,
+                            fontFamily = Poppins,
                             fontWeight = FontWeight.SemiBold
                         )
                     }
