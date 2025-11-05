@@ -57,20 +57,48 @@ fun ProfileScreen(
             Spacer(Modifier.height(10.dp))
         },
         contentBottom = {
-            item { ProfileMenuItem(iconRes = R.drawable.editprofile, textRes = R.string.profile_edit) }
+            item {
+                ProfileMenuItem(
+                    iconRes = R.drawable.editprofile,
+                    textRes = R.string.profile_edit,
+                    iconWidth = 57.dp,
+                    iconHeight = 53.dp,
+                    gapIconText = 34.dp
+                )
+            }
             item { Spacer(Modifier.height(12.dp)) }
 
-            item { ProfileMenuItem(iconRes = R.drawable.icon_security, textRes = R.string.profile_security) }
+            item {
+                ProfileMenuItem(
+                    iconRes = R.drawable.icon_security,
+                    textRes = R.string.profile_security
+                )
+            }
             item { Spacer(Modifier.height(12.dp)) }
 
-            item { ProfileMenuItem(iconRes = R.drawable.icon_setting, textRes = R.string.profile_setting) }
+            item {
+                ProfileMenuItem(
+                    iconRes = R.drawable.icon_setting,
+                    textRes = R.string.profile_setting
+                )
+            }
             item { Spacer(Modifier.height(12.dp)) }
 
-            item { ProfileMenuItem(iconRes = R.drawable.icon_help, textRes = R.string.profile_help) }
+            item {
+                ProfileMenuItem(
+                    iconRes = R.drawable.icon_help,
+                    textRes = R.string.profile_help
+                )
+            }
             item { Spacer(Modifier.height(12.dp)) }
 
-            item { ProfileMenuItem(iconRes = R.drawable.icon_logout, textRes = R.string.profile_logout) }
-            item { Spacer(Modifier.height(90.dp)) }
+            item {
+                ProfileMenuItem(
+                    iconRes = R.drawable.icon_logout,
+                    textRes = R.string.profile_logout
+                )
+            }
+
         }
     )
 }
