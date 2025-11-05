@@ -144,7 +144,7 @@ fun SummarySection(modifier: Modifier = Modifier) {
                             modifier = Modifier.fillMaxWidth()
                         ) {
                             Icon(
-                                painter = painterResource(R.drawable.icon_food),
+                                painter = painterResource(R.drawable.food),
                                 contentDescription = null,
                                 modifier = Modifier.size(width = 31.dp, height = 28.dp),
                                 tint = Color.Unspecified
