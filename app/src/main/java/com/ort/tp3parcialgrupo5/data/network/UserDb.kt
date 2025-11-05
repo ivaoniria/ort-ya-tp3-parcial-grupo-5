@@ -11,6 +11,5 @@ import com.ort.tp3parcialgrupo5.domain.model.DbUser
     exportSchema = false
 )
 abstract class UserDb : RoomDatabase() {
-    abstract val userDao: UserDao
+    abstract fun userDao(): UserDao
 }
-
