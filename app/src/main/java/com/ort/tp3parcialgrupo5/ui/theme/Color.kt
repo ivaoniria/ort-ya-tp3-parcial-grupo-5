@@ -90,3 +90,15 @@ object FinWiseColors {
 val BlueButton = Color(0xFF3299FF)
 
 val DarkModeGreenBlack = Color(0xFF031314)
+
+val HermoshoCholor = Color(0xFF1ECED5)
+
+val Hermosho = Color(0xFF5BA3D0)
+
+val Hermo = Color(0xFF00D09E).copy(alpha = 0.15f)
+
+val White80 = Color.White.copy(alpha = 0.8f)
+
+val Transaprent = Color.Transparent
+
+val UnspecifiedColor = Color.Unspecified
