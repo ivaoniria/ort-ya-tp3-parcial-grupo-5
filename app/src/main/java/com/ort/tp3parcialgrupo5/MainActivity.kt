@@ -8,6 +8,7 @@ import androidx.navigation.compose.rememberNavController
 import com.ort.tp3parcialgrupo5.navigation.AppNavGraph
 import com.ort.tp3parcialgrupo5.ui.theme.TP3ParcialGrupo5Theme
 class MainActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -17,6 +18,6 @@ class MainActivity : ComponentActivity() {
                 AppNavGraph(navController = navController)
             }
         }
+        DebugTools.runApiSmokeIfAvailable()
     }
 }
-
