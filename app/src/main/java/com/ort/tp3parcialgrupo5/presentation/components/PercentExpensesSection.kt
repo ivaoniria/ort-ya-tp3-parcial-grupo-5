@@ -3,8 +3,8 @@ package com.ort.tp3parcialgrupo5.presentation.components
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -25,14 +25,18 @@ import com.ort.tp3parcialgrupo5.ui.theme.ExpenseLooksGood
 @Composable
 fun PercentExpensesSection() {
     Row(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier
+            .fillMaxWidth()
+            .offset(x = (-30).dp),
         horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically
     ) {
         Icon(
             painter = painterResource(R.drawable.check),
             contentDescription = null,
-            modifier = Modifier.size(14.dp).padding(0.dp),
+            modifier = Modifier
+                .size(14.dp)
+                .padding(0.dp),
             tint = Color.Unspecified
         )
         Spacer(Modifier.width(6.dp))
@@ -42,4 +46,10 @@ fun PercentExpensesSection() {
             color = ExpenseLooksGood
         )
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun PercentExpensesSectionPreview() {
+    PercentExpensesSection()
 }
