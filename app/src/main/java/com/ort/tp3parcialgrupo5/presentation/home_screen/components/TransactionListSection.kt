@@ -24,7 +24,6 @@ fun TransactionListSection(
         modifier = modifier
             .fillMaxWidth()
             .background(TransactionBg)
-            .padding(horizontal = 12.dp, vertical = 8.dp),
     ) {
         transactionUiList.forEach { uiModel ->
             TransactionRow(

@@ -4,6 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -47,10 +48,10 @@ fun BaseLayout(
                     Column { contentTop() }
                 }
 
-
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
+                        .fillMaxHeight()
                         .padding(top = 16.dp)
                         .clip(RoundedCornerShape(topStart = 60.dp, topEnd = 60.dp))
                         .background(backgroundListColor)
@@ -58,8 +59,9 @@ fun BaseLayout(
                     LazyColumn(
                         modifier = Modifier
                             .fillMaxWidth()
+                            .fillMaxHeight()
                             .padding(vertical = 24.dp, horizontal = 24.dp),
-                        contentPadding = PaddingValues(bottom = 16.dp),
+                        contentPadding = PaddingValues(bottom = 80.dp),
                         horizontalAlignment = Alignment.CenterHorizontally,
                         content = contentBottom
                     )
