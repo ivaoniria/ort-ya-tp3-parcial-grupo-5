@@ -13,7 +13,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -24,6 +23,8 @@ import com.ort.tp3parcialgrupo5.presentation.login_sign_up.forgot_reset_password
 import com.ort.tp3parcialgrupo5.presentation.login_sign_up.forgot_reset_password.components.ForgotPasswordFooter
 import com.ort.tp3parcialgrupo5.presentation.login_sign_up.forgot_reset_password.components.ForgotPasswordTextField
 import com.ort.tp3parcialgrupo5.ui.theme.AppTypography
+import com.ort.tp3parcialgrupo5.ui.theme.FinWhite
+import com.ort.tp3parcialgrupo5.ui.theme.TransactionSubtitleText
 
 @Composable
 fun ForgotResetPasswordScreen() {
@@ -40,7 +41,7 @@ fun ForgotResetPasswordScreen() {
                 Text(
                     text = stringResource(id = R.string.forgot_password_title),
                     style = AppTypography.displaySmall,
-                    color = Color.White
+                    color = FinWhite
                 )
             }
         },
@@ -61,7 +62,7 @@ fun ForgotResetPasswordScreen() {
                     Text(
                         text = stringResource(id = R.string.reset_password_lorem_ipsum),
                         style = AppTypography.bodyMedium,
-                        color = Color.Gray
+                        color = TransactionSubtitleText // CORRECTED: Used color from Theme
                     )
                     Spacer(modifier = Modifier.height(32.dp))
                     ForgotPasswordTextField(

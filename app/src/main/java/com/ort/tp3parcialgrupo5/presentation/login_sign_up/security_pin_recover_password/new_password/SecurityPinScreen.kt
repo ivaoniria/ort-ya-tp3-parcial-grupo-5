@@ -11,8 +11,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -21,7 +19,11 @@ import com.ort.tp3parcialgrupo5.presentation.components.BaseLayout
 import com.ort.tp3parcialgrupo5.presentation.login_sign_up.security_pin_recover_password.new_password.components.PinEntryCircle
 import com.ort.tp3parcialgrupo5.presentation.login_sign_up.security_pin_recover_password.new_password.components.SecurityPinButton
 import com.ort.tp3parcialgrupo5.presentation.login_sign_up.security_pin_recover_password.new_password.components.SecurityPinFooter
+import com.ort.tp3parcialgrupo5.ui.theme.AccountBalanceLabel
 import com.ort.tp3parcialgrupo5.ui.theme.AppTypography
+import com.ort.tp3parcialgrupo5.ui.theme.FinBrand
+import com.ort.tp3parcialgrupo5.ui.theme.FinBtnText
+import com.ort.tp3parcialgrupo5.ui.theme.FinWhite
 
 @Composable
 fun SecurityPinScreen() {
@@ -36,7 +38,7 @@ fun SecurityPinScreen() {
                 Text(
                     text = stringResource(id = R.string.security_pin_title),
                     style = AppTypography.displaySmall,
-                    color = Color.White
+                    color = FinWhite
                 )
             }
         },
@@ -51,7 +53,7 @@ fun SecurityPinScreen() {
                     Text(
                         text = stringResource(id = R.string.enter_security_pin),
                         style = AppTypography.titleMedium,
-                        color = Color.White
+                        color = FinWhite
                     )
                     Spacer(modifier = Modifier.height(24.dp))
 
@@ -75,15 +77,15 @@ fun SecurityPinScreen() {
                         SecurityPinButton(
                             text = stringResource(id = R.string.accept),
                             onClick = { /*TODO*/ },
-                            backgroundColor = colorResource(id = R.color.main_green),
-                            textColor = colorResource(id = R.color.letters_and_icons)
+                            backgroundColor = FinBrand, // CORRECTED
+                            textColor = FinBtnText      // CORRECTED
                         )
                         Spacer(modifier = Modifier.height(16.dp))
                         SecurityPinButton(
                             text = stringResource(id = R.string.send_again),
                             onClick = { /*TODO*/ },
-                            backgroundColor = colorResource(id = R.color.bg_green_white),
-                            textColor = colorResource(id = R.color.letters_and_icons)
+                            backgroundColor = AccountBalanceLabel, // CORRECTED
+                            textColor = FinBtnText           // CORRECTED
                         )
                     }
 
