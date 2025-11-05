@@ -1,31 +1,43 @@
 package com.ort.tp3parcialgrupo5.di
 
-import com.ort.tp3parcialgrupo5.shared.infrastructure.auth.AuthImpl
-import com.ort.tp3parcialgrupo5.shared.infrastructure.user.UserImpl
-import com.ort.tp3parcialgrupo5.shared.infrastructure.transactions.TransactionsImpl
+import android.content.Context
+import androidx.room.Room
+import com.ort.tp3parcialgrupo5.data.dao.UserDao
+import com.ort.tp3parcialgrupo5.data.network.UserDb
+import com.ort.tp3parcialgrupo5.data.repository.UserRepositoryImpl
+import com.ort.tp3parcialgrupo5.domain.repository.UserRepository
 import com.ort.tp3parcialgrupo5.shared.infrastructure.auth.Auth
-import com.ort.tp3parcialgrupo5.shared.infrastructure.user.UserService
-import com.ort.tp3parcialgrupo5.shared.infrastructure.transactions.Transaction
-import dagger.Binds
+import com.ort.tp3parcialgrupo5.shared.infrastructure.auth.AuthImpl
 import dagger.Module
+import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-abstract class AppModule {
+object AppModule {
 
-    @Binds
+    @Provides
     @Singleton
-    abstract fun bindAuthImpl(authImpl: AuthImpl): Auth
+    fun provideUserDb(
+        @ApplicationContext context: Context
+    ): UserDb =
+        Room.databaseBuilder(
+            context,
+            UserDb::class.java,
+            "user_db"
+        ).fallbackToDestructiveMigration().build()
 
-    @Binds
-    @Singleton
-    abstract fun bindUserImpl(userImpl: UserImpl): UserService
+    @Provides
+    fun provideUserDao(userDb: UserDb): UserDao = userDb.userDao()
 
-    @Binds
+    @Provides
+    fun provideUserRepository(userDao: UserDao): UserRepository =
+        UserRepositoryImpl(userDao = userDao)
+
+    @Provides
     @Singleton
-    abstract fun bindTransactionsImpl(transactionsImpl: TransactionsImpl): Transaction
+    fun provideLoginService(): Auth = AuthImpl()
 }
-

@@ -21,10 +21,10 @@ fun NotificationScreen(
     BaseLayout(
         contentTop = {
             Header(
-                title = stringResource(R.string.notification_title),
+                title = stringResource(R.string.notifications),
                 onBack = onBack,
                 onBell = onBell,
-                bellIcon = R.drawable.icon_notificationbellblue
+                isNotification = true
             )
             Spacer(Modifier.height(12.dp))
         },
@@ -41,5 +41,3 @@ fun NotificationScreen(
 private fun PreviewNotificationScreen() {
     MaterialTheme { NotificationScreen() }
 }
-
-

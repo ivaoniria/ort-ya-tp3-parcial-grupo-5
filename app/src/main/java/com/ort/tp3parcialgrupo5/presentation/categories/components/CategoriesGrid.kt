@@ -2,6 +2,10 @@ package com.ort.tp3parcialgrupo5.presentation.categories.components
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -16,17 +20,22 @@ fun CategoriesGrid(
     onCategoryClick: (Category) -> Unit,
     modifier: Modifier = Modifier
 ) {
+    var selectedIndex by rememberSaveable { mutableStateOf(-1) }
+
     Column(
         modifier = modifier.fillMaxWidth(),
         verticalArrangement = Arrangement.spacedBy(24.dp)
     ) {
-        categories.chunked(3).forEach { rowCategories ->
+        categories.chunked(3).forEachIndexed { rowIndex, rowCategories ->
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                rowCategories.forEach { category ->
+                rowCategories.forEachIndexed { colIndex, category ->
+                    val index = rowIndex * 3 + colIndex
+                    val bg = if (selectedIndex == index) specialColor else defaultColor
+
                     Box(
                         modifier = Modifier.weight(1f),
                         contentAlignment = Alignment.Center
@@ -34,8 +43,13 @@ fun CategoriesGrid(
                         CategoryButton(
                             iconRes = category.iconRes,
                             nameRes = category.nameRes,
-                            backgroundColor = if (category.isSpecialColor) specialColor else defaultColor,
-                            onClick = { onCategoryClick(category) }
+                            backgroundColor = bg,
+                            onClick = {
+                                if (category.nameRes != com.ort.tp3parcialgrupo5.R.string.category_more) {
+                                    selectedIndex = index
+                                }
+                                onCategoryClick(category)
+                            }
                         )
                     }
                 }
@@ -46,4 +60,3 @@ fun CategoriesGrid(
         }
     }
 }
-

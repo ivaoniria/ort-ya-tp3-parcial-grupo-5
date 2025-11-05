@@ -22,10 +22,12 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ort.tp3parcialgrupo5.R
 import com.ort.tp3parcialgrupo5.ui.theme.HeaderBellBackground
+import com.ort.tp3parcialgrupo5.ui.theme.TP3ParcialGrupo5Theme
 
 @Composable
 fun HeaderSection(
@@ -72,6 +74,19 @@ fun HeaderSection(
                     tint = Color.Unspecified
                 )
             }
+        }
+    }
+}
+
+@Preview(name = "HeaderSection", showBackground = true, backgroundColor = 0xFF031314)
+@Composable
+private fun PreviewHeaderSection() {
+    TP3ParcialGrupo5Theme {
+        Box(modifier = Modifier
+            .fillMaxWidth()
+            .background(Color(0xFF031314))
+            .padding(top = 24.dp)) {
+            HeaderSection()
         }
     }
 }

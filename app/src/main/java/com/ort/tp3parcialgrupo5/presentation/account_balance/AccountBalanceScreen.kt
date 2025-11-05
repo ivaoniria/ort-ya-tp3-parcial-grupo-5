@@ -18,13 +18,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ort.tp3parcialgrupo5.R
-
+import com.ort.tp3parcialgrupo5.presentation.account_balance.components.IncomeExpenseSummary
 import com.ort.tp3parcialgrupo5.presentation.components.AccountBalanceSection
 import com.ort.tp3parcialgrupo5.presentation.components.BaseLayout
 import com.ort.tp3parcialgrupo5.presentation.components.Header
 import com.ort.tp3parcialgrupo5.presentation.components.PercentExpensesSection
 import com.ort.tp3parcialgrupo5.presentation.components.TransactionRow
-import com.ort.tp3parcialgrupo5.presentation.account_balance.components.IncomeExpenseSummary
 import com.ort.tp3parcialgrupo5.presentation.transaction.model.TxUi
 import com.ort.tp3parcialgrupo5.ui.theme.FinWhite
 
@@ -37,14 +36,14 @@ fun AccountBalanceScreen(
     BaseLayout(
         contentTop = {
             Header(title = stringResource(R.string.account_balance_header), onBack = onBack, onBell = onBell)
-            Spacer(modifier.height(10.dp))
+            Spacer(Modifier.height(10.dp))
             AccountBalanceSection()
-            Spacer(modifier.height(10.dp))
+            Spacer(Modifier.height(10.dp))
             IncomeExpenseSummary(income = stringResource(R.string.income_summary_value),
                 expense = stringResource(R.string.expense_summary_value))
-            Spacer(modifier.height(10.dp))
+            Spacer(Modifier.height(10.dp))
             PercentExpensesSection()
-            Spacer(modifier.height(18.dp))
+            Spacer(Modifier.height(18.dp))
         },
         contentBottom = {
             item {
@@ -60,7 +59,7 @@ fun AccountBalanceScreen(
                     textAlign = TextAlign.Start
                 )
             }
-            item { Spacer(modifier.height(12.dp)) }
+            item { Spacer(Modifier.height(12.dp)) }
             items(
                 listOf(
                     TxUi(
@@ -105,7 +104,7 @@ fun AccountBalanceScreen(
                     amount = stringResource(tx.amountRes),
                     amountColor = FinWhite
                 )
-                Spacer(modifier.height(12.dp))
+                Spacer(Modifier.height(12.dp))
             }
         }
     )
@@ -114,8 +113,5 @@ fun AccountBalanceScreen(
 @Preview(showSystemUi = true)
 @Composable
 private fun PreviewAccountBalanceScreen() {
-    MaterialTheme {
-
-    }
+    MaterialTheme { }
 }
-

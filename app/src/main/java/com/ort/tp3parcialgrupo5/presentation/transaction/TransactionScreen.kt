@@ -21,7 +21,6 @@ import com.ort.tp3parcialgrupo5.presentation.transaction.components.TopBalanceCa
 import com.ort.tp3parcialgrupo5.presentation.transaction.model.TxUi
 import com.ort.tp3parcialgrupo5.ui.theme.FinWhite
 
-
 @Composable
 fun TransactionScreen(
     onBack: (() -> Unit)? = null,
@@ -30,7 +29,11 @@ fun TransactionScreen(
     BaseLayout(
         contentTop = {
             Header(title = stringResource(R.string.transaction_title), onBack = onBack, onBell = onBell)
-            TopBalanceCard(title = stringResource(R.string.label_total_balance), amount = stringResource(R.string.total_balance_value))
+            TopBalanceCard(
+                title = stringResource(R.string.label_total_balance),
+                amount = stringResource(R.string.total_balance_value),
+                titleStyle = MaterialTheme.typography.titleMedium
+            )
             Spacer(Modifier.height(12.dp))
             AccountBalanceSection()
             Spacer(Modifier.height(10.dp))

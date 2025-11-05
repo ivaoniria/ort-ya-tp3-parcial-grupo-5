@@ -9,6 +9,10 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -24,9 +28,14 @@ import com.ort.tp3parcialgrupo5.ui.theme.AppTypography
 import com.ort.tp3parcialgrupo5.ui.theme.FinBrand
 import com.ort.tp3parcialgrupo5.ui.theme.FinBtnText
 import com.ort.tp3parcialgrupo5.ui.theme.FinWhite
+import kotlin.random.Random
 
 @Composable
-fun SecurityPinScreen() {
+fun SecurityPinScreen(
+    onAccept: () -> Unit = {}
+) {
+    var pinNumbers by remember { mutableStateOf(List(6) { Random.nextInt(0, 10) }) }
+
     BaseLayout(
         contentTop = {
             Column(
@@ -56,44 +65,32 @@ fun SecurityPinScreen() {
                         color = FinWhite
                     )
                     Spacer(modifier = Modifier.height(24.dp))
-
-
                     Row(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.SpaceEvenly
                     ) {
-                        PinEntryCircle(number = 2)
-                        PinEntryCircle(number = 7)
-                        PinEntryCircle(number = 3)
-                        PinEntryCircle(number = 9)
-                        PinEntryCircle(number = 1)
-                        PinEntryCircle(number = 6)
+                        pinNumbers.forEach { num ->
+                            PinEntryCircle(number = num)
+                        }
                     }
-
                     Spacer(modifier = Modifier.height(32.dp))
-
-                    // Action Buttons
                     Column(modifier = Modifier.padding(horizontal = 40.dp)) {
                         SecurityPinButton(
                             text = stringResource(id = R.string.accept),
-                            onClick = { /*TODO*/ },
-                            backgroundColor = FinBrand, // CORRECTED
-                            textColor = FinBtnText      // CORRECTED
+                            onClick = { onAccept() },
+                            backgroundColor = FinBrand,
+                            textColor = FinBtnText
                         )
                         Spacer(modifier = Modifier.height(16.dp))
                         SecurityPinButton(
                             text = stringResource(id = R.string.send_again),
-                            onClick = { /*TODO*/ },
-                            backgroundColor = AccountBalanceLabel, // CORRECTED
-                            textColor = FinBtnText           // CORRECTED
+                            onClick = { pinNumbers = List(6) { Random.nextInt(0, 10) } },
+                            backgroundColor = AccountBalanceLabel,
+                            textColor = FinBtnText
                         )
                     }
-
                     Spacer(modifier = Modifier.height(150.dp))
-
-                    // Footer
                     SecurityPinFooter()
-
                     Spacer(modifier = Modifier.height(32.dp))
                 }
             }

@@ -48,11 +48,11 @@ fun AccountBalanceSection(
             modifier = Modifier
                 .fillMaxWidth()
                 .height(IntrinsicSize.Min),
-            horizontalArrangement = Arrangement.Center,
+            horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
             Column(
-                modifier = Modifier,
+                modifier = Modifier.weight(1f),
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.spacedBy(2.dp)
             ) {
@@ -83,14 +83,13 @@ fun AccountBalanceSection(
 
             Box(
                 modifier = Modifier
-                    .padding(horizontal = 8.dp)
                     .fillMaxHeight()
                     .width(1.dp)
                     .background(AccountBalanceDivider)
             )
 
             Column(
-                modifier = Modifier,
+                modifier = Modifier.weight(1f),
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.spacedBy(2.dp)
             ) {
@@ -121,8 +120,7 @@ fun AccountBalanceSection(
         }
 
         Box(
-            modifier = Modifier
-                .fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth(),
             contentAlignment = Alignment.Center
         ) {
             ProgressBar(

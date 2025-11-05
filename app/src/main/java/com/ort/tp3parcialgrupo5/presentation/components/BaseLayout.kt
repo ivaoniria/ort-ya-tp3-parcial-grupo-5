@@ -76,7 +76,7 @@ private fun PreviewBaseLayout() {
     MaterialTheme {
         BaseLayout(
             contentBottom = {
-                item { SummarySection() }
+                item {  }
             }
         )
     }
