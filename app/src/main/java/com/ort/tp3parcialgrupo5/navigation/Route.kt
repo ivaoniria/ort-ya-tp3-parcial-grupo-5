@@ -20,6 +20,9 @@ sealed class Route {
     data object Login : Route()
 
     @Serializable
+    data object CreateAccount : Route()
+
+    @Serializable
     data object Home : Route()
 
     @Serializable

@@ -32,7 +32,8 @@ import kotlin.random.Random
 
 @Composable
 fun SecurityPinScreen(
-    onAccept: () -> Unit = {}
+    onAccept: () -> Unit = {},
+    onSignUp: () -> Unit = {}
 ) {
     var pinNumbers by remember { mutableStateOf(List(6) { Random.nextInt(0, 10) }) }
 
@@ -90,7 +91,7 @@ fun SecurityPinScreen(
                         )
                     }
                     Spacer(modifier = Modifier.height(150.dp))
-                    SecurityPinFooter()
+                    SecurityPinFooter(onSignUp = onSignUp)
                     Spacer(modifier = Modifier.height(32.dp))
                 }
             }

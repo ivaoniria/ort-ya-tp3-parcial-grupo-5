@@ -138,6 +138,21 @@ fun AppNavGraph(navController: NavHostController) {
             )
         }
 
+        composable<Route.CreateAccount> {
+            CreateAccountScreen(
+                onSignUpSuccess = {
+                    navController.navigate(Route.Profile(userCreated = true)) {
+                        popUpTo<Route.LaunchInitial>() { inclusive = true }
+                    }
+                },
+                onLoginClick = {
+                    navController.navigate(Route.Login) {
+                        popUpTo<Route.CreateAccount>() { inclusive = true }
+                    }
+                }
+            )
+        }
+
         composable<Route.Home> {
             val selected = Route.Home::class.qualifiedName
             WithBottomBar(navController, navItems, selected) {
@@ -222,6 +237,9 @@ fun AppNavGraph(navController: NavHostController) {
             SecurityPinScreen(
                 onAccept = {
                     navController.navigate(Route.NewPassword)
+                },
+                onSignUp = {
+                    navController.navigate(Route.CreateAccount)
                 }
             )
         }

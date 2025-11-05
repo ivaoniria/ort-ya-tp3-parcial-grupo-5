@@ -15,8 +15,8 @@
     <string name="username_or_email">Username Or Email</string>
     <string name="password">Password</string>
     <string name="log_in">Log In</string>
-    <string name="use_fingerprint">Use</string>
-    <string name="fingerprint">Fingerprint</string>
+    <string name="use_fingerprint">Use </string>
+    <string name="fingerprint">Fingerprint </string>
     <string name="to_access">To Access</string>
     <string name="or_sign_up_with">or sign up with</string>
     <string name="dont_have_account">Dont have an account?</string>
