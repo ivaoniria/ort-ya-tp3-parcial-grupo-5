@@ -88,3 +88,5 @@ object FinWiseColors {
 }
 
 val BlueButton = Color(0xFF3299FF)
+
+val DarkModeGreenBlack = Color(0xFF031314)

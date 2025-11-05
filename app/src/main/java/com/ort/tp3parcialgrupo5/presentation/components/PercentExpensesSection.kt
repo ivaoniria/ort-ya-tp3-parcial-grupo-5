@@ -43,11 +43,3 @@ fun PercentExpensesSection() {
         )
     }
 }
-
-@Preview(showSystemUi = true)
-@Composable
-private fun PercentExpensesSectionScreen() {
-    MaterialTheme {
-        PercentExpensesSection()
-    }
-}
