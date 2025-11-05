@@ -18,7 +18,7 @@
     <string name="fingerprint">Fingerprint</string>
     <string name="to_access">To Access</string>
     <string name="or_sign_up_with">or sign up with</string>
-    <string name="dont_have_account">Don\'t have an account?</string>
+    <string name="dont_have_account">Dont have an account?</string>
     <string name="facebook_desc">Facebook</string>
     <string name="google_desc">Google</string>
     <!-- Login -->
@@ -33,6 +33,13 @@
     <!-- Security Password changed -->
     <string name="password_changed_success">Password Has Been Changed Successfully</string>
     <!-- Security Password changed -->
+
+    <!-- Security Pin -->
+    <string name="security_pin_title">Security Pin</string>
+    <string name="enter_security_pin">Enter Security Pin</string>
+    <string name="accept">Accept</string>
+    <string name="send_again">Send Again</string>
+    <!-- Security Pin -->
 
     <!-- Create Account -->
     <string name="create_account">Create Account</string>
