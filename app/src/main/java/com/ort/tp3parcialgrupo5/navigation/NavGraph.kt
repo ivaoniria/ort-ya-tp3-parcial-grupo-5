@@ -4,77 +4,58 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.navigation.toRoute
 import com.ort.tp3parcialgrupo5.R
 import com.ort.tp3parcialgrupo5.presentation.account_balance.AccountBalanceScreen
+import com.ort.tp3parcialgrupo5.presentation.categories.CategoriesScreen
+import com.ort.tp3parcialgrupo5.presentation.components.BottomNavItem
+import com.ort.tp3parcialgrupo5.presentation.components.BottomNavigationBar
 import com.ort.tp3parcialgrupo5.presentation.home_screen.HomePageScreen
 import com.ort.tp3parcialgrupo5.presentation.launch.LaunchInitialScreen
 import com.ort.tp3parcialgrupo5.presentation.launch.LaunchWelcomeScreen
-import com.ort.tp3parcialgrupo5.presentation.login_sign_up.login_create.LoginScreen
 import com.ort.tp3parcialgrupo5.presentation.login_sign_up.login_create.CreateAccountScreen
+import com.ort.tp3parcialgrupo5.presentation.login_sign_up.login_create.LoginScreen
 import com.ort.tp3parcialgrupo5.presentation.notification.NotificationScreen
 import com.ort.tp3parcialgrupo5.presentation.on_boarding.OnboardingScreen
+import com.ort.tp3parcialgrupo5.presentation.profile.ProfileScreen
 import com.ort.tp3parcialgrupo5.presentation.transaction.TransactionScreen
-import com.ort.tp3parcialgrupo5.presentation.components.BottomNavItem
-import com.ort.tp3parcialgrupo5.presentation.components.BottomNavigationBar
 
 @Composable
 fun AppNavGraph(navController: NavHostController) {
     val navItems = listOf(
-        BottomNavItem("Home", R.drawable.home, "home"),
-        BottomNavItem("AccountBalance", R.drawable.search, "accountBalance"),
-        BottomNavItem("Transactions", R.drawable.transactions, "transactions"),
-        BottomNavItem("Layers", R.drawable.category, "layers"),
-        BottomNavItem("Profile", R.drawable.profile, "profile")
+        BottomNavItem("Home", R.drawable.home, Route.Home),
+        BottomNavItem("AccountBalance", R.drawable.search, Route.AccountBalance),
+        BottomNavItem("Transactions", R.drawable.transactions, Route.Transactions),
+        BottomNavItem("Categories", R.drawable.category, Route.Categories),
+        BottomNavItem("Profile", R.drawable.profile, Route.Profile(fromLogin = true))
     )
 
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         bottomBar = {
-            val currentDestination = navController
-                .currentBackStackEntryAsState().value?.destination?.route
+            val navBackStackEntry by navController.currentBackStackEntryAsState()
+            val currentRoute = navBackStackEntry?.destination?.route?.substringBefore("?")
 
-            if (currentDestination in listOf("home", "transactions", "notifications", "accountBalance")) {
+            val shouldShowBottomBar = navItems.any { it.route::class.qualifiedName == currentRoute }
+
+            if (shouldShowBottomBar) {
                 BottomNavigationBar(
                     items = navItems,
-                    selectedRoute = currentDestination ?: "home",
+                    selectedRoute = currentRoute,
                     onItemSelected = { route ->
-                        when (route) {
-                            "home" -> {
-                                navController.navigate("home") {
-                                    popUpTo(navController.graph.startDestinationId) {
-                                        inclusive = false
-                                    }
-                                    launchSingleTop = true
-                                }
+                        navController.navigate(route) {
+                            popUpTo(navController.graph.findStartDestination().id) {
+                                saveState = true
                             }
-                            "transactions" -> {
-                                navController.navigate("transactions") {
-                                    popUpTo(navController.graph.startDestinationId) {
-                                        inclusive = false
-                                    }
-                                    launchSingleTop = true
-                                }
-                            }
-                            "accountBalance" -> {
-                                navController.navigate("accountBalance") {
-                                    popUpTo(navController.graph.startDestinationId) {
-                                        inclusive = false
-                                    }
-                                    launchSingleTop = true
-                                }
-                            }
-                            else -> {
-                                navController.navigate(route) {
-                                    popUpTo(navController.graph.startDestinationId) { saveState = true }
-                                    launchSingleTop = true
-                                    restoreState = true
-                                }
-                            }
+                            launchSingleTop = true
+                            restoreState = true
                         }
                     }
                 )
@@ -83,107 +64,121 @@ fun AppNavGraph(navController: NavHostController) {
     ) { innerPadding ->
         NavHost(
             navController = navController,
-            startDestination = "launch_initial",
+            startDestination = Route.LaunchInitial,
+            modifier = Modifier.padding(innerPadding)
         ) {
-            // Flujo de Launch
-            composable("launch_initial") {
+            composable<Route.LaunchInitial> {
                 LaunchInitialScreen(
-                    onFinished = { navController.navigate("launch_welcome") }
+                    onFinished = { navController.navigate(Route.LaunchWelcome) }
                 )
             }
 
-            composable("launch_welcome") {
+            composable<Route.LaunchWelcome> {
                 LaunchWelcomeScreen(
                     onLogin = {
-                        navController.navigate("onboarding/login") {
-                            popUpTo("launch_welcome") { inclusive = true }
+                        navController.navigate(Route.Onboarding("login")) {
+                            popUpTo<Route.LaunchWelcome>() { inclusive = true }
                         }
                     },
                     onSignUp = {
-                        navController.navigate("onboarding/signup") {
-                            popUpTo("launch_welcome") { inclusive = true }
+                        navController.navigate(Route.Onboarding("signup")) {
+                            popUpTo<Route.LaunchWelcome>() { inclusive = true }
                         }
                     },
-                    onForgot = {
-                        // Navegación para recuperar contraseña
-                    }
+                    onForgot = {}
                 )
             }
 
-            // Flujo de Onboarding 
-            composable("onboarding/{loginType}") { backStackEntry ->
-                val loginType = backStackEntry.arguments?.getString("loginType") ?: "login"
+            composable<Route.Onboarding> { backStackEntry ->
+                val args = backStackEntry.toRoute<Route.Onboarding>()
                 OnboardingScreen(
                     onFinish = {
-                        if (loginType == "login") {
-                            navController.navigate("login") {
-                                popUpTo("launch_initial") { inclusive = true }
+                        if (args.loginType == "login") {
+                            navController.navigate(Route.Home) {
+                                popUpTo<Route.LaunchInitial>() { inclusive = true }
                             }
                         } else {
-                            navController.navigate("signup") {
-                                popUpTo("launch_initial") { inclusive = true }
+                            navController.navigate(Route.SignUp) {
+                                popUpTo<Route.LaunchInitial>() { inclusive = true }
                             }
                         }
                     }
                 )
             }
 
-            // Flujo de Login/SignUp
-            composable("login") {
-                LoginScreen(
-                    onLoginSuccess = {
-                        navController.navigate("home") {
-                            popUpTo("launch_initial") { inclusive = true }
-                        }
-                    },
-                    onSignUpClick = {
-                        navController.navigate("signup")
-                    }
-                )
-            }
-
-            composable("signup") {
+            composable<Route.SignUp> {
                 CreateAccountScreen(
                     onSignUpSuccess = {
-                        navController.navigate("home") {
-                            popUpTo("launch_initial") { inclusive = true }
+                        navController.navigate(Route.Profile(userCreated = true)) {
+                            popUpTo<Route.LaunchInitial>() { inclusive = true }
                         }
                     },
                     onLoginClick = {
-                        navController.navigate("login")
+                        navController.navigate(Route.Login) {
+                            popUpTo<Route.SignUp>() { inclusive = true }
+                        }
                     }
                 )
             }
 
-            // Flujo principal con BottomNavBar
-            composable("home") {
-                HomePageScreen(
-                    onBell = { navController.navigate("notifications") }
+            composable<Route.Login> {
+                LoginScreen(
+                    onLoginSuccess = {
+                        navController.navigate(Route.Home) {
+                            popUpTo<Route.LaunchInitial>() { inclusive = true }
+                        }
+                    },
+                    onSignUpClick = {
+                        navController.navigate(Route.Onboarding("signup")) {
+                            popUpTo<Route.Login>() { inclusive = true }
+                        }
+                    }
                 )
             }
 
-            composable("transactions") {
+            composable<Route.Home> {
+                HomePageScreen(
+                    onBell = { navController.navigate(Route.Notifications) }
+                )
+            }
+
+            composable<Route.Profile> { backStackEntry ->
+                val args = backStackEntry.toRoute<Route.Profile>()
+                ProfileScreen(
+                    userCreated = args.userCreated,
+                    fromLogin = args.fromLogin,
+                    onBack = { navController.popBackStack() },
+                    onBell = { navController.navigate(Route.Notifications) }
+                )
+            }
+
+            composable<Route.Transactions> {
                 TransactionScreen(
                     onBack = { navController.popBackStack() },
-                    onBell = { navController.navigate("notifications") }
+                    onBell = { navController.navigate(Route.Notifications) }
                 )
             }
 
-            composable("notifications") {
+            composable<Route.Notifications> {
                 NotificationScreen(
                     onBack = { navController.popBackStack() },
-                    onBell = { navController.navigate("notifications") }
+                    onBell = { navController.navigate(Route.Notifications) }
                 )
             }
 
-            composable("accountBalance") {
+            composable<Route.AccountBalance> {
                 AccountBalanceScreen(
                     onBack = { navController.popBackStack() },
-                    onBell = { navController.navigate("notifications") }
+                    onBell = { navController.navigate(Route.Notifications) }
+                )
+            }
+
+            composable<Route.Categories> {
+                CategoriesScreen(
+                    onBack = { navController.popBackStack() },
+                    onBell = { navController.navigate(Route.Notifications) }
                 )
             }
         }
     }
 }
-
-
