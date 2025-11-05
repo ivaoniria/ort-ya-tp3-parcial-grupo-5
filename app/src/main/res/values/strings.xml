@@ -76,8 +76,8 @@
     <string name="label_total_balance">Total Balance</string>
     <string name="label_total_expense">Total Expense</string>
     <string name="summary_note_default">30% Of Your Expenses, Looks Good.</string>
-    <string name="month_april">April</string>
-    <string name="month_march">March</string>
+    <string name="month_october">October</string>
+    <string name="month_november">November</string>
     <!-- Transaction -->
 
     <!-- AccountBalanceScreen -->
@@ -115,30 +115,10 @@
     <string name="monthly">Monthly</string>
 
     <!-- Transaction List -->
-    <string name="salary">Salary</string>
-    <string name="salary_subtitle">18:27 - April 30</string>
-    <string name="salary_amount">$4,000.00</string>
-    <string name="salary_category">Monthly</string>
-
-    <string name="groceries">Groceries</string>
-    <string name="groceries_subtitle">17:00 - April 24</string>
-    <string name="groceries_amount">-$100.00</string>
-    <string name="groceries_category">Pantry</string>
-
-    <string name="rent">Rent</string>
-    <string name="rent_subtitle">8:30 - April 15</string>
-    <string name="rent_amount">-$674.40</string>
-    <string name="rent_category">Rent</string>
-
-    <string name="transport">Transport</string>
-    <string name="transport_subtitle">7:39 - April 08</string>
-    <string name="transport_amount">-$4.13</string>
-    <string name="transport_category">Fuel</string>
-
     <string name="food">Food</string>
-    <string name="food_subtitle">18:20 - March 31</string>
-    <string name="food_amount">-$70.40</string>
-    <string name="food_category">Dinner</string>
+    <string name="food_time">Nov 31</string>
+    <string name="food_amount">$70.40</string>
+    <string name="food_category">November</string>
     <!-- HomeScreen -->
 
     <!-- ProgressBar -->

@@ -1,4 +1,3 @@
-// presentation/categories/components/CategoryButton.kt
 package com.ort.tp3parcialgrupo5.presentation.categories.components
 
 import androidx.compose.foundation.Image

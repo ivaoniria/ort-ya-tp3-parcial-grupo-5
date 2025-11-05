@@ -22,6 +22,6 @@ class MainActivity : ComponentActivity() {
             }
         }
         // Testing de retrofit
-        DebugTools.runApiSmokeIfAvailable()
+        //DebugTools.runApiSmokeIfAvailable()
     }
 }

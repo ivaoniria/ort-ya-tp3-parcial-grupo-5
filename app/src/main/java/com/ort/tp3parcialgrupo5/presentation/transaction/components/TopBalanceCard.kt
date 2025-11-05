@@ -16,17 +16,27 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+
 import com.ort.tp3parcialgrupo5.ui.theme.TopBalanceCardAmountText
 import com.ort.tp3parcialgrupo5.ui.theme.TopBalanceCardBg
 import com.ort.tp3parcialgrupo5.ui.theme.TopBalanceCardTitleText
+import com.ort.tp3parcialgrupo5.ui.theme.TopBalanceCardAmountText
+import java.text.NumberFormat
+import java.util.Locale
 
 @Composable
 fun TopBalanceCard(
     title: String,
-    amount: String,
+    amount: Double = 0.0,
     modifier: Modifier = Modifier,
     titleStyle: TextStyle = MaterialTheme.typography.titleMedium
 ) {
+
+    val currencyFormatter = NumberFormat.getCurrencyInstance(Locale.US).apply {
+        maximumFractionDigits = 2
+        minimumFractionDigits = 2
+    }
+
     Surface(
         color = TopBalanceCardBg,
         shape = RoundedCornerShape(16.dp),
@@ -40,7 +50,7 @@ fun TopBalanceCard(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(text = title, style = titleStyle, color = TopBalanceCardTitleText)
-            Text(text = amount, color = TopBalanceCardAmountText, fontSize = 22.sp, fontWeight = FontWeight.ExtraBold)
+            Text(text = currencyFormatter.format(amount), color = TopBalanceCardAmountText, fontSize = 22.sp, fontWeight = FontWeight.ExtraBold)
         }
     }
 }
