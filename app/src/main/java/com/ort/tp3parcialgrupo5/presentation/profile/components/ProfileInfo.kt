@@ -23,22 +23,25 @@ import com.ort.tp3parcialgrupo5.ui.theme.FinWhite
 @Composable
 fun ProfileInfo(
     @DrawableRes imageRes: Int,
-    @StringRes nameRes: Int
+    @StringRes nameRes: Int,
+    nameOverride: String? = null
 ) {
+    val displayName = nameOverride ?: stringResource(id = nameRes)
+
     Column(
         modifier = Modifier.fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Image(
             painter = painterResource(id = imageRes),
-            contentDescription = stringResource(id = nameRes),
+            contentDescription = displayName,
             modifier = Modifier
                 .size(110.dp)
                 .clip(CircleShape)
         )
         Spacer(Modifier.height(10.dp))
         Text(
-            text = stringResource(id = nameRes),
+            text = displayName,
             fontSize = 16.sp,
             color = FinWhite
         )

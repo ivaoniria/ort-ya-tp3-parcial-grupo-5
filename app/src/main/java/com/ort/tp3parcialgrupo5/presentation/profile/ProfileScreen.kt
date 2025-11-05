@@ -30,12 +30,12 @@ fun ProfileScreen(
     onBell: (() -> Unit)? = null
 ) {
     val popupState by viewModel.popupState.collectAsState()
+    val username by viewModel.username.collectAsState()
 
-    // Pass arguments to ViewModel safely and only once.
-    LaunchedEffect(key1 = userCreated, key2 = fromLogin) {
+    LaunchedEffect(userCreated, fromLogin) {
         viewModel.handleArguments(userCreated = userCreated, fromLogin = fromLogin)
+        viewModel.loadProfileUser()
     }
-
 
     HandlePopupState(popupState = popupState, onDismiss = viewModel::dismissPopup)
 
@@ -47,51 +47,29 @@ fun ProfileScreen(
                 onBell = onBell
             )
             Spacer(Modifier.height(18.dp))
+
             ProfileInfo(
                 imageRes = R.drawable.profilephoto,
-                nameRes = R.string.profile_name // Acá
+                nameRes = R.string.profile_name,
+                nameOverride = username
             )
+
             Spacer(Modifier.height(10.dp))
         },
         contentBottom = {
-            item {
-                ProfileMenuItem(
-                    iconRes = R.drawable.editprofile,
-                    textRes = R.string.profile_edit
-                )
-            }
+            item { ProfileMenuItem(iconRes = R.drawable.editprofile, textRes = R.string.profile_edit) }
             item { Spacer(Modifier.height(12.dp)) }
 
-            item {
-                ProfileMenuItem(
-                    iconRes = R.drawable.icon_security,
-                    textRes = R.string.profile_security
-                )
-            }
+            item { ProfileMenuItem(iconRes = R.drawable.icon_security, textRes = R.string.profile_security) }
             item { Spacer(Modifier.height(12.dp)) }
 
-            item {
-                ProfileMenuItem(
-                    iconRes = R.drawable.icon_setting,
-                    textRes = R.string.profile_setting
-                )
-            }
+            item { ProfileMenuItem(iconRes = R.drawable.icon_setting, textRes = R.string.profile_setting) }
             item { Spacer(Modifier.height(12.dp)) }
 
-            item {
-                ProfileMenuItem(
-                    iconRes = R.drawable.icon_help,
-                    textRes = R.string.profile_help
-                )
-            }
+            item { ProfileMenuItem(iconRes = R.drawable.icon_help, textRes = R.string.profile_help) }
             item { Spacer(Modifier.height(12.dp)) }
 
-            item {
-                ProfileMenuItem(
-                    iconRes = R.drawable.icon_logout,
-                    textRes = R.string.profile_logout
-                )
-            }
+            item { ProfileMenuItem(iconRes = R.drawable.icon_logout, textRes = R.string.profile_logout) }
             item { Spacer(Modifier.height(90.dp)) }
         }
     )
@@ -102,21 +80,19 @@ private fun HandlePopupState(popupState: PopupState, onDismiss: () -> Unit) {
     when (popupState) {
         is PopupState.UserCreated -> {
             InfoPopup(
-                title = "User created successfully!",
+                title = stringResource(id = R.string.created_success),
                 message = "username: ${popupState.username}\nemail: ${popupState.email}",
                 onDismiss = onDismiss
             )
         }
         is PopupState.NoUser -> {
             InfoPopup(
-                title = "No user has been created",
-                message = "Please create a user in Sign Up.",
+                title = stringResource(id = R.string.no_user_created_title),
+                message = stringResource(id = R.string.no_user_created_message),
                 onDismiss = onDismiss
             )
         }
-        is PopupState.Hidden -> {
-            // Don't show any popup
-        }
+        is PopupState.Hidden -> Unit
     }
 }
 
@@ -126,11 +102,7 @@ private fun InfoPopup(title: String, message: String, onDismiss: () -> Unit) {
         onDismissRequest = onDismiss,
         title = { Text(text = title) },
         text = { Text(text = message) },
-        confirmButton = {
-            TextButton(onClick = onDismiss) {
-                Text("Accept")
-            }
-        }
+        confirmButton = { TextButton(onClick = onDismiss) { Text("Accept") } }
     )
 }
 
