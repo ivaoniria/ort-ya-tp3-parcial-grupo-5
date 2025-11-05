@@ -30,6 +30,10 @@
     <string name="change_password_button">Change Password</string>
     <!-- Security NewPassword -->
 
+    <!-- Security Password changed -->
+    <string name="password_changed_success">Password Has Been Changed Successfully</string>
+    <!-- Security Password changed -->
+
     <!-- Create Account -->
     <string name="create_account">Create Account</string>
     <string name="full_name">Full Name</string>
