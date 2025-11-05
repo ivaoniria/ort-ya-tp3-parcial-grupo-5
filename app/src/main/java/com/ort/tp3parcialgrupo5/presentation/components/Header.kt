@@ -6,6 +6,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -14,9 +15,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ort.tp3parcialgrupo5.R
+import com.ort.tp3parcialgrupo5.ui.theme.TP3ParcialGrupo5Theme
 
 @Composable
 fun Header(
@@ -77,6 +80,20 @@ fun Header(
                 painter = painterResource(bellIcon),
                 contentDescription = "Notifications",
                 modifier = Modifier.size(34.dp)
+            )
+        }
+    }
+}
+
+@Preview(showBackground = true, showSystemUi = true)
+@Composable
+fun HeaderPreview() {
+    TP3ParcialGrupo5Theme {
+        Surface(color = Color(0xFF101010)) {
+            Header(
+                title = "Profile",
+                onBack = {},
+                onBell = {}
             )
         }
     }
