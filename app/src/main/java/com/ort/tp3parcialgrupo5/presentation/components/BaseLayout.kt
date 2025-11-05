@@ -40,39 +40,33 @@ fun BaseLayout(
                 .background(backgroundMainColor)
                 .padding(top = innerPadding.calculateTopPadding())
         ) {
-            LazyColumn(
+            Column(
                 modifier = listContainerModifier.then(modifier),
-                //contentPadding = PaddingValues(top = 90.dp),
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
-                item {
-                    Box(modifier = Modifier.padding(horizontal = 24.dp)) {
-                        Column{ contentTop() }
-                    }
+                Box(modifier = Modifier.padding(horizontal = 24.dp)) {
+                    Column { contentTop() }
                 }
 
-                item {
-                    Box(
+
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 16.dp)
+                        .clip(RoundedCornerShape(topStart = 60.dp, topEnd = 60.dp))
+                        .background(backgroundListColor)
+                ) {
+                    LazyColumn(
                         modifier = Modifier
-                            .fillMaxWidth()
-                            .fillParentMaxHeight()
-                            .padding(top = 16.dp)
-                            .clip(RoundedCornerShape(topStart = 60.dp, topEnd = 60.dp))
-                            .background(backgroundListColor)
-                    ) {
-                        LazyColumn(
-                            modifier = Modifier
-                                .fillMaxSize()
-                                .padding(vertical = 24.dp, horizontal = 24.dp),
-                            contentPadding = PaddingValues(bottom = 16.dp),
-                            horizontalAlignment = Alignment.CenterHorizontally,
-                            content = contentBottom
-                        )
-                    }
+                            .fillMaxSize()
+                            .padding(vertical = 24.dp, horizontal = 24.dp),
+                        contentPadding = PaddingValues(bottom = 16.dp),
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        content = contentBottom
+                    )
                 }
             }
         }
-
     }
 }
 

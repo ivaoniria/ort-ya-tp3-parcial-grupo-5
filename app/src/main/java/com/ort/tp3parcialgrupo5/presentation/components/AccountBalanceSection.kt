@@ -83,7 +83,7 @@ fun AccountBalanceSection(
 
             Box(
                 modifier = Modifier
-                    .padding(horizontal = 16.dp)
+                    .padding(horizontal = 8.dp)
                     .fillMaxHeight()
                     .width(1.dp)
                     .background(AccountBalanceDivider)

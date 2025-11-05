@@ -25,7 +25,7 @@ fun ProgressBar(
         modifier = modifier
             .width(280.dp)
             .height(27.dp)
-            .clip(RoundedCornerShape(13.5.dp))
+            .clip(RoundedCornerShape(13.5.dp) )
             .background(Color.White)
     ) {
         val progress = (progressPercent.coerceIn(0, 100)) / 100f

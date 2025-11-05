@@ -60,6 +60,12 @@
     <string name="month_march">March</string>
     <!-- Transaction -->
 
+    <!-- AccountBalanceScreen -->
+    <string name="account_balance_header">Account Balance</string>
+    <string name="income_summary_value">$4,000.00</string>
+    <string name="expense_summary_value">$1,187.00</string>
+    <string name="transactions_section_title">Transactions</string>
+
     <!-- HomeScreen -->
     <!-- Home Page Header -->
     <string name="hi_welcome_back">Hi, Welcome Back</string>
@@ -135,12 +141,12 @@
     <string name="new_category_cancel">Cancel</string>
     <!-- Categories Screen -->
 
-    <!-- OnBouarding -->
+    <!-- OnBoarding -->
     <string name="onb_title_1">Welcome To\nExpense Manager</string>
     <string name="onb_title_2">¿Are You Ready To\nTake Control Of\nYour Finances?</string>
     <string name="next">Next</string>
     <string name="get_started">Get Started</string>
-    <!-- OnBouarding -->
+    <!-- OnBoarding -->
 
     <!-- Notification -->
     <string name="notification_title">Notification</string>

@@ -10,7 +10,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.ort.tp3parcialgrupo5.R
-import com.ort.tp3parcialgrupo5.presentation.categories.CategoriesScreen
+import com.ort.tp3parcialgrupo5.presentation.account_balance.AccountBalanceScreen
 import com.ort.tp3parcialgrupo5.presentation.home_screen.HomePageScreen
 import com.ort.tp3parcialgrupo5.presentation.launch.LaunchInitialScreen
 import com.ort.tp3parcialgrupo5.presentation.launch.LaunchWelcomeScreen
@@ -26,7 +26,7 @@ import com.ort.tp3parcialgrupo5.presentation.components.BottomNavigationBar
 fun AppNavGraph(navController: NavHostController) {
     val navItems = listOf(
         BottomNavItem("Home", R.drawable.home, "home"),
-        BottomNavItem("Analytics", R.drawable.search, "analytics"),
+        BottomNavItem("AccountBalance", R.drawable.search, "accountBalance"),
         BottomNavItem("Transactions", R.drawable.transactions, "transactions"),
         BottomNavItem("Layers", R.drawable.category, "layers"),
         BottomNavItem("Profile", R.drawable.profile, "profile")
@@ -38,7 +38,7 @@ fun AppNavGraph(navController: NavHostController) {
             val currentDestination = navController
                 .currentBackStackEntryAsState().value?.destination?.route
 
-            if (currentDestination in listOf("home", "transactions", "notifications", "layers")) {
+            if (currentDestination in listOf("home", "transactions", "notifications", "accountBalance")) {
                 BottomNavigationBar(
                     items = navItems,
                     selectedRoute = currentDestination ?: "home",
@@ -60,8 +60,8 @@ fun AppNavGraph(navController: NavHostController) {
                                     launchSingleTop = true
                                 }
                             }
-                            "layers" -> {
-                                navController.navigate("layers") {
+                            "accountBalance" -> {
+                                navController.navigate("accountBalance") {
                                     popUpTo(navController.graph.startDestinationId) {
                                         inclusive = false
                                     }
@@ -84,7 +84,6 @@ fun AppNavGraph(navController: NavHostController) {
         NavHost(
             navController = navController,
             startDestination = "launch_initial",
-            modifier = Modifier.padding(innerPadding)
         ) {
             // Flujo de Launch
             composable("launch_initial") {
@@ -177,8 +176,8 @@ fun AppNavGraph(navController: NavHostController) {
                 )
             }
 
-            composable("layers") {
-                CategoriesScreen(
+            composable("accountBalance") {
+                AccountBalanceScreen(
                     onBack = { navController.popBackStack() },
                     onBell = { navController.navigate("notifications") }
                 )
