@@ -5,11 +5,11 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import com.ort.tp3parcialgrupo5.domain.repository.UserRepository
+import com.ort.tp3parcialgrupo5.domain.repository.TransactionsRepository
 import com.ort.tp3parcialgrupo5.shared.infrastructure.transactions.dto.TransactionResponse
 import kotlinx.coroutines.launch
 
-class HomeViewModel(private val repository: UserRepository) : ViewModel() {
+class HomeViewModel(private val repository: TransactionsRepository) : ViewModel() {
 
     private val _totalBalance = mutableStateOf(0.0)
     val totalBalance: State<Double> = _totalBalance
@@ -43,7 +43,7 @@ class HomeViewModel(private val repository: UserRepository) : ViewModel() {
     }
 }
 
-class HomeViewModelFactory(private val repository: UserRepository) : ViewModelProvider.Factory {
+class HomeViewModelFactory(private val repository: TransactionsRepository) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(HomeViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")

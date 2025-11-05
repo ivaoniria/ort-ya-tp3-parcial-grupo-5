@@ -10,6 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.ort.tp3parcialgrupo5.domain.repository.TransactionsRepository
 import com.ort.tp3parcialgrupo5.domain.repository.UserRepository
 
 import com.ort.tp3parcialgrupo5.presentation.components.AccountBalanceSection
@@ -30,7 +31,7 @@ fun HomePageScreen(
 ) {
     val homeViewModel: HomeViewModel = viewModel(
         factory = HomeViewModelFactory(
-            UserRepository(RetrofitClient.transactionsApi)
+            TransactionsRepository(RetrofitClient.transactionsApi)
   )
 )
 
