@@ -9,7 +9,7 @@ class UserImpl : UserService {
 
     private val userApi = RetrofitClient.getRetrofit().create(UserApi::class.java)
 
-    override suspend fun getUserInfo(userId: String): User? {
+    override suspend fun getUserInfo(userId: Int): User? {
         return when (val result = safeApiCall { userApi.getUserInfo(userId) }) {
             is ApiResult.Success -> result.data.toModel()
             is ApiResult.Error -> {
