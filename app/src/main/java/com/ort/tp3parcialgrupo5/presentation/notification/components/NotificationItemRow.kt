@@ -27,7 +27,7 @@ import com.ort.tp3parcialgrupo5.ui.theme.Hermo
 import com.ort.tp3parcialgrupo5.ui.theme.Hermosho
 import com.ort.tp3parcialgrupo5.ui.theme.NotificationAccent
 import com.ort.tp3parcialgrupo5.ui.theme.NotificationIconBg
-import com.ort.tp3parcialgrupo5.ui.theme.Transaprent
+import com.ort.tp3parcialgrupo5.ui.theme.Transparent
 
 @Composable
 fun NotificationItemRow(
@@ -41,7 +41,7 @@ fun NotificationItemRow(
 ) {
     val interaction = remember { MutableInteractionSource() }
     val pressed by interaction.collectIsPressedAsState()
-    val rowBg = if (pressed) Hermo else Transaprent
+    val rowBg = if (pressed) Hermo else Transparent
     val iconBg = if (pressed) NotificationIconBg.copy(alpha = 0.85f) else NotificationIconBg
     val rightTimeColor = FinWhite80
 
