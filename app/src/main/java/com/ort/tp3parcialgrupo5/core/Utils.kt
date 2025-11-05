@@ -12,7 +12,7 @@ const val USER_TABLE = "user_table"
 
 fun logMessage(
     message: String
-) = Log.e(com.ort.tp3parcialgrupo5.core.TAG, message)
+) = Log.e(TAG, message)
 
 fun showToastMessage(
     context: Context,

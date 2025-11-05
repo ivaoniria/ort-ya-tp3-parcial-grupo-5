@@ -182,12 +182,12 @@
     <string name="profile_logout">Logout</string>
     <string name="back">Back</string>
     <string name="profile_notifications">Notifications</string>
-
-    <!-- ProfilePopUp -->
+    <string name="logout_success_message">Successfully logged out.</string>
+    <string name="logout_failure_message">Failed to log out. Please try again.</string>
     <string name="created_success">User created successfully!</string>
-    <string name="no_user_created_title">No user has been created</string>
-    <string name="no_user_created_message">Please create a user in Sign Up.</string>
-    <!-- ProfilePopUp -->
+    <string name="no_user_created_message">No user has been created, Please create a user in Sign Up</string>
+    <string name="created_success_message">username: %1$s\nemail: %2$s</string>
+    <string name="attention_title">Atention</string>
     <!-- Profile -->
 
     <!-- Notification -->

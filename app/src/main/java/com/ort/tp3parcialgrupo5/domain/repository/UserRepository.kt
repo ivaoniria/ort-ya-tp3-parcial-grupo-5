@@ -11,4 +11,5 @@ interface UserRepository {
     suspend fun insertUser(user: DbUser)
     suspend fun updateUser(user: DbUser)
     suspend fun deleteUser(user: DbUser)
+    suspend fun clearUsers()
 }

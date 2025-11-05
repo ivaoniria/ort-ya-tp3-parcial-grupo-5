@@ -154,7 +154,14 @@ fun AppNavGraph(navController: NavHostController) {
                     userCreated = args.userCreated,
                     fromLogin = args.fromLogin,
                     onBack = { navController.popBackStack() },
-                    onBell = { navController.navigate(Route.Notifications) }
+                    onBell = { navController.navigate(Route.Notifications) },
+                    onLoggedOut = {
+                        navController.navigate(Route.LaunchWelcome) {
+                            popUpTo(navController.graph.findStartDestination().id) { inclusive = true }
+                            launchSingleTop = true
+                            restoreState = false
+                        }
+                    }
                 )
             }
         }

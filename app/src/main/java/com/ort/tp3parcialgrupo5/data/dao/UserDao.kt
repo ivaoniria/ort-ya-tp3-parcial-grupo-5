@@ -32,4 +32,7 @@ interface UserDao {
     
     @Query("SELECT COUNT(id) FROM $USER_TABLE")
     suspend fun getUserCount(): Int
+
+    @Query("DELETE FROM user_table")
+    suspend fun clearUsers()
 }

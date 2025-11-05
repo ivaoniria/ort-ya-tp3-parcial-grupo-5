@@ -2,8 +2,9 @@ package com.ort.tp3parcialgrupo5.presentation.profile
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.ort.tp3parcialgrupo5.domain.repository.UserRepository
 import com.ort.tp3parcialgrupo5.domain.model.DbUser
+import com.ort.tp3parcialgrupo5.domain.model.Response
+import com.ort.tp3parcialgrupo5.domain.repository.UserRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -17,8 +18,13 @@ class ProfileViewModel @Inject constructor(
 ): ViewModel() {
     private val _popupState = MutableStateFlow<PopupState>(PopupState.Hidden)
     val popupState: StateFlow<PopupState> = _popupState.asStateFlow()
+
     private val _username = MutableStateFlow<String?>(null)
     val username: StateFlow<String?> = _username.asStateFlow()
+
+    private val _logoutState = MutableStateFlow<Response<Unit>>(Response.Idle)
+    val logoutState: StateFlow<Response<Unit>> = _logoutState.asStateFlow()
+
     private var argumentsHandled = false
 
     fun handleArguments(
@@ -32,7 +38,13 @@ class ProfileViewModel @Inject constructor(
 
         viewModelScope.launch {
             if (!createdUsername.isNullOrBlank() && !createdEmail.isNullOrBlank()) {
-                repository.insertUser(DbUser(id = 0, username = createdUsername, email = createdEmail))
+                repository.insertUser(
+                    DbUser(
+                        id = 0,
+                        username = createdUsername,
+                        email = createdEmail
+                    )
+                )
             }
 
             val last = repository.getLastUser()
@@ -43,17 +55,17 @@ class ProfileViewModel @Inject constructor(
                     if (last != null) {
                         _popupState.value = PopupState.UserCreated(last.username, last.email)
                     } else {
-                        _popupState.value = PopupState.Hidden
+                        _popupState.value = PopupState.NoUser
                     }
                 }
                 fromLogin -> {
                     if (repository.getUserCount() == 0) {
                         _popupState.value = PopupState.NoUser
+                    } else {
+                        _popupState.value = PopupState.Hidden
                     }
                 }
-                else -> {
-                    _popupState.value = PopupState.Hidden
-                }
+                else -> _popupState.value = PopupState.Hidden
             }
         }
     }
@@ -64,10 +76,30 @@ class ProfileViewModel @Inject constructor(
             _username.value = user?.username
         }
     }
+
+    fun logout() {
+        viewModelScope.launch {
+            _logoutState.value = Response.Loading
+            try {
+                repository.clearUsers() // Comentar si se quiere persistir en memoria luego de Logout
+                _username.value = null
+                _popupState.value = PopupState.Hidden
+                _logoutState.value = Response.Success(Unit)
+            } catch (e: Exception) {
+                _logoutState.value = Response.Failure(e)
+            }
+        }
+    }
+
+    fun resetLogoutState() {
+        _logoutState.value = Response.Idle
+    }
+
     fun dismissPopup() {
         _popupState.value = PopupState.Hidden
     }
 }
+
 sealed class PopupState {
     object Hidden : PopupState()
     data class UserCreated(val username: String, val email: String) : PopupState()
