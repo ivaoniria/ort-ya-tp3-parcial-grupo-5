@@ -6,7 +6,6 @@
     <string name="welcome_subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</string>
     <string name="login">Log In</string>
     <string name="sign_up">Sign Up</string>
-    <string name="forgot_password">Forgot Password?</string>
     <string name="logo_finwise">Logo FinWise</string>
     <!-- Launch -->
 
@@ -36,6 +35,15 @@
     <string name="privacy_policy">Privacy Policy</string>
     <string name="already_have_an_account">Already have an account?</string>
     <!-- Create Account -->
+
+    <!-- Forgot Password -->
+    <string name="forgot_password_title">Forgot Password</string>
+    <string name="reset_password_question">Reset Password?</string>
+    <string name="reset_password_lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+    <string name="enter_email_address">Enter Email Address</string>
+    <string name="next_step">Next Step</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <!-- Forgot Password -->
 
     <!-- Placeholders -->
     <string name="placeholder_email">example@example.com</string>
