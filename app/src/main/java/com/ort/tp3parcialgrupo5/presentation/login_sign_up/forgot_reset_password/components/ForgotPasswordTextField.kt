@@ -24,7 +24,7 @@ fun ForgotPasswordTextField(
 ) {
     Text(
         text = label,
-        style = AppTypography.titleSmall, // CORRECTED: Changed back to titleSmall for consistency
+        style = AppTypography.titleSmall,
         color = Color.White,
         modifier = Modifier
             .fillMaxWidth()

@@ -71,7 +71,7 @@ fun ForgotResetPasswordScreen() {
                         placeholder = stringResource(id = R.string.placeholder_email)
                     )
                     Spacer(modifier = Modifier.height(32.dp))
-                    Column(modifier = Modifier.padding(horizontal = 40.dp)) { // CORRECTED: Increased padding
+                    Column(modifier = Modifier.padding(horizontal = 40.dp)) {
                         ForgotPasswordButton(
                             text = stringResource(id = R.string.next_step),
                             onClick = { /*TODO*/ },

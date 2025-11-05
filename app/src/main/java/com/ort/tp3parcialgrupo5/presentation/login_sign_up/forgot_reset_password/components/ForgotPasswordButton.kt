@@ -23,7 +23,7 @@ fun ForgotPasswordButton(
         onClick = onClick,
         modifier = Modifier
             .fillMaxWidth()
-            .height(40.dp), // CORRECTED: Further reduced height
+            .height(40.dp),
         shape = RoundedCornerShape(50),
         colors = ButtonDefaults.buttonColors(containerColor = backgroundColor)
     ) {

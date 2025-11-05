@@ -25,7 +25,7 @@ import com.ort.tp3parcialgrupo5.R
 @Composable
 fun ForgotPasswordFooter() {
     Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.fillMaxWidth()) {
-        Column(modifier = Modifier.padding(horizontal = 40.dp)) { // CORRECTED: Increased padding
+        Column(modifier = Modifier.padding(horizontal = 40.dp)) {
             ForgotPasswordButton(
                 text = stringResource(id = R.string.sign_up),
                 onClick = { /*TODO*/ },
