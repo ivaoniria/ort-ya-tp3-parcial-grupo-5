@@ -37,6 +37,7 @@ fun AccountBalanceScreen(
     BaseLayout(
         contentTop = {
             Header(title = stringResource(R.string.account_balance_header), onBack = onBack, onBell = onBell)
+            Spacer(modifier.height(10.dp))
             AccountBalanceSection()
             Spacer(modifier.height(10.dp))
             IncomeExpenseSummary(income = stringResource(R.string.income_summary_value),
@@ -104,8 +105,8 @@ fun AccountBalanceScreen(
                     amount = stringResource(tx.amountRes),
                     amountColor = FinWhite
                 )
+                Spacer(modifier.height(12.dp))
             }
-            item { Spacer(modifier.height(90.dp)) }
         }
     )
 }

@@ -84,7 +84,6 @@ fun AppNavGraph(navController: NavHostController) {
         NavHost(
             navController = navController,
             startDestination = "launch_initial",
-            modifier = Modifier.padding(innerPadding)
         ) {
             // Flujo de Launch
             composable("launch_initial") {
