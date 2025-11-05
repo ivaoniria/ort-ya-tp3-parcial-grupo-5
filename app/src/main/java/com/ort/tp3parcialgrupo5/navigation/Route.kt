@@ -30,12 +30,24 @@ sealed class Route {
 
     @Serializable
     data object AccountBalance : Route()
-    
+
     @Serializable
     data object Categories : Route()
 
     @Serializable
     data class Profile(val userCreated: Boolean = false, val fromLogin: Boolean = false) : Route()
+
+    @Serializable
+    data object ForgotResetPassword : Route()
+
+    @Serializable
+    data object SecurityPin : Route()
+
+    @Serializable
+    data object NewPassword : Route()
+
+    @Serializable
+    data object PasswordChanged : Route()
 }
 
 @Serializable
