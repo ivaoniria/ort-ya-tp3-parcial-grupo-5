@@ -21,6 +21,7 @@ class MainActivity : ComponentActivity() {
                 AppNavGraph(navController = navController)
             }
         }
+        // Testing de retrofit
         DebugTools.runApiSmokeIfAvailable()
     }
 }
