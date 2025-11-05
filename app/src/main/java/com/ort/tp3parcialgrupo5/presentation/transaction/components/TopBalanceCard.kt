@@ -20,15 +20,14 @@ import androidx.compose.ui.unit.sp
 import com.ort.tp3parcialgrupo5.ui.theme.TopBalanceCardAmountText
 import com.ort.tp3parcialgrupo5.ui.theme.TopBalanceCardBg
 import com.ort.tp3parcialgrupo5.ui.theme.TopBalanceCardTitleText
-import com.ort.tp3parcialgrupo5.ui.theme.TopBalanceCardAmountText
 import java.text.NumberFormat
 import java.util.Locale
 
 @Composable
 fun TopBalanceCard(
+    modifier: Modifier = Modifier,
     title: String,
     amount: Double = 0.0,
-    modifier: Modifier = Modifier,
     titleStyle: TextStyle = MaterialTheme.typography.titleMedium
 ) {
 
