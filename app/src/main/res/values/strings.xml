@@ -128,7 +128,7 @@
     <string name="transport_category">Fuel</string>
 
     <string name="food">Food</string>
-    <string name="food_subtitle">18:20 - March 31</string>
+    <string name="food_subtitle">March 31</string>
     <string name="food_amount">-$70.40</string>
     <string name="food_category">Dinner</string>
     <!-- HomeScreen -->

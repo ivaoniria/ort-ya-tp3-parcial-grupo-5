@@ -15,6 +15,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+
 import com.ort.tp3parcialgrupo5.R
 import com.ort.tp3parcialgrupo5.ui.theme.AccountBalanceAmount
 import com.ort.tp3parcialgrupo5.ui.theme.AccountBalanceDivider
@@ -28,12 +29,13 @@ private fun parseNumber(raw: String): Double =
 
 @Composable
 fun AccountBalanceSection(
-    modifier: Modifier = Modifier
+    totalBalance: Double? = 0.0,
+    income: Double? = 0.0,
+    expense: Double? = 0.0,
+    modifier: Modifier = Modifier,
 ) {
-    val totalBalanceVal = parseNumber(stringResource(R.string.total_balance_value))
-    val totalExpenseVal = parseNumber(stringResource(R.string.total_expense_value))
     val progressPercentVal = stringResource(R.string.progress_percent_value).trim().toIntOrNull() ?: 0
-    val goalTargetUsdVal = parseNumber(stringResource(R.string.goal_target_usd_value))
+    val goalTargetUsdVal = totalBalance
 
     val currencyFormatter = NumberFormat.getCurrencyInstance(Locale.US).apply {
         maximumFractionDigits = 2
@@ -68,13 +70,13 @@ fun AccountBalanceSection(
                     )
                     Spacer(Modifier.width(6.dp))
                     Text(
-                        text = stringResource(R.string.total_balance),
+                        text = currencyFormatter.format(income),
                         style = MaterialTheme.typography.bodyMedium,
                         color = AccountBalanceLabel
                     )
                 }
                 Text(
-                    text = currencyFormatter.format(totalBalanceVal),
+                    text = currencyFormatter.format(income),
                     fontSize = 24.sp,
                     fontWeight = FontWeight.Bold,
                     color = AccountBalanceAmount
@@ -106,13 +108,13 @@ fun AccountBalanceSection(
                     )
                     Spacer(Modifier.width(6.dp))
                     Text(
-                        text = stringResource(R.string.total_expense),
+                        text = currencyFormatter.format(expense),
                         style = MaterialTheme.typography.bodyMedium,
                         color = AccountBalanceLabel
                     )
                 }
                 Text(
-                    text = "-${currencyFormatter.format(totalExpenseVal)}",
+                    text = "-${currencyFormatter.format(expense)}",
                     fontSize = 24.sp,
                     fontWeight = FontWeight.Bold,
                     color = BlueButton
@@ -142,7 +144,7 @@ private fun PreviewAccountBalanceSection() {
                 .background(Color(0xFF031314))
                 .padding(16.dp)
         ) {
-            AccountBalanceSection()
+            //AccountBalanceSection()
         }
     }
 }

@@ -4,7 +4,7 @@ import com.ort.tp3parcialgrupo5.shared.infrastructure.RetrofitClient
 import com.ort.tp3parcialgrupo5.shared.infrastructure.transactions.TransactionsApi
 import com.ort.tp3parcialgrupo5.shared.infrastructure.transactions.dto.TransactionsListResponse
 
-class UserRepository(private val apiService: TransactionsApi) {
+class TransactionsRepository(private val apiService: TransactionsApi) {
 
     suspend fun getUserAccountData(): Result<TransactionsListResponse> {
         return try {

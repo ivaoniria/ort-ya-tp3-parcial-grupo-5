@@ -22,15 +22,24 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
+import java.text.NumberFormat
+import java.util.Locale
+
 @Composable
 fun SummaryCard(
     title: String,
-    amount: String,
+    amount: Double = 0.0,
     icon: ImageVector,
     iconTint: Color,
     backgroundColor: Color,
     modifier: Modifier
 ) {
+
+    val currencyFormatter = NumberFormat.getCurrencyInstance(Locale.US).apply {
+        maximumFractionDigits = 2
+        minimumFractionDigits = 2
+    }
+
     Surface(
         modifier = modifier
             .height(90.dp)
@@ -60,7 +69,7 @@ fun SummaryCard(
                 style = MaterialTheme.typography.bodySmall
             )
             Text(
-                text = amount,
+                text = currencyFormatter.format(amount),
                 color = Color.Black,
                 fontWeight = FontWeight.Bold,
                 fontSize = 18.sp

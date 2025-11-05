@@ -1,25 +1,23 @@
 package com.ort.tp3parcialgrupo5.presentation.account_balance.components
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.tooling.preview.Preview
 
-import com.ort.tp3parcialgrupo5.ui.theme.FinWiseTheme
 import com.ort.tp3parcialgrupo5.R
+import com.ort.tp3parcialgrupo5.ui.theme.CyanAccent
+import com.ort.tp3parcialgrupo5.ui.theme.FinWhite
 
 @Composable
 fun IncomeExpenseSummary(
-    income: String,
-    expense: String,
-    incomeColor: Color = Color(0xFF00D09E),
-    expenseColor: Color = Color(0xFF11A3FF),
+    income: Double = 0.0,
+    expense: Double = 0.0,
+    incomeColor: Color = FinWhite,
+    expenseColor: Color = CyanAccent,
 ) {
     Column(
         modifier = Modifier
@@ -45,24 +43,6 @@ fun IncomeExpenseSummary(
                 iconTint = expenseColor,
                 backgroundColor = Color.White,
                 modifier = Modifier.weight(1f).fillMaxWidth()
-            )
-        }
-    }
-}
-
-@Preview(showBackground = true, showSystemUi = true)
-@Composable
-fun PreviewIncomeExpenseSummary() {
-    FinWiseTheme {
-        Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(Color(0xFF093030)),
-            contentAlignment = Alignment.Center
-        ) {
-            IncomeExpenseSummary(
-                income = "$4,000.00",
-                expense = "$1,187.40"
             )
         }
     }

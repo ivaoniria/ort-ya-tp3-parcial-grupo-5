@@ -16,9 +16,9 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun TransactionRow(
     iconRes: Int,
-    title: String,
-    subtitle: String,
     category: String,
+    time: String,
+    month: String,
     amount: String,
     amountColor: Color,
     modifier: Modifier = Modifier
@@ -40,13 +40,13 @@ fun TransactionRow(
             verticalArrangement = Arrangement.spacedBy(4.dp)
         ) {
             Text(
-                text = title,
+                text = category,
                 style = MaterialTheme.typography.titleMedium,
                 fontWeight = FontWeight.SemiBold,
                 color = Color.White
             )
             Text(
-                text = subtitle,
+                text = time,
                 style = MaterialTheme.typography.bodySmall,
                 color = Color(0xFF5BA3D0)
             )
@@ -64,7 +64,7 @@ fun TransactionRow(
             contentAlignment = Alignment.Center
         ) {
             Text(
-                text = category,
+                text = month,
                 style = MaterialTheme.typography.bodyMedium,
                 fontWeight = FontWeight.Light,
                 color = Color.White.copy(alpha = 0.8f)
