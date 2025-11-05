@@ -2,8 +2,10 @@ package com.ort.tp3parcialgrupo5.presentation.categories.components
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -18,7 +20,7 @@ fun CategoriesGrid(
     onCategoryClick: (Category) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    var selectedIndex = remember { mutableStateOf(-1) }
+    var selectedIndex by rememberSaveable { mutableStateOf(-1) }
 
     Column(
         modifier = modifier.fillMaxWidth(),
@@ -32,7 +34,7 @@ fun CategoriesGrid(
             ) {
                 rowCategories.forEachIndexed { colIndex, category ->
                     val index = rowIndex * 3 + colIndex
-                    val bg = if (selectedIndex.value == index) specialColor else defaultColor
+                    val bg = if (selectedIndex == index) specialColor else defaultColor
 
                     Box(
                         modifier = Modifier.weight(1f),
@@ -44,7 +46,7 @@ fun CategoriesGrid(
                             backgroundColor = bg,
                             onClick = {
                                 if (category.nameRes != com.ort.tp3parcialgrupo5.R.string.category_more) {
-                                    selectedIndex.value = index
+                                    selectedIndex = index
                                 }
                                 onCategoryClick(category)
                             }

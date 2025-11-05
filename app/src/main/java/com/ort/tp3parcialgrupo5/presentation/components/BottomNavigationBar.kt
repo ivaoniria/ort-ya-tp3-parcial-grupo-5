@@ -12,11 +12,13 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.ort.tp3parcialgrupo5.navigation.Route
 import com.ort.tp3parcialgrupo5.ui.theme.BackgroundBottomNav
 import com.ort.tp3parcialgrupo5.ui.theme.BackgroundListContainer
 import com.ort.tp3parcialgrupo5.ui.theme.FinBrand
+import com.ort.tp3parcialgrupo5.ui.theme.TP3ParcialGrupo5Theme
 
 data class BottomNavItem(
     val label: String,
@@ -77,3 +79,4 @@ fun BottomNavigationBar(
         }
     }
 }
+
